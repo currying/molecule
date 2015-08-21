@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:p="http://primefaces.org/ui" template="/templates/default.xhtml">
+	<ui:define name="center">
+		<h:form rendered="#{not identity.loggedIn}">
+			<h:messages globalOnly="true" />
+			<p:panelGrid columns="4" style="border:none;width:100%;">
+				<p:panel style="border:none;">
+
+				</p:panel>
+				<p:panel style="border:none;">
+					<h:graphicImage value="/resources/images/bg.jpg" />
+				</p:panel>
+				<p:panel style="border:none;">
+					<li>是一款功能强大的Web应用开发框架：</li>
+					<li>基于浏览器的集成开发环境</li>
+					<li>开发应用简单快速</li>
+					<li>高效率和高稳定性</li>
+					<li>跨平台、数据库和浏览器</li>
+					<li>服务器端的脚本支持</li>
+					<li>智能的数据库访问机制</li>
+				</p:panel>
+				<p:panel style="border:none;">
+					<p:panelGrid columns="2">
+						<h:outputLabel for="name" value="realm" styleClass="loginLabel" />
+						<h:selectOneMenu id="realm" value="#{realmSelector.realm}">
+							<f:selectItems value="#{supportedRealms}" />
+						</h:selectOneMenu>
+						<h:outputLabel for="name" value="Username" styleClass="loginLabel" />
+						<h:inputText id="name" value="#{loginCredentials.userId}" />
+						<h:outputLabel for="password" value="Password"
+							styleClass="loginLabel" />
+						<h:inputSecret id="password" value="#{loginCredentials.password}"
+							redisplay="true" />
+						<f:facet name="footer">
+							<p:commandButton id="login" value="Login"
+								action="#{loginView.login}" update="@none"
+								onstart="PF('blockUIWidget').block()"
+								oncomplete="PF('blockUIWidget').unblock()" />
+						</f:facet>
+					</p:panelGrid>
+				</p:panel>
+			</p:panelGrid>
+		</h:form>
+		<h:form rendered="#{identity.loggedIn}">
+			<h:link value="#{currentUser.person.firstName}" />
+			<h:link value="#{currentUser.person.lastName}" />
+			<h:link value="#{currentUser.person.email}" />
+			<p:commandButton id="logout" value="Logout"
+				action="#{loginView.logout}" update="@none"
+				onstart="PF('blockUIWidget').block()"
+				oncomplete="PF('blockUIWidget').unblock()" />
+			<pe:blockUI widgetVar="blockUIWidget">
+				<h:panelGrid columns="2">
+					<h:graphicImage library="images" name="loader.gif"
+						style="margin-right: 12px; vertical-align: middle;" />
+					<h:outputText value="Please wait..." style="white-space: nowrap;" />
+				</h:panelGrid>
+			</pe:blockUI>
+		</h:form>
+	</ui:define>
+</ui:composition>

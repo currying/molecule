@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	template="/templates/main.xhtml">
+	<ui:define name="center_center">
+		<h:form rendered="#{identity.loggedIn}">
+			<h:panelGrid columns="2">
+				<h:commandButton action="#{processInvoke.startProcess}"
+					value="startProcess" />
+				<p />
+				<h:inputText value="#{processInvoke.taskId}"></h:inputText>
+				<h:commandButton action="#{processInvoke.approveTask}"
+					value="approveTask" />
+				<h:commandButton action="#{processInvoke.retrieveTaskList}"
+					value="retrieveTaskList" />
+			</h:panelGrid>
+			<h:messages globalOnly="true" />
+			<p>
+				<h:outputText value="领域" />
+			</p>
+			<br />
+			<h:dataTable var="realm" value="#{realms}"
+				styleClass="simpletablestyle">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Realm ID" />
+					</f:facet>
+					<h:outputText value="#{realm.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Realm Name" />
+					</f:facet>
+					<h:outputText value="#{realm.name}" />
+				</h:column>
+			</h:dataTable>
+			<br />
+			<p>
+				<h:outputText value="领域:#{realmSelector.realm}中的用户" />
+			</p>
+			<br />
+			<h:dataTable var="user" value="#{users}"
+				styleClass="simpletablestyle">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="User ID" />
+					</f:facet>
+					<h:outputText value="#{user.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="User LoginName" />
+					</f:facet>
+					<h:outputText value="#{user.loginName}" />
+				</h:column>
+			</h:dataTable>
+			<br />
+			<p>
+				<h:outputText value="领域:#{realmSelector.realm}中的组" />
+			</p>
+			<br />
+			<h:dataTable var="group" value="#{groups}"
+				styleClass="simpletablestyle">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group ID" />
+					</f:facet>
+					<h:outputText value="#{group.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Group Name" />
+					</f:facet>
+					<h:outputText value="#{group.name}" />
+				</h:column>
+			</h:dataTable>
+			<br />
+			<p>
+				<h:outputText value="领域:#{realmSelector.realm}中的角色" />
+			</p>
+			<br />
+			<h:dataTable var="role" value="#{roles}"
+				styleClass="simpletablestyle">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Role ID" />
+					</f:facet>
+					<h:outputText value="#{role.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Role Name" />
+					</f:facet>
+					<h:outputText value="#{role.name}" />
+				</h:column>
+			</h:dataTable>
+			<br />
+		</h:form>
+	</ui:define>
+</ui:composition>

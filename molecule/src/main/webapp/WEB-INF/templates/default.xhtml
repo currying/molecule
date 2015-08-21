@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>${artifactId}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="css/default.css" />
+	<h:outputScript name="js/layout.js" library="spark-layout" />
+</h:head>
+<h:body>
+	<f:view>
+		<ui:insert name="metadata" />
+
+		<pe:layout options="#{loginPageController.layoutOptions}">
+
+			<pe:layoutPane id="north" position="north" resizable="false"
+				closable="false" styleClassContent="layoutStyle">
+			</pe:layoutPane>
+
+			<pe:layoutPane id="south" position="south" resizable="false"
+				closable="false" styleClassContent="layoutStyle">
+			</pe:layoutPane>
+
+			<pe:layoutPane id="west" position="west" resizable="false"
+				closable="false" styleClassContent="layoutStyle">
+			</pe:layoutPane>
+
+			<pe:layoutPane id="east" position="east" resizable="false"
+				closable="false" styleClassContent="layoutStyle">
+			</pe:layoutPane>
+
+			<pe:layoutPane id="center" position="center">
+				<pe:layoutPane id="center_center" position="center"
+					styleClassContent="layoutStyle">
+					<ui:insert name="center" />
+				</pe:layoutPane>
+			</pe:layoutPane>
+		</pe:layout>
+	</f:view>
+</h:body>
+</html>

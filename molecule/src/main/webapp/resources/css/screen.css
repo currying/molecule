@@ -1,0 +1,32 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F1F1F1;
+	font-family: 宋体, verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: #363636;
+}
+
+.ui-widget {
+	font-family: 宋体, verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.ui-datalist {
+	border: none;
+	background: none;
+}
+.ui-datalist:hover{
+	border: none;
+	background: none;
+}
+.ui-datalist-content {
+	background: none;
+	border: none;
+}
+
+.ui-datalist-item {
+	float: left !important;
+	padding-left: 20px;
+	padding-bottom: 15px;
+}

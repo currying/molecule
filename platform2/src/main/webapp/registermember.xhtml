@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="center">
+		<h:form prependId="false" id="memberForm">
+			<p:growl id="growl" showDetail="true" />
+			<h2>
+				<h:outputText value="维修人员登记" />
+			</h2>
+			<h:panelGrid id="memberPanel" columns="3" columnClasses="titleCell">
+				<h:outputLabel for="name" value="姓名：" />
+				<h:inputText id="name" value="#{newMember.name}" />
+				<h:message for="name" errorClass="invalid" />
+
+				<h:outputLabel for="loginName" value="登录名：" />
+				<h:inputText id="loginName" value="#{newMember.loginName}" />
+				<h:message for="loginName" errorClass="invalid" />
+
+				<h:outputLabel for="password" value="密码：" />
+				<h:inputText id="password" value="#{newMember.password}" />
+				<h:message for="password" errorClass="invalid" />
+
+				<h:outputLabel for="email" value="Email：" />
+				<h:inputText id="email" value="#{newMember.email}" />
+				<h:message for="email" errorClass="invalid" />
+
+				<h:outputLabel for="phoneNumber" value="电话 ：" />
+				<h:inputText id="phoneNumber" value="#{newMember.phoneNumber}" />
+				<h:message for="phoneNumber" errorClass="invalid" />
+			</h:panelGrid>
+
+			<p>
+				<h:panelGrid columns="2">
+					<h:commandButton id="register"
+						actionListener="#{memberController.register}" value="注册"
+						styleClass="register" update="memberForm" />
+					<p:messages styleClass="messages" errorClass="invalid"
+						infoClass="valid" warnClass="warning" globalOnly="true" />
+				</h:panelGrid>
+			</p>
+
+			<h:panelGroup rendered="#{empty members}">
+				<em>还有没有注册维修员。</em>
+			</h:panelGroup>
+			<p:dataTable id="memberTable" var="_member" value="#{members}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+				paginator="true" rows="10" style="margin-bottom:20px"
+				rendered="#{not empty customers}">
+				<f:facet name="header">
+					<h2>
+						<h:outputText value="维修员列表" />
+					</h2>
+				</f:facet>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="姓名" />
+					</f:facet>
+					<h:outputText value="#{_member.name}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Email" />
+					</f:facet>
+					<h:outputText value="#{_member.email}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="电话" />
+					</f:facet>
+					<h:outputText value="#{_member.phoneNumber}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

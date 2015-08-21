@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+	<pe:layoutPane position="west" styleClassContent="west"
+		styleClassHeader="west">
+		<pe:layoutPane position="north" styleClassContent="west_north"
+			styleClassHeader="west_north">
+			<ui:include src="#{west_north.src}" />
+		</pe:layoutPane>
+		<pe:layoutPane position="south" styleClassContent="west_south"
+			styleClassHeader="west_south">
+			<ui:include src="#{west_south.src}" />
+		</pe:layoutPane>
+		<pe:layoutPane position="west" styleClassContent="west_west"
+			styleClassHeader="west_west">
+			<ui:include src="#{west_west.src}" />
+		</pe:layoutPane>
+		<pe:layoutPane position="east" styleClassContent="west_east"
+			styleClassHeader="west_east">
+			<ui:include src="#{west_east.src}" />
+		</pe:layoutPane>
+		<pe:layoutPane position="center" styleClassContent="west_center"
+			styleClassHeader="west_center">
+			<ui:include src="#{west_center.src}" />
+		</pe:layoutPane>
+	</pe:layoutPane>
+</ui:composition>

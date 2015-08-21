@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form prependId="fasle">
+			<div class="Container100 BorBotLeaden">
+				<div class="ContainerIndent">
+					<div class="Container50 Responsive50">
+						<div class="ContainerIndent">
+							<p:panel id="one" header="项目信息" class="leaden-back">
+								<p:panelGrid columns="4"
+									style="border:0px none;background:none;width:100%;">
+									<p:outputLabel value="船号：" for="shipProjectId"
+										styleClass="Fs14" />
+									<p:selectOneMenu id="shipProjectId"
+										value="#{shipProjectListProducer.selectShipProjectId}"
+										styleClass="FontBold Fs14">
+										<p:ajax
+											listener="#{shipProjectListProducer.onShipProjectChange}"
+											update="shipProjectName,shipClass,shipType,shipYard,classificationSociety,totalLength,lengthBetweenPerpendiculars,shipBeam,mouldedDepth,designedDraft,scantlingDraft,deadWeight,sailZone,portOfRegistry,flag,designSpeed,crew,shipClassification,seriesShipProjects,tabView,three,four" />
+										<f:selectItem itemLabel="选择项目" itemValue=""
+											noSelectionOption="true" />
+										<f:selectItems
+											value="#{shipProjectListProducer.shipProjectIdentifiers}" />
+									</p:selectOneMenu>
+									<p:outputLabel value="船名：" for="shipProjectName"
+										styleClass="Fs14" />
+									<h:outputText id="shipProjectName"
+										value="#{selectShipProject.shipProjectName}"
+										styleClass="FontBold Fs14" />
+									<p:outputLabel value="船种：" for="shipClass" styleClass="Fs14" />
+									<h:outputText id="shipClass"
+										value="#{selectShipProject.shipType.shipClass.shipClassName}"
+										styleClass="FontBold Fs14" />
+									<p:outputLabel value="船型：" for="shipType" styleClass="Fs14" />
+									<h:outputText id="shipType" styleClass="FontBold Fs14"
+										value="#{selectShipProject.shipType.deadWeight}#{selectShipProject.shipType.shipClass.shipClassName}" />
+									<p:outputLabel value="船坞（船台）：" for="shipYard" styleClass="Fs14" />
+									<h:outputText id="shipYard"
+										value="#{selectShipProject.shipYard.shipYardName}"
+										styleClass="FontBold Fs14" />
+									<p:outputLabel value="船级社：" for="classificationSociety"
+										styleClass="Fs14" />
+									<h:outputText id="classificationSociety"
+										styleClass="FontBold Fs14"
+										value="#{selectShipProject.classificationSociety.classificationSocietyName}" />
+									<p:outputLabel value="船东：" for="cd" styleClass="Fs14" />
+									<h:outputText value="" id="cd" styleClass="FontBold Fs14" />
+								</p:panelGrid>
+							</p:panel>
+						</div>
+					</div>
+
+					<div class="Container50 Responsive50">
+						<div class="ContainerIndent">
+							<p:panel id="three" header="工程线表">
+								<iframe
+									src="#{request.contextPath}/run?__report=gcxbjh.rptdesign&amp;gcbh=#{selectShipProject.shipProjectIdentifier}"
+									frameborder="0" width="100%" height="140"></iframe>
+							</p:panel>
+						</div>
+					</div>
+					<div class="Container50 Responsive50">
+						<div class="ContainerIndent">
+							<p:panel id="two" header="EPS（系列船）及规格">
+								<p:dataTable id="seriesShipProjects" var="ssp"
+									value="#{seriesShipProjects}">
+									<p:column headerText="项目名称">
+										<h:outputText value="#{ssp.shipProjectName}" />
+									</p:column>
+									<p:column headerText="项目编号">
+										<h:outputText value="#{ssp.shipProjectIdentifier}" />
+									</p:column>
+								</p:dataTable>
+								<p:panelGrid columns="6" cellpadding="10"
+									style="margin-top:10px;width:100%">
+									<p:outputLabel value="总长：" for="totalLength" />
+									<h:outputText id="totalLength"
+										value="#{selectShipProject.shipType.totalLength}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="垂线间长：" for="lengthBetweenPerpendiculars" />
+									<h:outputText id="lengthBetweenPerpendiculars"
+										value="#{selectShipProject.shipType.lengthBetweenPerpendiculars}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="船宽：" for="shipBeam" />
+									<h:outputText id="shipBeam"
+										value="#{selectShipProject.shipType.shipBeam}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="型深：" for="mouldedDepth" />
+									<h:outputText id="mouldedDepth"
+										value="#{selectShipProject.shipType.mouldedDepth}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="设计吃水：" for="designedDraft" />
+									<h:outputText id="designedDraft"
+										value="#{selectShipProject.shipType.designedDraft}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="结构吃水：" for="scantlingDraft" />
+									<h:outputText id="scantlingDraft"
+										value="#{selectShipProject.shipType.scantlingDraft}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="载重量：" for="deadWeight" />
+									<h:outputText id="deadWeight"
+										value="#{selectShipProject.shipType.deadWeight}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="航区：" for="sailZone" />
+									<h:outputText id="sailZone"
+										value="#{selectShipProject.shipType.sailZone}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="港籍：" for="portOfRegistry" />
+									<h:outputText id="portOfRegistry"
+										value="#{selectShipProject.shipType.portOfRegistry}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="挂旗国：" for="flag" />
+									<h:outputText id="flag"
+										value="#{selectShipProject.shipType.flag}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="设计航速：" for="designSpeed" />
+									<h:outputText id="designSpeed"
+										value="#{selectShipProject.shipType.designSpeed}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="船员：" for="crew" />
+									<h:outputText id="crew"
+										value="#{selectShipProject.shipType.crew}"
+										styleClass="FontBold Fs12" />
+									<p:outputLabel value="船级：" for="shipClassification" />
+									<h:outputText id="shipClassification"
+										value="#{selectShipProject.shipType.shipClassification}"
+										styleClass="FontBold Fs12" />
+								</p:panelGrid>
+							</p:panel>
+						</div>
+					</div>
+					<div class="Container50 Responsive50">
+						<div class="ContainerIndent">
+							<p:panel id="four" header="项目工程计划">
+								<p:dataTable id="shipProjectPlan" var="shipProjectPlan"
+									value="#{selectShipProject.shipProjectPlans}">
+									<p:column style="width:108px;">
+										<f:facet name="header">
+											<h:outputText value="计划" />
+										</f:facet>
+										<h:outputText value="#{shipProjectPlan.shipProjectPlanName}" />
+									</p:column>
+									<p:column style="width:32px;text-align: center;">
+										<f:facet name="header">
+											<h:outputText value="版本" />
+										</f:facet>
+										<h:outputText value="#{shipProjectPlan.version}" />
+									</p:column>
+									<p:column style="width:72px;text-align: center;">
+										<f:facet name="header">
+											<h:outputText value="日程" />
+										</f:facet>
+										<p:commandLink
+											rendered="#{not empty shipProjectPlan.schedule}"
+											actionListener="#{shipProjectView.viewScheduler(shipProjectPlan.shipProject.shipType.shipTypeName,shipProjectPlan.schedule,shipProjectPlan.shipProject.shipProjectIdentifier)}">
+											<i class="icon-calendar"></i>
+										</p:commandLink>
+									</p:column>
+									<p:column style="width:208px;text-align: center;">
+										<f:facet name="header">
+											<h:outputText value="看板" />
+										</f:facet>
+										<p:dataList value="#{shipProjectPlan.kanban}" var="kanban"
+											type="definition">
+											<p:commandLink id="kanbanButton"
+												rendered="#{not empty kanban}"
+												actionListener="#{shipProjectView.viewKanban(shipProjectPlan.shipProject.shipType.shipTypeName,kanban,shipProjectPlan.shipProject.shipProjectIdentifier)}">
+												<i class="icon-chart-bar"></i>
+											</p:commandLink>
+											<p:tooltip id="toolTipFade" for="kanbanButton"
+												value="#{kanban.kanbanName}" />
+										</p:dataList>
+									</p:column>
+								</p:dataTable>
+							</p:panel>
+						</div>
+					</div>
+				</div>
+				<div class="Container100">
+					<div class="ContainerIndent">
+						<p:tabView id="tabView">
+							<p:tab title="甲板">
+								<p:lightBox styleClass="imagebox"
+									rendered="#{not empty selectShipProject.shipType}">
+									<h:outputLink
+										value="#{request.contextPath}/resources/images/#{selectShipProject.shipType.deck}">
+										<h:graphicImage
+											name="/images/#{selectShipProject.shipType.deck}"
+											style="height: 250px; width: 1000px" />
+									</h:outputLink>
+								</p:lightBox>
+							</p:tab>
+							<p:tab title="底板">
+								<p:lightBox styleClass="imagebox"
+									rendered="#{not empty selectShipProject.shipType}">
+									<h:outputLink
+										value="#{request.contextPath}/resources/images/#{selectShipProject.shipType.bottomPlating}">
+										<h:graphicImage
+											name="/images/#{selectShipProject.shipType.bottomPlating}"
+											style="height: 250px; width: 1000px" />
+									</h:outputLink>
+								</p:lightBox>
+							</p:tab>
+							<p:tab title="侧面">
+								<p:lightBox styleClass="imagebox"
+									rendered="#{not empty selectShipProject.shipType}">
+									<h:outputLink
+										value="#{request.contextPath}/resources/images/#{selectShipProject.shipType.profile}">
+										<h:graphicImage
+											name="/images/#{selectShipProject.shipType.profile}"
+											style="height: 250px; width: 1000px" />
+									</h:outputLink>
+								</p:lightBox>
+							</p:tab>
+						</p:tabView>
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

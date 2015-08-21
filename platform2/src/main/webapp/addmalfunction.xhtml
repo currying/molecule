@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="center">
+		<h:form prependId="fasle" id="malfunctionForm">
+			<p:growl id="growl" showDetail="true" />
+			<h2>
+				<h:outputText value="报障" />
+			</h2>
+			<h:panelGrid columns="3" columnClasses="titleCell">
+
+				<p:outputLabel value="故障类型：" for="malfunctionType" />
+				<p:outputLabel id="malfunctionType"
+					value="#{currentMalfunctionType.malfunctionTypeName}" />
+				<p:commandButton icon="ui-icon-extlink"
+					actionListener="#{malfunctionController.chooseMalfunctionType}">
+					<p:ajax event="dialogReturn"
+						listener="#{malfunctionController.onMalfunctionTypeChosen}"
+						update="malfunctionType" />
+				</p:commandButton>
+
+				<h:outputLabel for="customer" value="客户：" />
+				<h:outputLabel id="customer" value="#{currentCustomer.customerName}" />
+				<p:commandButton icon="ui-icon-extlink"
+					actionListener="#{malfunctionController.chooseCustomer}">
+					<p:ajax event="dialogReturn"
+						listener="#{malfunctionController.onCustomerChosen}"
+						update="customer" />
+				</p:commandButton>
+
+				<h:outputLabel for="ratings" value="故障重要度：" />
+				<p:rating id="ratings" value="#{newMalfunction.importance}" />
+				<h:message for="ratings" errorClass="invalid" />
+
+				<h:outputLabel for="newMalfunction" value="故障描述：" />
+				<p:inputTextarea id="newMalfunction"
+					value="#{newMalfunction.malfunctionRecord}" rows="5" cols="33" />
+				<h:message for="newMalfunction" errorClass="invalid" />
+			</h:panelGrid>
+
+			<p>
+				<h:panelGrid columns="2">
+					<p:commandButton id="register"
+						action="#{malfunctionController.register}" value="报障"
+						styleClass="register" update="malfunctionForm" />
+					<h:messages styleClass="messages" errorClass="invalid"
+						infoClass="valid" warnClass="warning" globalOnly="true" />
+				</h:panelGrid>
+			</p>
+
+			<p:dataTable id="tbl" var="_malfunction" value="#{malfunctions}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+				paginator="true" rows="10" style="margin-bottom:20px"
+				rendered="#{not empty malfunctions}">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="故障类型" />
+					</f:facet>
+					<h:outputText
+						value="#{_malfunction.malfunctionType.malfunctionTypeName}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="故障发生客户" />
+					</f:facet>
+					<h:outputText value="#{_malfunction.customer.customerName}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="故障填报时间：" />
+					</f:facet>
+					<h:outputText value="#{_malfunction.time}">
+						<f:convertDateTime locale="zh_CN" pattern="yyyy-MM-dd HH:mm:ss"
+							timeZone="GMT+8" />
+					</h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="故障重要度：" />
+					</f:facet>
+					<p:rating value="#{_malfunction.importance}" readonly="true" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="故障描述：" />
+					</f:facet>
+					<h:outputText value="#{_malfunction.malfunctionRecord}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="故障是否提交工单：" />
+					</f:facet>
+					<h:outputText value="#{_malfunction.dispatchingMark}" />
+				</p:column>
+				<f:facet name="footer">
+					<h:commandLink>
+						<p:graphicImage name="/images/excel.png" width="24" />
+						<p:dataExporter type="xls" target="tbl" fileName="malfunction" />
+					</h:commandLink>
+					<h:commandLink>
+						<p:graphicImage name="/images/pdf.png" width="24" />
+						<p:dataExporter type="pdf" target="tbl" fileName="malfunction" />
+					</h:commandLink>
+					<h:commandLink>
+						<p:graphicImage name="/images/csv.png" width="24" />
+						<p:dataExporter type="csv" target="tbl" fileName="malfunction" />
+					</h:commandLink>
+					<h:commandLink>
+						<p:graphicImage name="/images/xml.png" width="24" />
+						<p:dataExporter type="xml" target="tbl" fileName="malfunction" />
+					</h:commandLink>
+				</f:facet>
+			</p:dataTable>
+
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="center">
+		<h:form prependId="fasle" id="customerForm">
+			<p:growl id="growl" showDetail="true" />
+			<h2>
+				<h:outputText value="客户登记" />
+			</h2>
+			<h:panelGrid id="customerPanel" columns="3" columnClasses="titleCell">
+				<h:outputLabel for="name" value="客户名(*)：" />
+				<h:inputText id="name" value="#{newCustomer.customerName}" />
+				<h:message for="name" errorClass="invalid" />
+
+				<h:outputLabel for="email" value="Email：" />
+				<h:inputText id="email" value="#{newCustomer.email}" />
+				<h:message for="email" errorClass="invalid" />
+
+				<h:outputLabel for="loginName" value="客户登录名(*)：" />
+				<h:inputText id="loginName" value="#{newCustomer.loginName}" />
+				<h:message for="loginName" errorClass="invalid" />
+
+				<h:outputLabel for="passWord" value="登录密码(*)：" />
+				<p:password id="passWord" value="#{newCustomer.password}"
+					feedback="true" promptLabel="请输入密码" weakLabel="弱密码"
+					goodLabel="中等强度" strongLabel="高等级" />
+				<h:message for="passWord" errorClass="invalid" />
+
+				<h:outputLabel for="address" value="地址(*)：" />
+				<h:inputText id="address" value="#{newCustomer.address}" />
+				<h:message for="address" errorClass="invalid" />
+
+				<h:outputLabel for="contact" value="联系人(*)：" />
+				<h:inputText id="contact" value="#{newCustomer.contact}" />
+				<h:message for="contact" errorClass="invalid" />
+
+				<h:outputLabel for="phoneNumber" value="联系电话(*)：" />
+				<h:inputText id="phoneNumber" value="#{newCustomer.phoneNumber}" />
+				<h:message for="phoneNumber" errorClass="invalid" />
+
+				<h:outputLabel for="ratings" value="客户等级：" />
+				<p:rating id="ratings" value="#{newCustomer.ratings}" />
+			</h:panelGrid>
+
+			<p>
+				<h:panelGrid columns="2">
+					<p:commandButton id="register"
+						actionListener="#{customerController.register}" value="登记"
+						styleClass="register" update="customerForm" />
+					<p:messages styleClass="messages" errorClass="invalid"
+						infoClass="valid" warnClass="warning" globalOnly="true" />
+				</h:panelGrid>
+			</p>
+			<h:panelGroup rendered="#{empty customers}">
+				<em>没有客户，请添加客户。</em>
+			</h:panelGroup>
+			<p:dataTable id="customerTable" var="_customer" value="#{customers}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+				paginator="true" rows="10" style="margin-bottom:20px"
+				rendered="#{not empty customers}">
+				<f:facet name="header">
+					<h2>
+						<h:outputText value="客户列表" />
+					</h2>
+				</f:facet>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="客户等级" />
+					</f:facet>
+					<p:rating value="#{_customer.ratings}" readonly="true" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="客户名" />
+					</f:facet>
+					<h:outputText value="#{_customer.customerName}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="地址" />
+					</f:facet>
+					<h:outputText value="#{_customer.address}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="联系人" />
+					</f:facet>
+					<h:outputText value="#{_customer.contact}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="联系人手机" />
+					</f:facet>
+					<h:outputText value="#{_customer.phoneNumber}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="注册日期" />
+					</f:facet>
+					<h:outputText value="#{_customer.time}">
+						<f:convertDateTime locale="zh_CN" pattern="yyyy-MM-dd"
+							timeZone="GMT+8" />
+					</h:outputText>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

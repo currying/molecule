@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="viewport"
+			content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+		<link rel="shortcut icon" type="image/png"
+			href="#{request.contextPath}/resources/images/favicon.png" />
+	</f:facet>
+	<title>企业商务智能看板系统</title>
+	<h:outputStylesheet name="css/screen.css" />
+	<h:outputScript library="js" name="calendar_locale.js" />
+	<h:outputScript library="vis" name="vis.min.js" />
+	<h:outputStylesheet name="vis/vis.min.css" />
+</h:head>
+<h:body>
+	<f:view>
+		<ui:insert name="metadata" />
+		<pe:layout options="#{indexPageController.layoutOptions}">
+			<pe:layoutPane id="north" position="north" resizable="false"
+				closable="false" styleClassContent="layoutStyle">
+			</pe:layoutPane>
+			<pe:layoutPane id="south" position="south" resizable="false"
+				closable="false" styleClassContent="layoutStyle">
+				<ui:include src="/shared/footer.xhtml" />
+			</pe:layoutPane>
+			<pe:layoutPane position="west" styleClassContent="layoutStyle">
+				<p:menu toggleable="true" style="width:100%;border:none;">
+					<p:submenu label="常用" icon="ui-icon-document">
+						<p:menuitem value="项目状况看板" outcome="main" icon="ui-icon-home" />
+						<p:menuitem value="OLAP分析" outcome="olap" icon="ui-icon-home" />
+						<p:menuitem value="智能排程" outcome="olap" icon="ui-icon-home" />
+					</p:submenu>
+				</p:menu>
+			</pe:layoutPane>
+			<pe:layoutPane position="center" styleClassContent="layoutStyle">
+				<pe:layoutPane position="north">
+					<ui:insert name="centerNorth" />
+				</pe:layoutPane>
+				<pe:layoutPane position="center">
+					<ui:insert name="centerCenter" />
+				</pe:layoutPane>
+			</pe:layoutPane>
+		</pe:layout>
+	</f:view>
+</h:body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FaultManagement</string>
+    <string name="newJob">新建工作</string>
+    <string name="title_activity_start_work">StartWork</string>
+    <string name="title_activity_camera">Camera</string>
+    <string name="title_activity_audio">录音</string>
+
+</resources>

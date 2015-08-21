@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>设备类型表</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="css/screen.css" />
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:dataTable var="malfunctionType" value="#{malfunctionTypes}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+			paginator="true" rows="10" style="margin-bottom:20px"
+			rendered="#{not empty malfunctionTypes}">
+			<p:column headerText="类型名">
+				<h:outputText value="#{malfunctionType.malfunctionTypeName}" />
+			</p:column>
+			<p:column headerText="选择">
+				<p:commandButton icon="ui-icon-search"
+					actionListener="#{malfunctionController.selectMalfunctionTypeFromDialog(malfunctionType)}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>

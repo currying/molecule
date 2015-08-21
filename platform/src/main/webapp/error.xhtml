@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	template="/templates/default.xhtml">
+	<ui:define name="center">
+		<h:form>
+    			   The error message is:  
+                   <b>
+				#{requestScope['javax.servlet.error.message']} </b>
+			<p />
+			<h:commandButton id="logout" value="Logout"
+				action="#{loginView.logout}" />
+			<p />
+			<font color="RED"> Please show the system administator the
+				error below. </font>
+			<p />
+			<textarea rows="30" cols="100">  
+                       <h:outputText escape="false"
+					value="#{permissionListProducer.stackTrace}" />  
+                   </textarea>
+			<p />
+		</h:form>
+	</ui:define>
+</ui:composition>

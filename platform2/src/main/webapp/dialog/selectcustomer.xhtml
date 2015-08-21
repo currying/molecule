@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>选择客户</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="css/screen.css" />
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:dataTable var="customer" value="#{customers}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+			paginator="true" rows="10" style="margin-bottom:20px"
+			rendered="#{not empty customers}">
+			<p:column headerText="客户名称">
+				<h:outputText value="#{customer.customerName}" />
+			</p:column>
+			<p:column headerText="地址">
+				<h:outputText value="#{customer.address}" />
+			</p:column>
+			<p:column headerText="联系人">
+				<h:outputText value="#{customer.contact}" />
+			</p:column>
+			<p:column headerText="联系电话">
+				<h:outputText value="#{customer.phoneNumber}" />
+			</p:column>
+			<p:column headerText="选择">
+				<p:commandButton icon="ui-icon-search"
+					actionListener="#{malfunctionController.selectCustomerFromDialog(customer)}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>

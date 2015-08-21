@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<f:view contentType="text/html" locale="zh_CN">
+	<pe:head title="Platform Login"
+		shortcutIcon="#{request.contextPath}/resources/images/favicon.ico">
+		<f:facet name="first">
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<meta http-equiv="pragma" content="no-cache" />
+			<meta http-equiv="cache-control" content="no-cache" />
+			<meta http-equiv="expires" content="0" />
+			<ui:include src="/shared/resources.xhtml" />
+		</f:facet>
+	</pe:head>
+	<h:body>
+		<p:growl id="growl" showDetail="true" showSummary="true" />
+		<pe:layout id="fullPage" widgetVar="fpLayoutWidget"
+			options="#{customContentLayoutController.layoutOptions}">
+			<ui:include src="#{layout.north}" />
+			<ui:include src="#{layout.south}" />
+			<ui:include src="#{layout.west}" />
+			<ui:include src="#{layout.east}" />
+			<ui:include src="#{layout.center}" />
+		</pe:layout>
+	</h:body>
+</f:view>
+</html>

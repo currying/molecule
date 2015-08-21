@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>#{shipTypeName} - #{gcbh} 综合大日程计划</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputScript library="js" name="jquery-2.1.4.min.js" />
+	<h:outputScript library="js" name="geturlparam.js" />
+	<h:outputScript library="dhtmlxGantt" name="dhtmlxgantt.js" />
+	<h:outputScript library="dhtmlxGantt" name="ext/dhtmlxgantt_tooltip.js" />
+	<h:outputScript library="dhtmlxGantt" name="locale/locale_cn.js" />
+	<h:outputStylesheet name="dhtmlxGantt/skins/dhtmlxgantt_skyblue.css" />
+	<style type="text/css" media="screen">
+html, body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	overflow: hidden;
+}
+</style>
+</h:head>
+<h:body>
+	<f:view>
+		<f:metadata>
+			<f:viewParam id="shipTypeName" name="shipTypeName"
+				value="#{shipTypeName}" />
+			<f:viewParam id="gcbh" name="gcbh" value="#{gcbh}" />
+		</f:metadata>
+		<div id="gantt_here" style='width: 1280px; height: 500px;'></div>
+		<script type="text/javascript">
+		gantt.config.scale_unit = "week";
+		gantt.config.step = 1;
+		gantt.config.date_scale = "%Y年%M";
+		gantt.config.scale_height = 24;
+		gantt.init("gantt_here");
+	$.getJSON("#{request.contextPath}/rest/zhdrcjh/"+getUrlParms().gcbh+"/0/10000", {}, function(response){
+		gantt.parse (response,"json");
+	});
+    </script>
+	</f:view>
+</h:body>
+</html>

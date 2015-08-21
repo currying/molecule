@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<ui:fragment rendered="#{identity.loggedIn}">
+			<div>
+				Congratulations! You are currently logged in as: <b>#{identity.account.loginName}</b>
+			</div>
+			<h:form>
+				<h:commandButton id="logout" value="Log out"
+					action="#{loginController.logout}" />
+			</h:form>
+		</ui:fragment>
+		<h:form id="loginForm" rendered="#{not identity.loggedIn}">
+			<h:messages globalOnly="true" />
+			<div class="loginRow">
+				<h:outputLabel for="name" value="Username" styleClass="loginLabel" />
+				<h:inputText id="name" value="#{loginCredentials.userId}" />
+			</div>
+			<div class="loginRow">
+				<h:outputLabel for="password" value="Password"
+					styleClass="loginLabel" />
+				<h:inputSecret id="password" value="#{loginCredentials.password}"
+					redisplay="true" />
+			</div>
+			<div class="loginRow"></div>
+			<div class="buttons">
+				<h:commandButton id="login" value="Login"
+					action="#{loginController.login}" styleClass="loginButton" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

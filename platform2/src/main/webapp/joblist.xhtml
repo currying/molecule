@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="workTicketNumber"
+				value="#{jobListProducer.workTicketNumber}" />
+			<f:viewAction
+				action="#{jobListProducer.retrieveAllJobsOrderedByWorkTicketNumber}" />
+		</f:metadata>
+	</ui:define>
+	<ui:define name="center">
+		<h2>
+			<h:outputText value="工作单" />
+		</h2>
+		<h:form>
+			<p:dataTable id="jobT" var="_job" value="#{jobs}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+				paginator="true" rows="10" style="margin-bottom:20px"
+				rendered="#{not empty jobs}">
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="ID" />
+					</f:facet>
+					<h:outputText value="#{_job.id}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="工作开始时间" />
+					</f:facet>
+					<h:outputText value="#{_job.startTime}">
+						<f:convertDateTime locale="zh_CN" pattern="yyyy-MM-dd HH:mm:ss"
+							timeZone="GMT+8" />
+					</h:outputText>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="工作简要" />
+					</f:facet>
+					<h:outputText value="#{_job.jobName}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="工作地点" />
+					</f:facet>
+					<h:outputText value="#{_job.position}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="工作记录" />
+					</f:facet>
+					<h:outputText value="#{_job.jobRecord}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="现场取景" />
+					</f:facet>
+					<h:outputLink value="#{request.contextPath}/jobimage.jsf">
+						<h:outputText value="现场图像" />
+						<f:param name="currentId" value="#{_job.id}"></f:param>
+					</h:outputLink>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="现场录音" />
+					</f:facet>
+					<h:outputLink value="#{request.contextPath}/jobaudio.jsf">
+						<h:outputText value="现场录音" />
+						<f:param name="currentId" value="#{_job.id}"></f:param>
+					</h:outputLink>
+				</p:column>
+				<f:facet name="footer">
+            REST URL for all jobs: <a
+						href="#{request.contextPath}/rest/job/all">/rest/job/all</a>
+					<h:commandLink>
+						<p:graphicImage name="/images/excel.png" width="24" />
+						<p:dataExporter type="xls" target="jobT" fileName="job" />
+					</h:commandLink>
+					<h:commandLink>
+						<p:graphicImage name="/images/pdf.png" width="24" />
+						<p:dataExporter type="pdf" target="jobT" fileName="job" />
+					</h:commandLink>
+					<h:commandLink>
+						<p:graphicImage name="/images/csv.png" width="24" />
+						<p:dataExporter type="csv" target="jobT" fileName="job" />
+					</h:commandLink>
+					<h:commandLink>
+						<p:graphicImage name="/images/xml.png" width="24" />
+						<p:dataExporter type="xml" target="jobT" fileName="job" />
+					</h:commandLink>
+				</f:facet>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

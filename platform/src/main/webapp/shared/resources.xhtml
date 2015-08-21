@@ -1,0 +1,15 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+	<ui:composition>
+		<h:outputStylesheet library="css" name="global.css" />
+		<h:outputStylesheet library="css" name="layout.css" />
+		<h:outputStylesheet library="css" name="theme.css" />
+		<ui:remove>
+			<h:outputStylesheet library="css" name="usecases.css" />
+			<h:outputStylesheet library="css" name="themeSwitcher.css" />
+			<h:outputScript library="js" name="menu.js" target="head" />
+		</ui:remove>
+	</ui:composition>
+</ui:composition>

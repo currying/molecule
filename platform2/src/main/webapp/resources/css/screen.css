@@ -1,0 +1,133 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F1F1F1;
+	font-family: 宋体, verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: #363636;
+}
+
+.ui-widget {
+	font-family: 宋体, verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.ui-layout-south.ui-widget-content {
+	background: none;
+}
+
+.ui-corner-all {
+	-webkit-border-radius: 0px /*{cornerRadius}*/;
+	border-radius: 0px /*{cornerRadius}; */
+}
+
+.layoutStyle.ui-layout-north {
+	border: none;
+}
+
+.layoutStyle.ui-layout-south {
+	border: none;
+}
+
+.layoutStyle.ui-layout-west {
+	
+}
+
+.layoutStyle.ui-layout-center {
+	
+}
+
+div#south {
+	background-color: #656565;
+}
+
+div#north {
+	background-image: url(#{request.contextPath}/resources/images/logo.png);
+}
+
+#footer {
+	text-align: center;
+	color: #d5d5d5;
+}
+
+#content {
+	float: left;
+	margin: 20px;
+}
+
+.dualbrand {
+	float: right;
+	padding-right: 10px;
+}
+
+code {
+	font-size: 1.1em;
+}
+
+a {
+	color: #4a5d75;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #369;
+	text-decoration: underline;
+}
+
+h1 {
+	color: #243446;
+	font-size: 14px;
+}
+
+h2 {
+	font-size: 1em;
+}
+
+h3 {
+	color: #243446;
+}
+
+h4 {
+	
+}
+
+h5 {
+	
+}
+
+h6 {
+	
+}
+/* Member registration styles */
+span.invalid {
+	padding-left: 3px;
+	color: red;
+}
+
+form {
+	padding: 1em;
+	border: 1px solid #D5D5D5;
+}
+
+label {
+	float: left;
+	margin-left: 20px;
+	margin-right: 0.5em;
+	padding-top: 0.2em;
+	text-align: right;
+	font-weight: bold;
+	color: #363636;
+}
+
+input {
+	margin-bottom: 8px;
+}
+
+.register {
+	float: left;
+	margin-left: 85px;
+}
+
+.ui-rating {
+	margin-bottom: 8px;
+}

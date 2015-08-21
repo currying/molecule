@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
+	<datasource jndi-name="java:jboss/datasources/platformDS"
+		pool-name="platform" enabled="true" use-java-context="true">
+		<connection-url>jdbc:jtds:sqlserver://localhost:1433/platform</connection-url>
+		<driver>mssql</driver>
+		<security>
+			<user-name>sa</user-name>
+			<password>822005</password>
+		</security>
+	</datasource>
+</datasources>
+ 

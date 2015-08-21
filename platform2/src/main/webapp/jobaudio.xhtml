@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="currentId"
+				value="#{jobImageAudioListView.currentId}" required="true" />
+			<f:viewAction action="#{jobImageAudioListView.retrieveJobAudioById}" />
+		</f:metadata>
+	</ui:define>
+	<ui:define name="center">
+		<h2>
+			<h:outputText value="现场录音" />
+		</h2>
+		<h:form id="form">
+			<audio controls="controls">
+				<source src="data:audio/3gpp;base64,#{audio}" />
+			</audio>
+		</h:form>
+	</ui:define>
+</ui:composition>

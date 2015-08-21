@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="center">
+		<h:form prependId="fasle" id="equipmentTypeForm">
+			<p:growl id="growl" showDetail="true" />
+			<h2>
+				<h:outputText value="设备类型登记" />
+			</h2>
+			<h:panelGrid id="equipmentTypePanel" columns="3"
+				columnClasses="titleCell">
+				<h:outputLabel for="name" value="设备类型：" />
+				<h:inputText id="name" value="#{newEquipmentType.name}" />
+				<h:message for="name" errorClass="invalid" />
+			</h:panelGrid>
+
+			<p>
+				<h:panelGrid columns="2">
+					<p:commandButton id="register"
+						actionListener="#{equipmentTypeController.register}" value="登记"
+						styleClass="register" update="equipmentTypeForm" />
+					<p:messages styleClass="messages" errorClass="invalid"
+						infoClass="valid" warnClass="warning" globalOnly="true" />
+				</h:panelGrid>
+			</p>
+			<h:panelGroup rendered="#{empty equipmentTypes}">
+				<em>没有设备类型。</em>
+			</h:panelGroup>
+			<p:dataTable id="equipmentTypeTable" var="_equipmentType"
+				value="#{equipmentTypes}"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} "
+				paginator="true" rows="10" style="margin-bottom:20px"
+				rendered="#{not empty equipmentTypes}">
+				<f:facet name="header">
+					<h2>
+						<h:outputText value="设备类型列表" />
+					</h2>
+				</f:facet>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="类型名称" />
+					</f:facet>
+					<h:outputText value="#{_equipmentType.name}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

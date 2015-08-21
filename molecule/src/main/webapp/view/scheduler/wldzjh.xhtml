@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>#{shipTypeName} - #{gcbh} 网络搭载计划</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputScript library="js" name="jquery-2.1.4.min.js" />
+	<h:outputScript library="js" name="geturlparam.js" />
+	<h:outputScript library="js" name="d3.min.js" />
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewParam id="shipTypeName" name="shipTypeName"
+			value="#{shipTypeName}" />
+		<f:viewParam id="gcbh" name="gcbh" value="#{gcbh}" />
+	</f:metadata>
+	<f:view>
+		<ui:include src="#{shipTypeName}_wldzjh.xhtml" />
+		<script type="text/javascript">
+/* <![CDATA[ */
+d3.select("body").style("text-align", "center").style("background-color",
+		"rgb(232, 225, 225)");
+var svg = d3.select("body").select("svg");
+var defs = svg.append("defs");
+var arrowMarker = defs.append("marker")  
+	.attr("id","arrow")  
+	.attr("markerUnits","strokeWidth")  
+	.attr("markerWidth","3")  
+	.attr("markerHeight","3")  
+	.attr("viewBox","0 0 12 12")   
+	.attr("refX","5")  
+	.attr("refY","5")  
+	.attr("orient","auto");
+var arrow_path = "M4,1 L8,5 L4,9 L5,5 L4,1";
+arrowMarker.append("path")  
+	.attr("d",arrow_path)  
+	.attr("fill","#3F3D3D");
+$.getJSON("#{request.contextPath}/rest/wldzjh/" + getUrlParms().gcbh, {},
+		function(response) {
+	d3.select("body").select("svg").select("#TX").selectAll("rect").transition().duration(1000).attr("fill","rgb(255,255,163)");
+	d3.select("body").select("svg").select("#TX").select("#DZ1").select("rect").transition().duration(1000).attr("fill","rgb(0,129,129)");
+	d3.select("body").select("svg").select("#TX").select("#DZ1").select("text").transition().duration(1000).attr("fill","rgb(255,255,255)");
+	var j=1;
+	$.each(response, function(i, value) {
+		if(eval('(value)').target.length!==0){
+		var source = d3.select("body").select("svg").select("#TX").select(
+				 eval('(value)').source).select("rect");
+		var target =d3.select("body").select("svg").select("#TX").select(
+				 eval('(value)').target).select("rect");
+		var source_g=d3.select("body").select("svg").select("#TX").select(
+				 eval('(value)').source);
+		var target_g=d3.select("body").select("svg").select("#TX").select(
+				 eval('(value)').target);
+		var color;
+		if(parseInt(eval('(value)').criticalPath)==1){
+			color="#ED6868";
+			}
+		else
+			color="rgb(112, 92, 205)";
+		source_g.on(
+				"mouseover",
+				function(d, i) {
+					d3.select("body").append("div").attr("id","help").attr("style","font-size: 12px;  text-align: left;padding: 10px 0 0 15px;font-weight: bold;color:white;filter:alpha(Opacity=80);-moz-opacity:0.7;opacity: 0.7;position:absolute;width:200px;height:50px;z-index:1;left:"+(parseInt(source.attr("x"))+parseInt(source.attr("width"))*2)+"px;top:"+(parseInt(source.attr("y")))+"px;background-color:black;").text("搭载序号："+eval('(value)').source.replace("#DZ",""));
+				})
+				.on(
+				"mouseout",
+				function(d, i) {
+					d3.select("body").select("#help").remove();
+				});
+		 if(parseInt(source.attr("y"))>parseInt(target.attr("y"))&&(parseInt(source.attr("x"))-parseInt(target.attr("x"))<parseInt(source.attr("width"))/2)){
+				svg.append("line")
+				.attr("x1",parseInt(target.attr("x"))+parseInt(target.attr("width")/2))  
+				.attr("y1",parseInt(source.attr("y")))  
+				.attr("x2",parseInt(target.attr("x"))+parseInt(target.attr("width")/2))  
+				.attr("y2",parseInt(source.attr("y")))
+				.transition().duration(100).ease("elastic").delay(300*j)
+				.attr("x1",parseInt(target.attr("x"))+parseInt(target.attr("width")/2))  
+				.attr("y1",parseInt(source.attr("y")))  
+				.attr("x2",parseInt(target.attr("x"))+parseInt(target.attr("width")/2))  
+				.attr("y2",parseInt(target.attr("y"))+parseInt(target.attr("height"))+5)  
+				.attr("stroke",color)  
+				.attr("stroke-width",15)
+				.attr("stroke-linecap","butt")
+				.attr("marker-end","url(#arrow)")
+				.transition().duration(100).ease("circle")
+				.attr("stroke-width",6);
+			 }
+		 if(parseInt(source.attr("x"))>parseInt(target.attr("x"))&&(parseInt(source.attr("y"))-parseInt(target.attr("y"))<parseInt(source.attr("height"))/2)){
+				svg.append("line")
+				.attr("x1",parseInt(source.attr("x")))  
+				.attr("y1",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))  
+				.attr("x2",parseInt(source.attr("x")))  
+				.attr("y2",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))
+				.transition().duration(100).ease("elastic").delay(300*j)
+				.attr("x1",parseInt(source.attr("x")))  
+				.attr("y1",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))  
+				.attr("x2",parseInt(target.attr("x"))+parseInt(target.attr("width"))+5)  
+				.attr("y2",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))  
+				.attr("stroke",color)  
+				.attr("stroke-width",15)
+				.attr("stroke-linecap","butt")
+				.attr("marker-end","url(#arrow)")
+				.transition().duration(100).ease("circle")
+				.attr("stroke-width",6);
+			 }
+		 if(parseInt(source.attr("x"))<parseInt(target.attr("x"))&&(parseInt(source.attr("y"))-parseInt(target.attr("y"))<parseInt(source.attr("height"))/2)){
+				svg.append("line")
+				.attr("x1",parseInt(source.attr("x"))+parseInt(source.attr("width"))) 
+				.attr("y1",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))  
+				.attr("x2",parseInt(source.attr("x"))+parseInt(source.attr("width"))) 
+				.attr("y2",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))
+				.transition().duration(100).ease("elastic").delay(300*j)
+				.attr("x1",parseInt(source.attr("x"))+parseInt(source.attr("width")))  
+				.attr("y1",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))  
+				.attr("x2",parseInt(target.attr("x"))-5)  
+				.attr("y2",parseInt(source.attr("y"))+parseInt(source.attr("height")/2))  
+				.attr("stroke",color)  
+				.attr("stroke-width",15)
+				.attr("stroke-linecap","butt")
+				.attr("marker-end","url(#arrow)")
+				.transition().duration(100).ease("circle")
+				.attr("stroke-width",6);
+			 }
+		 j++;
+		}
+		if(eval('(value)').target.length==0){
+			var source = d3.select("body").select("svg").select("#TX").select(
+					 eval('(value)').source).select("rect");
+			var source_g=d3.select("body").select("svg").select("#TX").select(
+					 eval('(value)').source);
+			d3.select("body").select("svg").select(
+					 eval('(value)').source).select("rect").transition().duration(1000).attr("fill","rgb(191,193,193)");
+			source_g.on(
+					"mouseover",
+					function(d, i) {
+						d3.select("body").append("div").attr("id","help").attr("style","font-size: 12px;  text-align: left;padding: 10px 0 0 15px;font-weight: bold;color:white;filter:alpha(Opacity=80);-moz-opacity:0.7;opacity: 0.7;position:absolute;width:200px;height:50px;z-index:1;left:"+(parseInt(source.attr("x"))+parseInt(source.attr("width"))*2)+"px;top:"+(parseInt(source.attr("y")))+"px;background-color:black;").text("搭载序号："+eval('(value)').source.replace("#DZ",""));
+					})
+					.on(
+					"mouseout",
+					function(d, i) {
+						d3.select("body").select("#help").remove();
+					});
+			}
+		});
+});
+/* ]]> */
+</script>
+	</f:view>
+</h:body>
+</html>

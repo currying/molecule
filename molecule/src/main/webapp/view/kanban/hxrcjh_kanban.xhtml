@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<title>#{shipTypeName} - #{gcbh} 后行日程计划看板</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputScript library="js" name="jquery-2.1.4.min.js" />
+	<h:outputScript library="js" name="geturlparam.js" />
+	<h:outputScript library="js" name="d3.min.js" />
+</h:head>
+<h:body>
+	<f:metadata>
+		<f:viewParam id="shipTypeName" name="shipTypeName"
+			value="#{shipTypeName}" />
+		<f:viewParam id="gcbh" name="gcbh" value="#{gcbh}" />
+	</f:metadata>
+	<f:view>
+		<ui:include src="#{shipTypeName}_hxrcjh.xhtml" />
+		<iframe
+			src="#{request.contextPath}/run?__report=hxrcjh_jhgz.rptdesign&amp;gcbh=#{gcbh}"
+			frameborder="0" width="93%" height="1000"></iframe>
+		<script type="text/javascript">
+/* <![CDATA[ */
+d3.select("body").style("text-align", "center").style("background-color",
+		"rgb(232, 225, 225)");
+d3.select("body").select("svg").selectAll("rect").on(
+		"mouseover",
+		function(d, i) {
+			d3.select(this).attr("opacity", "0.6").attr(
+					"stroke-width", "2").attr("ry", "3");
+		}).on(
+		"mouseout",
+		function(d, i) {
+			d3.select(this).transition().duration(200).attr(
+					"opacity", "1").attr("stroke-width", "0.25")
+					.attr("ry", "0");
+		});
+d3.select("body").select("svg").selectAll("path").on(
+		"mouseover",
+		function(d, i) {
+			d3.select(this).attr("opacity", "0.6").attr(
+					"stroke-width", "2").attr("ry", "3");
+		}).on(
+		"mouseout",
+		function(d, i) {
+			d3.select(this).transition().duration(200).attr(
+					"opacity", "1").attr("stroke-width", "0.25")
+					.attr("ry", "0");
+		});
+d3.select("body").select("svg").selectAll("polyline").on(
+		"mouseover",
+		function(d, i) {
+			d3.select(this).attr("opacity", "0.6").attr(
+					"stroke-width", "2").attr("ry", "3");
+		}).on(
+		"mouseout",
+		function(d, i) {
+			d3.select(this).transition().duration(200).attr(
+					"opacity", "1").attr("stroke-width", "0.25")
+					.attr("ry", "0");
+		});
+/* ]]> */
+</script>
+	</f:view>
+</h:body>
+</html>

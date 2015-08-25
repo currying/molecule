@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<p:dataTable var="member" value="#{members}">
+			<p:column headerText="firstName">
+				<h:outputText value="#{member.firstName}" />
+			</p:column>
+			<p:column headerText="lastName">
+				<h:outputText value="#{member.lastName}" />
+			</p:column>
+			<p:column headerText="nickName">
+				<h:outputText value="#{member.nickName}" />
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>

@@ -1,4 +1,4 @@
-package com.toparchy.molecule.data;
+package com.toparchy.molecule.permission.data;
 
 import java.util.List;
 

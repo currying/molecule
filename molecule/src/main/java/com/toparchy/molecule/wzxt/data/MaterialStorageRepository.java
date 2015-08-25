@@ -14,7 +14,7 @@ import com.toparchy.molecule.wzxt.model.MaterialStorage;
 @ApplicationScoped
 public class MaterialStorageRepository {
 
-	@PersistenceUnit(name = "paltform")
+	@PersistenceUnit(name = "molecule")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

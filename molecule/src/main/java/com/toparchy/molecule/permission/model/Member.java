@@ -15,15 +15,11 @@ import org.picketlink.idm.query.QueryParameter;
 public class Member extends AbstractIdentityType implements Account {
 
 	private static final long serialVersionUID = -4368503151778824869L;
-	public static final QueryParameter FIRST_NAME = QUERY_ATTRIBUTE
-			.byName("firstName");
-	public static final QueryParameter LAST_NAME = QUERY_ATTRIBUTE
-			.byName("lastName");
-	public static final QueryParameter NICK_NAME = QUERY_ATTRIBUTE
-			.byName("nickName");
+	public static final QueryParameter FIRST_NAME = QUERY_ATTRIBUTE.byName("firstName");
+	public static final QueryParameter LAST_NAME = QUERY_ATTRIBUTE.byName("lastName");
+	public static final QueryParameter NICK_NAME = QUERY_ATTRIBUTE.byName("nickName");
 	public static final QueryParameter EMAIL = QUERY_ATTRIBUTE.byName("email");
-	public static final QueryParameter LOGIN_NAME = QUERY_ATTRIBUTE
-			.byName("loginName");
+	public static final QueryParameter LOGIN_NAME = QUERY_ATTRIBUTE.byName("loginName");
 	@AttributeProperty
 	private String firstName;
 	@AttributeProperty
@@ -37,7 +33,7 @@ public class Member extends AbstractIdentityType implements Account {
 	@AttributeProperty
 	private String loginName;
 
-	private String password;
+	private String passWord;
 
 	public Member() {
 	}
@@ -96,12 +92,12 @@ public class Member extends AbstractIdentityType implements Account {
 		this.loginName = loginName;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPassWord() {
+		return passWord;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
 	}
 
 }

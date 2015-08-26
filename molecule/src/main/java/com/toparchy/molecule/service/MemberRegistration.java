@@ -25,11 +25,9 @@ public class MemberRegistration {
 
 	public void register(Member member) throws Exception {
 		log.info("Registering " + member.getLoginName());
-		IdentityManager identityManager = this.partitionManager
-				.createIdentityManager();
+		IdentityManager identityManager = this.partitionManager.createIdentityManager();
 		identityManager.add(member);
-		identityManager.updateCredential(member,
-				new Password(member.getPassword()));
+		identityManager.updateCredential(member, new Password(member.getPassWord()));
 		memberEventSrc.fire(member);
 	}
 }

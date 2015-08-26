@@ -19,8 +19,20 @@
 			<p:column headerText="loginName">
 				<h:outputText value="#{member.loginName}" />
 			</p:column>
-			<p:column headerText="password">
-				<h:outputText value="#{member.password}" />
+			<p:column headerText="email">
+				<h:outputText value="#{member.email}" />
+			</p:column>
+			<p:column headerText="phoneNumber">
+				<h:outputText value="#{member.phoneNumber}" />
+			</p:column>
+			<p:column headerText="enabled">
+				<h:outputText value="#{member.enabled}" />
+			</p:column>
+			<p:column headerText="createdDate">
+				<h:outputText value="#{member.createdDate}" />
+			</p:column>
+			<p:column headerText="expirationDate">
+				<h:outputText value="#{member.expirationDate}" />
 			</p:column>
 		</p:dataTable>
 	</ui:define>

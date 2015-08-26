@@ -25,6 +25,9 @@ public class MemberEntity extends IdentityTypeEntity {
 	private String nickName;
 
 	@AttributeValue
+	private String phoneNumber;
+
+	@AttributeValue
 	private String email;
 
 	public String getLoginName() {
@@ -57,6 +60,14 @@ public class MemberEntity extends IdentityTypeEntity {
 
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getEmail() {

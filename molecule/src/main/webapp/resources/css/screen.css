@@ -16,10 +16,12 @@ body {
 	border: none;
 	background: none;
 }
-.ui-datalist:hover{
+
+.ui-datalist:hover {
 	border: none;
 	background: none;
 }
+
 .ui-datalist-content {
 	background: none;
 	border: none;
@@ -29,4 +31,8 @@ body {
 	float: left !important;
 	padding-left: 20px;
 	padding-bottom: 15px;
+}
+
+.ui-dialog .ui-dialog-content {
+	padding: 5px !important
 }

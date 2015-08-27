@@ -25,8 +25,8 @@ public class ShipProjectView implements Serializable {
 		options.put("draggable", true);
 		options.put("resizable", false);
 		options.put("includeViewParams", true);
-		options.put("contentHeight", 500);
-		options.put("contentWidth", 1280);
+		options.put("contentHeight", 400);
+		options.put("contentWidth", 1200);
 		Map<String, List<String>> params = new HashMap<String, List<String>>();
 		List<String> param1 = new ArrayList<String>();
 		List<String> param2 = new ArrayList<String>();

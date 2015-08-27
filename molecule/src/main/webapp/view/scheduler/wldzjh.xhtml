@@ -40,7 +40,7 @@ var arrow_path = "M4,1 L8,5 L4,9 L5,5 L4,1";
 arrowMarker.append("path")  
 	.attr("d",arrow_path)  
 	.attr("fill","#3F3D3D");
-$.getJSON("#{request.contextPath}/rest/wldzjh/" + getUrlParms().gcbh, {},
+$.getJSON("#{request.contextPath}/rest/business/wldzjh/" + getUrlParms().gcbh, {},
 		function(response) {
 	d3.select("body").select("svg").select("#TX").selectAll("rect").transition().duration(1000).attr("fill","rgb(255,255,163)");
 	d3.select("body").select("svg").select("#TX").select("#DZ1").select("rect").transition().duration(1000).attr("fill","rgb(0,129,129)");

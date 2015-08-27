@@ -38,7 +38,7 @@ html, body {
 		gantt.config.date_scale = "%Y年%M";
 		gantt.config.scale_height = 24;
 		gantt.init("gantt_here");
-	$.getJSON("#{request.contextPath}/rest/zhdrcjh/"+getUrlParms().gcbh+"/0/10000", {}, function(response){
+	$.getJSON("#{request.contextPath}/rest/business/zhdrcjh/"+getUrlParms().gcbh+"/0/10000", {}, function(response){
 		gantt.parse (response,"json");
 	});
     </script>

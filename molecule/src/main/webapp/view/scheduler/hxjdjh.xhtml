@@ -21,7 +21,7 @@
 	<script type="text/javascript">
     function init() {
         scheduler.init('scheduler_here',null,"year");
-        $.getJSON("#{request.contextPath}/rest/hxjdjh/"+getUrlParms().gcbh+"/0/10000", {}, function(response){
+        $.getJSON("#{request.contextPath}/rest/business/hxjdjh/"+getUrlParms().gcbh+"/0/10000", {}, function(response){
         	scheduler.parse(response, "json");
     	}); 
     }

@@ -25,7 +25,7 @@
 /* <![CDATA[ */
 d3.select("body").style("text-align", "center").style("background-color",
 		"rgb(232, 225, 225)");
-$.getJSON("#{request.contextPath}/rest/xxrcjh/fd/" + getUrlParms().gcbh, {},
+$.getJSON("#{request.contextPath}/rest/business/xxrcjh/fd/" + getUrlParms().gcbh, {},
 		function(response) {
 			$.each(response, function(i, value) {
 				var rect = d3.select("body").select("svg").select(

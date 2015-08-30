@@ -1,6 +1,5 @@
 package com.toparchy.molecule.permission;
 
-//import static com.toparchy.molecule.permission.ApplicationRole.*;
 import static org.picketlink.idm.model.basic.BasicModel.getRole;
 import static org.picketlink.idm.model.basic.BasicModel.hasRole;
 

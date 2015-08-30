@@ -20,6 +20,8 @@ import com.toparchy.molecule.permission.annotations.P00000005;
 import com.toparchy.molecule.permission.annotations.P00000006;
 import com.toparchy.molecule.permission.annotations.P00000007;
 import com.toparchy.molecule.permission.annotations.P00000008;
+import com.toparchy.molecule.permission.annotations.P00000009;
+import com.toparchy.molecule.permission.annotations.P00000010;
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.model.ApplicationResource;
 
@@ -37,7 +39,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000001
-	public boolean doP1Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000001Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000001")) {
@@ -49,7 +51,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000002
-	public boolean doP2Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000002Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000002")) {
@@ -61,7 +63,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000003
-	public boolean doP3Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000003Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000003")) {
@@ -73,7 +75,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000004
-	public boolean doP4Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000004Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000004")) {
@@ -85,7 +87,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000005
-	public boolean doP5Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000005Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000005")) {
@@ -97,7 +99,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000006
-	public boolean doP6Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000006Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000006")) {
@@ -109,7 +111,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000007
-	public boolean doP7Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000007Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000007")) {
@@ -121,7 +123,7 @@ public class CustomAuthorizer {
 
 	@Secures
 	@P00000008
-	public boolean doP8Check(Identity identity, IdentityManager identityManager,
+	public boolean doP00000008Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000008")) {
@@ -131,4 +133,27 @@ public class CustomAuthorizer {
 		return b;
 	}
 
+	@Secures
+	@P00000009
+	public boolean doP00000009Check(Identity identity, IdentityManager identityManager,
+			RelationshipManager relationshipManager) throws Exception {
+		boolean b = false;
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000009")) {
+			b = b || hasRole(relationshipManager, identity.getAccount(),
+					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+		}
+		return b;
+	}
+
+	@Secures
+	@P00000010
+	public boolean doP00000010Check(Identity identity, IdentityManager identityManager,
+			RelationshipManager relationshipManager) throws Exception {
+		boolean b = false;
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000010")) {
+			b = b || hasRole(relationshipManager, identity.getAccount(),
+					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+		}
+		return b;
+	}
 }

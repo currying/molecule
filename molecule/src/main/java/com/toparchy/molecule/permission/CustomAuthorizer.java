@@ -13,14 +13,14 @@ import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.RelationshipManager;
 
 import com.toparchy.molecule.permission.annotations.Administrator;
-import com.toparchy.molecule.permission.annotations.P1;
-import com.toparchy.molecule.permission.annotations.P2;
-import com.toparchy.molecule.permission.annotations.P3;
-import com.toparchy.molecule.permission.annotations.P4;
-import com.toparchy.molecule.permission.annotations.P5;
-import com.toparchy.molecule.permission.annotations.P6;
-import com.toparchy.molecule.permission.annotations.P7;
-import com.toparchy.molecule.permission.annotations.P8;
+import com.toparchy.molecule.permission.annotations.P00000001;
+import com.toparchy.molecule.permission.annotations.P00000002;
+import com.toparchy.molecule.permission.annotations.P00000003;
+import com.toparchy.molecule.permission.annotations.P00000004;
+import com.toparchy.molecule.permission.annotations.P00000005;
+import com.toparchy.molecule.permission.annotations.P00000006;
+import com.toparchy.molecule.permission.annotations.P00000007;
+import com.toparchy.molecule.permission.annotations.P00000008;
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.model.ApplicationResource;
 
@@ -37,99 +37,99 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P1
+	@P00000001
 	public boolean doP1Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P1")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000001")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P2
+	@P00000002
 	public boolean doP2Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P2")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000002")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P3
+	@P00000003
 	public boolean doP3Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P3")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000003")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P4
+	@P00000004
 	public boolean doP4Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P4")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000004")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P5
+	@P00000005
 	public boolean doP5Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P5")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000005")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P6
+	@P00000006
 	public boolean doP6Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P6")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000006")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P7
+	@P00000007
 	public boolean doP7Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P7")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000007")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 	@Secures
-	@P8
+	@P00000008
 	public boolean doP8Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
-		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P8")) {
+		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000008")) {
 			b = b || hasRole(relationshipManager, identity.getAccount(),
 					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
 		}
-		return b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, "ADMINISTRATOR"));
+		return b;
 	}
 
 }

@@ -30,6 +30,9 @@
 		<p:dataTable var="currentApplicationResource"
 			value="#{currentApplicationResources}"
 			id="currentApplicationResource">
+			<p:ajax event="rowUnselect"
+					listener="#{applicationRoleListProducer.onRowUnselect}"
+					update="msgs" />
 			<p:column headerText="id">
 				<h:outputText value="#{currentApplicationResource.id}" />
 			</p:column>
@@ -38,18 +41,7 @@
 			</p:column>
 			<p:column headerText="name">
 				<h:outputText value="#{currentApplicationResource.name}" />
-				<p:ajax event="rowUnselect"
-					listener="#{applicationRoleListProducer.onRowUnselect}"
-					update="msgs" />
-				<p:column headerText="id">
-					<h:outputText value="#{applicationRole.id}" />
-				</p:column>
-				<p:column headerText="key">
-					<h:outputText value="#{applicationRole.key}" />
-				</p:column>
-				<p:column headerText="name">
-					<h:outputText value="#{applicationRole.name}" />
-				</p:column>
+			</p:column>	
 		</p:dataTable>
 	</ui:define>
 </ui:composition>

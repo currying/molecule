@@ -11,7 +11,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="com/toparchy/serial/EchoClient.java|com/toparchy/serial/EchoClientHandler.java|com/toparchy/serial/EchoServer.java|com/toparchy/serial/EchoServerHandler.java|com/toparchy/serial/MsgpackDecoder.java|com/toparchy/serial/MsgpackEncoder.java|com/toparchy/serial/Testmsgpack.java|com/toparchy/serial/UserInfo.java" kind="src" output="target/test-classes" path="src/test/java">
+	<classpathentry excluding="com/toparchy/serial/" kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>

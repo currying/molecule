@@ -30,9 +30,6 @@
 		<p:dataTable var="currentApplicationResource"
 			value="#{currentApplicationResources}"
 			id="currentApplicationResource">
-			<p:ajax event="rowUnselect"
-				listener="#{applicationRoleListProducer.onRowUnselect}"
-				update="msgs" />
 			<p:column headerText="id">
 				<h:outputText value="#{currentApplicationResource.id}" />
 			</p:column>

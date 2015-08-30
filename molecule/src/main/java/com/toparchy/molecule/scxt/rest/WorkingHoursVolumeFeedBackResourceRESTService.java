@@ -22,7 +22,7 @@ public class WorkingHoursVolumeFeedBackResourceRESTService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
 	@GZIP
-	@P7
+	@P00000007
 	public Response getWorkingHoursVolumeFeedBacks(@PathParam("id") String id, @PathParam("start") int start,
 			@PathParam("max") int max) {
 		return Response.ok().entity(repository.findById(id, start, max)).type(MediaType.APPLICATION_JSON).build();

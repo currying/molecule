@@ -11,6 +11,6 @@ import org.apache.deltaspike.security.api.authorization.SecurityBindingType;
 @Target({ ElementType.TYPE, ElementType.METHOD })
 @Documented
 @SecurityBindingType
-public @interface P2 {
+public @interface P00000004 {
 
 }

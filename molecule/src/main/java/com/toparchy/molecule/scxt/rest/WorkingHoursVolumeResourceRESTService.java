@@ -24,7 +24,7 @@ public class WorkingHoursVolumeResourceRESTService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
 	@GZIP
-	@P8
+	@P00000008
 	public Response getWorkingHoursVolumes(@PathParam("start") int start, @PathParam("max") int max) {
 		return Response.ok().entity(repository.findAll(start, max)).type(MediaType.APPLICATION_JSON).build();
 	}
@@ -34,7 +34,7 @@ public class WorkingHoursVolumeResourceRESTService {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@GZIP
-	@P8
+	@P00000008
 	public Response getWorkingHoursVolumesBypgdbh(SelectHandler selectHandler) {
 		return Response.ok().entity(repository.findByCondition(selectHandler.getName(), selectHandler.getValue(),
 				selectHandler.getStart(), selectHandler.getMax())).type(MediaType.APPLICATION_JSON).build();

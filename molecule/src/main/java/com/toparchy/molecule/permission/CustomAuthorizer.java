@@ -13,14 +13,14 @@ import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.RelationshipManager;
 
 import com.toparchy.molecule.permission.annotations.Administrator;
-import com.toparchy.molecule.permission.annotations.P1;
-import com.toparchy.molecule.permission.annotations.P2;
-import com.toparchy.molecule.permission.annotations.P3;
-import com.toparchy.molecule.permission.annotations.P4;
-import com.toparchy.molecule.permission.annotations.P5;
-import com.toparchy.molecule.permission.annotations.P6;
-import com.toparchy.molecule.permission.annotations.P7;
-import com.toparchy.molecule.permission.annotations.P8;
+import com.toparchy.molecule.permission.annotations.P00000001;
+import com.toparchy.molecule.permission.annotations.P00000002;
+import com.toparchy.molecule.permission.annotations.P00000003;
+import com.toparchy.molecule.permission.annotations.P00000004;
+import com.toparchy.molecule.permission.annotations.P00000005;
+import com.toparchy.molecule.permission.annotations.P00000006;
+import com.toparchy.molecule.permission.annotations.P00000007;
+import com.toparchy.molecule.permission.annotations.P00000008;
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.model.ApplicationResource;
 
@@ -37,7 +37,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P1
+	@P00000001
 	public boolean doP1Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -49,7 +49,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P2
+	@P00000002
 	public boolean doP2Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -61,7 +61,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P3
+	@P00000003
 	public boolean doP3Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -73,7 +73,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P4
+	@P00000004
 	public boolean doP4Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -85,7 +85,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P5
+	@P00000005
 	public boolean doP5Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -97,7 +97,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P6
+	@P00000006
 	public boolean doP6Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -109,7 +109,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P7
+	@P00000007
 	public boolean doP7Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
@@ -121,7 +121,7 @@ public class CustomAuthorizer {
 	}
 
 	@Secures
-	@P8
+	@P00000008
 	public boolean doP8Check(Identity identity, IdentityManager identityManager,
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;

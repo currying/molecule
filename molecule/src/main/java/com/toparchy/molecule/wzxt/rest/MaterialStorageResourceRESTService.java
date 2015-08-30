@@ -24,12 +24,12 @@ import org.jboss.resteasy.annotations.GZIP;
 import org.jboss.resteasy.spi.UnhandledException;
 import org.picketlink.idm.IdentityManagementException;
 
-import com.toparchy.molecule.permission.annotations.P1;
-import com.toparchy.molecule.permission.annotations.P2;
-import com.toparchy.molecule.permission.annotations.P3;
-import com.toparchy.molecule.permission.annotations.P4;
-import com.toparchy.molecule.permission.annotations.P5;
-import com.toparchy.molecule.permission.annotations.P6;
+import com.toparchy.molecule.permission.annotations.P00000001;
+import com.toparchy.molecule.permission.annotations.P00000002;
+import com.toparchy.molecule.permission.annotations.P00000003;
+import com.toparchy.molecule.permission.annotations.P00000004;
+import com.toparchy.molecule.permission.annotations.P00000005;
+import com.toparchy.molecule.permission.annotations.P00000006;
 import com.toparchy.molecule.wzxt.data.MaterialStorageRepository;
 //import com.toparchy.molecule.wzxt.model.MaterialStorageFilter;
 import com.toparchy.molecule.wzxt.model.MaterialStorage;
@@ -45,7 +45,7 @@ public class MaterialStorageResourceRESTService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
 	@GZIP
-	@P1
+	@P00000001
 	public Response getMaterialStorages(@PathParam("ldbh") String ldbh, @PathParam("start") int start,
 			@PathParam("max") int max) {
 		return Response.ok().entity(repository.findByLdbh(ldbh, start, max, 2)).type(MediaType.APPLICATION_JSON)
@@ -56,7 +56,7 @@ public class MaterialStorageResourceRESTService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
 	@GZIP
-	@P2
+	@P00000002
 	public Response getMaterialStoragesNoMark(@PathParam("ldbh") String ldbh, @PathParam("start") int start,
 			@PathParam("max") int max) {
 		return Response.ok().entity(repository.findByLdbh(ldbh, start, max, 0)).type(MediaType.APPLICATION_JSON)
@@ -67,7 +67,7 @@ public class MaterialStorageResourceRESTService {
 	@GET
 	@Produces({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
 	@GZIP
-	@P3
+	@P00000003
 	public Response getMaterialStoragesMark(@PathParam("ldbh") String ldbh, @PathParam("start") int start,
 			@PathParam("max") int max) {
 		return Response.ok().entity(repository.findByLdbh(ldbh, start, max, 1)).type(MediaType.APPLICATION_JSON)
@@ -78,7 +78,7 @@ public class MaterialStorageResourceRESTService {
 	@Path("/new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@P4
+	@P00000004
 	public Response createWzrkd(MaterialStorage materialStorage) {
 		Response.ResponseBuilder builder = null;
 		builder = Response.serverError();
@@ -89,7 +89,7 @@ public class MaterialStorageResourceRESTService {
 	@Path("/update")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	@P5
+	@P00000005
 	public Response updateWzrkd(List<MaterialStorage> materialStorages) {
 		Response.ResponseBuilder builder = null;
 		try {
@@ -110,7 +110,7 @@ public class MaterialStorageResourceRESTService {
 	@DELETE
 	@Consumes({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
 	@Produces({ MediaType.APPLICATION_JSON, "text/html; charset=UTF-8" })
-	@P6
+	@P00000006
 	public Response deleteWzrkd(@PathParam("wzrkdId") long wzrkdId) {
 		Response.ResponseBuilder builder = null;
 		try {

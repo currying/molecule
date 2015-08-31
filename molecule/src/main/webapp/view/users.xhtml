@@ -10,14 +10,15 @@
 			<div class="ui-grid-row">
 				<div class="ui-grid-col-6">
 					<p:dataTable var="group" value="#{groups}" selectionMode="single"
-						selection="#{groupListProducer.currentGroup}"
-						rowKey="#{groupListProducer.id}">
+						selection="#{groupListProducer.currentGroup}" rowKey="#{group.id}">
 						<f:facet name="header">
 							<h:outputText value="系统组" />
 						</f:facet>
 						<p:ajax event="rowSelect"
 							listener="#{groupListProducer.onRowSelect}"
-							update="currentAccount" />
+							update="currentMember" />
+						<p:ajax event="rowUnselect"
+							listener="#{groupListProducer.onRowUnselect}" />
 						<p:column headerText="name">
 							<h:outputText value="#{group.name}" />
 						</p:column>
@@ -27,44 +28,38 @@
 					</p:dataTable>
 				</div>
 				<div class="ui-grid-col-6">
-					<p:dataTable id="currentAccount" var="account"
-						value="#{currentAccounts}">
-						<p:column headerText="id">
-							<h:outputText value="#{account.id}" />
+					<p:dataTable id="currentMember" var="member"
+						value="#{currentMembers}">
+						<p:column headerText="firstName">
+							<h:outputText value="#{member.firstName}" />
+						</p:column>
+						<p:column headerText="lastName">
+							<h:outputText value="#{member.lastName}" />
+						</p:column>
+						<p:column headerText="nickName">
+							<h:outputText value="#{member.nickName}" />
+						</p:column>
+						<p:column headerText="loginName">
+							<h:outputText value="#{member.loginName}" />
+						</p:column>
+						<p:column headerText="email">
+							<h:outputText value="#{member.email}" />
+						</p:column>
+						<p:column headerText="phoneNumber">
+							<h:outputText value="#{member.phoneNumber}" />
+						</p:column>
+						<p:column headerText="enabled">
+							<h:outputText value="#{member.enabled}" />
+						</p:column>
+						<p:column headerText="createdDate">
+							<h:outputText value="#{member.createdDate}" />
+						</p:column>
+						<p:column headerText="expirationDate">
+							<h:outputText value="#{member.expirationDate}" />
 						</p:column>
 					</p:dataTable>
 				</div>
 			</div>
 		</div>
-
-		<p:dataTable var="member" value="#{members}">
-			<p:column headerText="firstName">
-				<h:outputText value="#{member.firstName}" />
-			</p:column>
-			<p:column headerText="lastName">
-				<h:outputText value="#{member.lastName}" />
-			</p:column>
-			<p:column headerText="nickName">
-				<h:outputText value="#{member.nickName}" />
-			</p:column>
-			<p:column headerText="loginName">
-				<h:outputText value="#{member.loginName}" />
-			</p:column>
-			<p:column headerText="email">
-				<h:outputText value="#{member.email}" />
-			</p:column>
-			<p:column headerText="phoneNumber">
-				<h:outputText value="#{member.phoneNumber}" />
-			</p:column>
-			<p:column headerText="enabled">
-				<h:outputText value="#{member.enabled}" />
-			</p:column>
-			<p:column headerText="createdDate">
-				<h:outputText value="#{member.createdDate}" />
-			</p:column>
-			<p:column headerText="expirationDate">
-				<h:outputText value="#{member.expirationDate}" />
-			</p:column>
-		</p:dataTable>
 	</ui:define>
 </ui:composition>

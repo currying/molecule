@@ -8,7 +8,6 @@ import javax.inject.Inject;
 
 import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.RelationshipManager;
-import org.picketlink.idm.model.Account;
 import org.picketlink.idm.model.basic.Group;
 import org.picketlink.idm.model.basic.GroupMembership;
 import org.picketlink.idm.query.IdentityQuery;
@@ -30,18 +29,18 @@ public class GroupRepository {
 		return query.getResultList();
 	}
 
-	public List<Account> findGroupAccount(Group group) {
+	public List<Member> findGroupMember(Group group) {
 		RelationshipQuery<GroupMembership> query = this.relationshipManager
 				.createRelationshipQuery(GroupMembership.class);
 
-		query.setParameter(GroupMembership.MEMBER, group);
+		query.setParameter(GroupMembership.GROUP, group);
 
-		List<Account> accounts = new ArrayList<Account>();
+		List<Member> members = new ArrayList<Member>();
 
 		for (GroupMembership groupMembership : query.getResultList()) {
-			accounts.add(groupMembership.getMember());
+			members.add((Member) groupMembership.getMember());
 		}
 
-		return accounts;
+		return members;
 	}
 }

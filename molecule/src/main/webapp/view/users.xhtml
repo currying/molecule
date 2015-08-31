@@ -6,10 +6,13 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/template.xhtml">
 	<ui:define name="content">
-		<p:dataTable var="member" value="#{members}">
+		<p:dataTable var="member" value="#{members}" selectionMode="single"
+			selection="#{memberListProducer.currentMember}" rowKey="#{member.id}">
 			<f:facet name="header">
 				<h:outputText value="组内用户" />
 			</f:facet>
+			<p:ajax event="rowSelect"
+				listener="#{memberListProducer.onRowSelect}" update="currentGroup" />
 			<p:column headerText="姓">
 				<h:outputText value="#{member.firstName}" />
 			</p:column>
@@ -36,6 +39,29 @@
 			</p:column>
 			<p:column headerText="截止日期">
 				<h:outputText value="#{member.expirationDate}" />
+			</p:column>
+		</p:dataTable>
+		<p:dataTable id="currentGroup" var="group" value="#{currentGroups}">
+			<f:facet name="header">
+				<h:outputText value="所属组" />
+			</f:facet>
+			<p:column headerText="组名">
+				<h:outputText value="#{group.name}" />
+			</p:column>
+			<p:column headerText="所属组">
+				<h:outputText value="#{group.parentGroup}" />
+			</p:column>
+			<p:column headerText="组PATH">
+				<h:outputText value="#{group.path}" />
+			</p:column>
+			<p:column headerText="组创建日期">
+				<h:outputText value="#{group.createdDate}" />
+			</p:column>
+			<p:column headerText="截止日期">
+				<h:outputText value="#{group.expirationDate}" />
+			</p:column>
+			<p:column headerText="可用">
+				<h:outputText value="#{group.enabled}" />
 			</p:column>
 		</p:dataTable>
 	</ui:define>

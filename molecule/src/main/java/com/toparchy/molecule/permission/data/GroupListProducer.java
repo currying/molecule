@@ -10,7 +10,10 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.picketlink.idm.model.Account;
 import org.picketlink.idm.model.basic.Group;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 @RequestScoped
 public class GroupListProducer {
@@ -19,6 +22,13 @@ public class GroupListProducer {
 	private GroupRepository groupRepository;
 
 	private List<Group> groups;
+	@Produces
+	@Named
+	private List<Account> currentAccounts;
+
+	@Produces
+	@Named
+	private Group currentGroup;
 
 	@Produces
 	@Named
@@ -33,5 +43,28 @@ public class GroupListProducer {
 	@PostConstruct
 	public void retrieveAllGroupRepositorysOrderedByName() {
 		groups = groupRepository.findAllOrderedByName();
+	}
+
+	public List<Account> getCurrentAccounts() {
+		return currentAccounts;
+	}
+
+	public void setCurrentAccounts(List<Account> currentAccounts) {
+		this.currentAccounts = currentAccounts;
+	}
+
+	public Group getCurrentGroup() {
+		return currentGroup;
+	}
+
+	public void setCurrentGroup(Group currentGroup) {
+		this.currentGroup = currentGroup;
+	}
+
+	public void onRowSelect(SelectEvent event) {
+		currentAccounts = groupRepository.findGroupAccount((Group) event.getObject());
+	}
+
+	public void onRowUnselect(UnselectEvent event) {
 	}
 }

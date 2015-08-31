@@ -6,14 +6,37 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/template.xhtml">
 	<ui:define name="content">
-		<p:dataTable var="group" value="#{groups}">
-			<p:column headerText="name">
-				<h:outputText value="#{group.name}" />
-			</p:column>
-			<p:column headerText="createdDate">
-				<h:outputText value="#{group.createdDate}" />
-			</p:column>
-		</p:dataTable>
+		<div class="ui-grid">
+			<div class="ui-grid-row">
+				<div class="ui-grid-col-6">
+					<p:dataTable var="group" value="#{groups}" selectionMode="single"
+						selection="#{groupListProducer.currentGroup}"
+						rowKey="#{groupListProducer.id}">
+						<f:facet name="header">
+							<h:outputText value="系统组" />
+						</f:facet>
+						<p:ajax event="rowSelect"
+							listener="#{groupListProducer.onRowSelect}"
+							update="currentAccount" />
+						<p:column headerText="name">
+							<h:outputText value="#{group.name}" />
+						</p:column>
+						<p:column headerText="createdDate">
+							<h:outputText value="#{group.createdDate}" />
+						</p:column>
+					</p:dataTable>
+				</div>
+				<div class="ui-grid-col-6">
+					<p:dataTable id="currentAccount" var="account"
+						value="#{currentAccounts}">
+						<p:column headerText="id">
+							<h:outputText value="#{account.id}" />
+						</p:column>
+					</p:dataTable>
+				</div>
+			</div>
+		</div>
+
 		<p:dataTable var="member" value="#{members}">
 			<p:column headerText="firstName">
 				<h:outputText value="#{member.firstName}" />

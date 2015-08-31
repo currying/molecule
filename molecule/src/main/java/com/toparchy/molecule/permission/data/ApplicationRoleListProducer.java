@@ -73,13 +73,15 @@ public class ApplicationRoleListProducer implements Serializable {
 	}
 
 	public void onRowSelect(SelectEvent event) {
-		FacesMessage msg = new FacesMessage("Role Selected", ((ApplicationRole) event.getObject()).getId());
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		// FacesMessage msg = new FacesMessage("Role Selected",
+		// ((ApplicationRole) event.getObject()).getId());
+		// FacesContext.getCurrentInstance().addMessage(null, msg);
 		currentApplicationResources = ((ApplicationRole) event.getObject()).getApplicationResources();
 	}
 
 	public void onRowUnselect(UnselectEvent event) {
-		FacesMessage msg = new FacesMessage("Role Unselected", ((ApplicationRole) event.getObject()).getId());
-		FacesContext.getCurrentInstance().addMessage(null, msg);
+		// FacesMessage msg = new FacesMessage("Role Unselected",
+		// ((ApplicationRole) event.getObject()).getId());
+		// FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 }

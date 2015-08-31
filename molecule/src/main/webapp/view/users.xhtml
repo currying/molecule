@@ -11,13 +11,15 @@
 				<div class="ui-grid-col-6">
 					<p:dataTable var="group" value="#{groups}" selectionMode="single"
 						selection="#{groupListProducer.currentGroup}"
-						rowKey="#{groupListProducer.id}">
+						rowKey="#{group.id}">
 						<f:facet name="header">
 							<h:outputText value="系统组" />
 						</f:facet>
 						<p:ajax event="rowSelect"
 							listener="#{groupListProducer.onRowSelect}"
-							update="currentAccount" />
+							update="currentMember" />
+						<p:ajax event="rowUnselect"
+							listener="#{groupListProducer.onRowUnselect}" />
 						<p:column headerText="name">
 							<h:outputText value="#{group.name}" />
 						</p:column>
@@ -27,10 +29,10 @@
 					</p:dataTable>
 				</div>
 				<div class="ui-grid-col-6">
-					<p:dataTable id="currentAccount" var="account"
-						value="#{currentAccounts}">
+					<p:dataTable id="currentMember" var="member"
+						value="#{currentMembers}">
 						<p:column headerText="id">
-							<h:outputText value="#{account.id}" />
+							<h:outputText value="#{member.id}" />
 						</p:column>
 					</p:dataTable>
 				</div>

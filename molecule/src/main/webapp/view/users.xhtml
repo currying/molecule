@@ -14,31 +14,71 @@
 			</f:facet>
 			<p:ajax event="rowSelect"
 				listener="#{memberListProducer.onRowSelect}" update="currentGroup" />
-			<p:column headerText="姓">
-				<h:outputText value="#{member.firstName}" />
+			<p:column headerText="姓" style="width:48px">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{member.firstName}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{member.firstName}" style="width:100%"
+							label="firstName" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			<p:column headerText="名字">
-				<h:outputText value="#{member.lastName}" />
+			<p:column headerText="名字" style="width:72px">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{member.lastName}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{member.lastName}" style="width:100%"
+							label="lastName" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			<p:column headerText="昵称">
-				<h:outputText value="#{member.nickName}" />
+			<p:column headerText="昵称" style="width:72px">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{member.nickName}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{member.nickName}" style="width:100%"
+							label="lastName" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			<p:column headerText="登录名">
+			<p:column headerText="登录名" style="width:72px">
 				<h:outputText value="#{member.loginName}" />
 			</p:column>
-			<p:column headerText="email">
-				<h:outputText value="#{member.email}" />
+			<p:column headerText="email" style="width:108px">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{member.email}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{member.email}" style="width:100%"
+							label="lastName" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			<p:column headerText="电话">
-				<h:outputText value="#{member.phoneNumber}" />
+			<p:column headerText="电话" style="width:108px">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{member.phoneNumber}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{member.phoneNumber}" style="width:100%"
+							label="lastName" />
+					</f:facet>
+				</p:cellEditor>
 			</p:column>
-			<p:column headerText="可用">
+			<p:column headerText="可用" style="width:48px">
 				<h:outputText value="#{member.enabled}" />
 			</p:column>
-			<p:column headerText="创建日期">
+			<p:column headerText="创建日期" style="width:108px">
 				<h:outputText value="#{member.createdDate}" />
 			</p:column>
-			<p:column headerText="截止日期">
+			<p:column headerText="截止日期" style="width:108px">
 				<h:outputText value="#{member.expirationDate}" />
 			</p:column>
 			<p:column style="width:24px">

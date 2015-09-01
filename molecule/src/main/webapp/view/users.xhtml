@@ -41,6 +41,9 @@
 			<p:column headerText="截止日期">
 				<h:outputText value="#{member.expirationDate}" />
 			</p:column>
+			<p:column style="width:24px">
+				<p:rowEditor />
+			</p:column>
 		</p:dataTable>
 		<p:dataTable id="currentGroup" var="group" value="#{currentGroups}">
 			<f:facet name="header">

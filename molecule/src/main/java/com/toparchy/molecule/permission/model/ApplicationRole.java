@@ -65,6 +65,10 @@ public class ApplicationRole implements Serializable {
 		return applicationResources;
 	}
 
+	public void addApplicationResource(ApplicationResource applicationResource) {
+		applicationResources.add(applicationResource);
+	}
+
 	public void setApplicationResources(Set<ApplicationResource> applicationResources) {
 		this.applicationResources = applicationResources;
 	}

@@ -9,16 +9,20 @@ import javax.enterprise.event.Observes;
 import javax.enterprise.event.Reception;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.picketlink.idm.model.basic.Group;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 
 import com.toparchy.molecule.permission.model.ApplicationResource;
 import com.toparchy.molecule.permission.model.ApplicationRole;
+import com.toparchy.molecule.permission.service.RoleResourceRegistration;
 
 @Model
 @ViewScoped
@@ -28,6 +32,8 @@ public class ApplicationRoleListProducer implements Serializable {
 
 	@Inject
 	private ApplicationRoleRepository applicationRoleRepository;
+	@Inject
+	private RoleResourceRegistration roleResourceRegistration;
 
 	private List<ApplicationRole> applicationRoles;
 
@@ -81,5 +87,17 @@ public class ApplicationRoleListProducer implements Serializable {
 		// FacesMessage msg = new FacesMessage("Role Unselected",
 		// ((ApplicationRole) event.getObject()).getId());
 		// FacesContext.getCurrentInstance().addMessage(null, msg);
+	}
+
+	public void chooseResource() {
+		RequestContext.getCurrentInstance().openDialog("selectApplicationResource");
+	}
+
+	public void onResourceChosen(SelectEvent event) {
+		ApplicationResource resource = (ApplicationResource) event.getObject();
+		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Resource Selected",
+				"Id:" + resource.getId());
+		FacesContext.getCurrentInstance().addMessage(null, message);
+		roleResourceRegistration.add(currentApplicationRole, resource);
 	}
 }

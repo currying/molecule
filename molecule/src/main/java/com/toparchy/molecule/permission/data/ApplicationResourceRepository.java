@@ -23,4 +23,12 @@ public class ApplicationResourceRepository {
 		criteria.select(applicationResource).where(cb.equal(applicationResource.get("key"), key));
 		return em.createQuery(criteria).getResultList();
 	}
+
+	public List<ApplicationResource> findAll() {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<ApplicationResource> criteria = cb.createQuery(ApplicationResource.class);
+		Root<ApplicationResource> applicationResource = criteria.from(ApplicationResource.class);
+		criteria.select(applicationResource);
+		return em.createQuery(criteria).getResultList();
+	}
 }

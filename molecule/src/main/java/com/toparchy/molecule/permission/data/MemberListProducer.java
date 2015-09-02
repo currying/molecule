@@ -28,6 +28,7 @@ public class MemberListProducer implements Serializable {
 	private MemberRepository memberRepository;
 
 	private List<Member> members;
+
 	@Produces
 	@Named
 	private Member currentMember;

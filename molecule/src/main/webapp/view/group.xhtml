@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<p:dataTable var="group" value="#{groups}" selectionMode="single"
+			selection="#{groupListProducer.currentGroup}" rowKey="#{group.id}">
+			<f:facet name="header">
+				<h:outputText value="组" />
+			</f:facet>
+			<p:ajax event="rowSelect" listener="#{groupListProducer.onRowSelect}" />
+			<p:column headerText="组名">
+				<h:outputText value="#{group.name}" />
+			</p:column>
+			<p:column headerText="PATH">
+				<h:outputText value="#{group.path}" />
+			</p:column>
+			<p:column headerText="可用">
+				<h:outputText value="#{group.enabled}" />
+			</p:column>
+			<p:column headerText="创建日期">
+				<h:outputText value="#{group.createdDate}" />
+			</p:column>
+			<p:column headerText="截止日期">
+				<h:outputText value="#{group.expirationDate}" />
+			</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>

@@ -28,12 +28,6 @@
 						<p:column headerText="name">
 							<h:outputText value="#{applicationRole.name}" />
 						</p:column>
-						<p:column>
-							<p:commandLink value="增加操作资源"
-								actionListener="#{roleResourceView.chooseResource}">
-								<i class="icon-doc-add"></i>
-							</p:commandLink>
-						</p:column>
 					</p:dataTable>
 					<p:commandButton value="为选中的角色增加操作资源"
 						actionListener="#{applicationRoleListProducer.chooseResource}">

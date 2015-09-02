@@ -80,6 +80,7 @@ public class ApplicationRoleListProducer implements Serializable {
 		// FacesMessage msg = new FacesMessage("Role Selected",
 		// ((ApplicationRole) event.getObject()).getId());
 		// FacesContext.getCurrentInstance().addMessage(null, msg);
+		currentApplicationRole = (ApplicationRole) event.getObject();
 		currentApplicationResources = ((ApplicationRole) event.getObject()).getApplicationResources();
 	}
 
@@ -95,9 +96,7 @@ public class ApplicationRoleListProducer implements Serializable {
 
 	public void onResourceChosen(SelectEvent event) {
 		ApplicationResource resource = (ApplicationResource) event.getObject();
-		FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Resource Selected",
-				"Id:" + resource.getId());
-		FacesContext.getCurrentInstance().addMessage(null, message);
+		System.out.println(currentApplicationRole + " 1111 " + resource);
 		roleResourceRegistration.add(currentApplicationRole, resource);
 	}
 }

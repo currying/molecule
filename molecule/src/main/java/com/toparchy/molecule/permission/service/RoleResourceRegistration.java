@@ -13,6 +13,7 @@ public class RoleResourceRegistration {
 	private EntityManager em;
 
 	public void add(ApplicationRole applicationRole, ApplicationResource applicationResource) {
+		System.out.println(applicationRole + " 2222 " + applicationResource);
 		applicationRole.addApplicationResource(applicationResource);
 		em.persist(applicationRole);
 	}

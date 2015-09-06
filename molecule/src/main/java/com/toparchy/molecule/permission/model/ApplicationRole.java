@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -32,7 +32,7 @@ public class ApplicationRole implements Serializable {
 	private String key;
 	@Column(name = "SYS_APPLICATION_ROLE_NAME", length = 255)
 	private String name;
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "applicationRole")
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "applicationRoles")
 	@JsonIgnore
 	@OrderBy("key ASC")
 	private Set<ApplicationResource> applicationResources;

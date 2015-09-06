@@ -1,6 +1,7 @@
 package com.toparchy.molecule.permission.model;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,8 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -32,9 +32,8 @@ public class ApplicationResource implements Serializable {
 	private String name;
 	@Column(name = "SYS_APPLICATION_RESOURCE_TYPE", length = 255)
 	private String type;
-	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	@JoinColumn(name = "SYS_APPLICATION_ROLE_ID")
-	private ApplicationRole applicationRole;
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	private Set<ApplicationRole> applicationRoles;
 
 	public String getId() {
 		return id;
@@ -68,12 +67,16 @@ public class ApplicationResource implements Serializable {
 		this.type = type;
 	}
 
-	public ApplicationRole getApplicationRole() {
-		return applicationRole;
+	public Set<ApplicationRole> getApplicationRoles() {
+		return applicationRoles;
 	}
 
-	public void setApplicationRole(ApplicationRole applicationRole) {
-		this.applicationRole = applicationRole;
+	public void addApplicationRole(ApplicationRole applicationRole) {
+		applicationRoles.add(applicationRole);
+	}
+
+	public void setApplicationRoles(Set<ApplicationRole> applicationRoles) {
+		this.applicationRoles = applicationRoles;
 	}
 
 }

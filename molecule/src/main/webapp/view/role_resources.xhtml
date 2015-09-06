@@ -11,17 +11,16 @@
 			<div class="ui-grid-row">
 				<div class="ui-grid-col-6">
 					<p:dataTable var="applicationRole" value="#{applicationRoles}"
-						selectionMode="single"
-						selection="#{applicationRoleListProducer.currentApplicationRole}"
+						selectionMode="single" selection="#{selectApplicationRole}"
 						rowKey="#{applicationRole.id}">
 						<f:facet name="header">
 							<h:outputText value="系统角色" />
 						</f:facet>
 						<p:ajax event="rowSelect"
-							listener="#{applicationRoleListProducer.onRowSelect}"
+							listener="#{applicationRoleController.onRowSelect}"
 							update="currentApplicationResource" />
 						<p:ajax event="rowUnselect"
-							listener="#{applicationRoleListProducer.onRowUnselect}" />
+							listener="#{applicationRoleController.onRowUnselect}" />
 						<p:column headerText="key">
 							<h:outputText value="#{applicationRole.key}" />
 						</p:column>
@@ -30,9 +29,9 @@
 						</p:column>
 					</p:dataTable>
 					<p:commandButton value="为选中的角色增加操作资源"
-						actionListener="#{applicationRoleListProducer.chooseResource}">
+						actionListener="#{applicationRoleController.chooseResource}">
 						<p:ajax event="dialogReturn"
-							listener="#{applicationRoleListProducer.onResourceChosen}"
+							listener="#{applicationRoleController.onResourceChosen}"
 							update="growl" />
 					</p:commandButton>
 				</div>

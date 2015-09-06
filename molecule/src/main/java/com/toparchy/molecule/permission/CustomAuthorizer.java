@@ -24,6 +24,7 @@ import com.toparchy.molecule.permission.annotations.P00000009;
 import com.toparchy.molecule.permission.annotations.P00000010;
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.ApplicationRole;
 
 @ApplicationScoped
 public class CustomAuthorizer {
@@ -43,8 +44,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000001")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -55,8 +57,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000002")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -67,8 +70,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000003")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -79,8 +83,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000004")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -91,8 +96,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000005")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -103,8 +109,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000006")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -115,8 +122,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000007")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -127,8 +135,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000008")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -139,8 +148,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000009")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}
@@ -151,8 +161,9 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationResource applicationResource : applicationResourceRepository.findByKey("P00000010")) {
-			b = b || hasRole(relationshipManager, identity.getAccount(),
-					getRole(identityManager, applicationResource.getApplicationRole().getKey()));
+			for (ApplicationRole role : applicationResource.getApplicationRoles()) {
+				b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+			}
 		}
 		return b;
 	}

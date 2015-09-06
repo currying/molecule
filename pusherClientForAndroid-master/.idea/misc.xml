@@ -6,7 +6,6 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="E:\tools\Maven\.m2\repository" />
         <option name="mavenHome" value="Bundled (Maven 3)" />
         <option name="userSettingsFile" value="E:\tools\Maven\.m2\settings.xml" />
       </MavenGeneralSettings>

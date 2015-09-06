@@ -10,8 +10,6 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.picketlink.idm.model.basic.Role;
-
 import com.toparchy.molecule.permission.model.ApplicationRole;
 
 @RequestScoped
@@ -29,7 +27,7 @@ public class ApplicationRoleListProducer {
 	}
 
 	public void onApplicationRoleRepositoryListChanged(
-			@Observes(notifyObserver = Reception.IF_EXISTS) final Role role) {
+			@Observes(notifyObserver = Reception.IF_EXISTS) final ApplicationRole role) {
 		retrieveAllApplicationRoleRepositorys();
 	}
 

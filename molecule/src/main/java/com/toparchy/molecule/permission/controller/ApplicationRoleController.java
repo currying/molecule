@@ -24,6 +24,7 @@ public class ApplicationRoleController implements Serializable {
 	private static final long serialVersionUID = -7279682200727128738L;
 	@Inject
 	private RoleResourceRegistration roleResourceRegistration;
+	private boolean disabled = true;
 	@Produces
 	@Named
 	private ApplicationRole selectApplicationRole;
@@ -49,7 +50,17 @@ public class ApplicationRoleController implements Serializable {
 
 	public void onRowSelect(SelectEvent event) {
 		selectApplicationRole = (ApplicationRole) event.getObject();
-		currentApplicationResources = ((ApplicationRole) event.getObject()).getApplicationResources();
+		currentApplicationResources = selectApplicationRole.getApplicationResources();
+		if (selectApplicationRole != null)
+			disabled = false;
+	}
+
+	public boolean isDisabled() {
+		return disabled;
+	}
+
+	public void setDisabled(boolean disabled) {
+		this.disabled = disabled;
 	}
 
 	public void onRowUnselect(UnselectEvent event) {
@@ -62,5 +73,9 @@ public class ApplicationRoleController implements Serializable {
 	public void onResourceChosen(SelectEvent event) {
 		ApplicationResource resource = (ApplicationResource) event.getObject();
 		roleResourceRegistration.add(selectApplicationRole, resource);
+	}
+
+	public void removeResourceFromRole(ApplicationResource applicationResource) {
+		roleResourceRegistration.remove(selectApplicationRole, applicationResource);
 	}
 }

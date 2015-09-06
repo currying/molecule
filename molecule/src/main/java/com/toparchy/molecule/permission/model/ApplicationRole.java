@@ -16,8 +16,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name = "SYS_APPLICATION_ROLE")
 @XmlRootElement
@@ -32,8 +30,7 @@ public class ApplicationRole implements Serializable {
 	private String key;
 	@Column(name = "SYS_APPLICATION_ROLE_NAME", length = 255)
 	private String name;
-	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "applicationRoles")
-	@JsonIgnore
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@OrderBy("key ASC")
 	private Set<ApplicationResource> applicationResources;
 
@@ -67,6 +64,10 @@ public class ApplicationRole implements Serializable {
 
 	public void addApplicationResource(ApplicationResource applicationResource) {
 		applicationResources.add(applicationResource);
+	}
+
+	public void removeApplicationResource(ApplicationResource applicationResource) {
+		applicationResources.remove(applicationResource);
 	}
 
 	public void setApplicationResources(Set<ApplicationResource> applicationResources) {

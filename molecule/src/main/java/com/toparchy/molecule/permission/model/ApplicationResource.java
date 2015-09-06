@@ -10,10 +10,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "SYS_APPLICATION_RESOURCE")
@@ -32,7 +35,9 @@ public class ApplicationResource implements Serializable {
 	private String name;
 	@Column(name = "SYS_APPLICATION_RESOURCE_TYPE", length = 255)
 	private String type;
-	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "applicationResources")
+	@JsonIgnore
+	@OrderBy("key ASC")
 	private Set<ApplicationRole> applicationRoles;
 
 	public String getId() {

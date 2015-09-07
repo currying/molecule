@@ -17,14 +17,22 @@ public class RoleResourceRegistration {
 	private Event<ApplicationRole> applicationRoleEventSrc;
 
 	public void add(ApplicationRole applicationRole, ApplicationResource applicationResource) {
-		applicationRole.addApplicationResource(applicationResource);
-		em.merge(applicationRole);
-		// applicationRoleEventSrc.fire(applicationRole);
+		ApplicationRole role = em.find(ApplicationRole.class, applicationRole.getId());
+		ApplicationResource resource = em.find(ApplicationResource.class, applicationResource.getId());
+		role.addApplicationResource(resource);
+		// applicationRole.addApplicationResource(applicationResource);
+		em.merge(role);
+		em.flush();
+		// applicationRoleEventSrc.fire(role);
 	}
 
 	public void remove(ApplicationRole applicationRole, ApplicationResource applicationResource) {
-		applicationRole.removeApplicationResource(applicationResource);
-		em.merge(applicationRole);
+		ApplicationRole role = em.find(ApplicationRole.class, applicationRole.getId());
+		ApplicationResource resource = em.find(ApplicationResource.class, applicationResource.getId());
+		role.removeApplicationResource(resource);
+		// applicationRole.removeApplicationResource(applicationResource);
+		em.merge(role);
+		em.flush();
 		// applicationRoleEventSrc.fire(applicationRole);
 	}
 }

@@ -73,9 +73,11 @@ public class ApplicationRoleController implements Serializable {
 	public void onResourceChosen(SelectEvent event) {
 		ApplicationResource resource = (ApplicationResource) event.getObject();
 		roleResourceRegistration.add(selectApplicationRole, resource);
+		selectApplicationRole.addApplicationResource(resource);
 	}
 
 	public void removeResourceFromRole(ApplicationResource applicationResource) {
 		roleResourceRegistration.remove(selectApplicationRole, applicationResource);
+		selectApplicationRole.removeApplicationResource(applicationResource);
 	}
 }

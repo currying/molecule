@@ -7,11 +7,11 @@
 	template="/WEB-INF/templates/template.xhtml">
 	<ui:define name="content">
 		<p:dataTable var="group" value="#{groups}" selectionMode="single"
-			selection="#{groupListProducer.currentGroup}" rowKey="#{group.id}">
+			selection="#{groupController.currentGroup}" rowKey="#{group.id}">
 			<f:facet name="header">
 				<h:outputText value="组" />
 			</f:facet>
-			<p:ajax event="rowSelect" listener="#{groupListProducer.onRowSelect}" />
+			<p:ajax event="rowSelect" listener="#{groupController.onRowSelect}" />
 			<p:column headerText="组名">
 				<h:outputText value="#{group.name}" />
 			</p:column>

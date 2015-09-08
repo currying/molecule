@@ -23,7 +23,7 @@ public class RoleResourceRegistration {
 		// applicationRole.addApplicationResource(applicationResource);
 		em.merge(role);
 		em.flush();
-		// applicationRoleEventSrc.fire(role);
+		applicationRoleEventSrc.fire(role);
 	}
 
 	public void remove(ApplicationRole applicationRole, ApplicationResource applicationResource) {
@@ -33,6 +33,6 @@ public class RoleResourceRegistration {
 		// applicationRole.removeApplicationResource(applicationResource);
 		em.merge(role);
 		em.flush();
-		// applicationRoleEventSrc.fire(applicationRole);
+		applicationRoleEventSrc.fire(role);
 	}
 }

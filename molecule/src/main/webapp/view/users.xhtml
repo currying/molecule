@@ -10,13 +10,13 @@
 			<div class="ui-grid-row">
 				<div class="ui-grid-col-12">
 					<p:dataTable var="member" value="#{members}" selectionMode="single"
-						selection="#{memberListProducer.currentMember}"
+						selection="#{memberViewController.currentMember}"
 						rowKey="#{member.id}">
 						<f:facet name="header">
 							<h:outputText value="用户" />
 						</f:facet>
 						<p:ajax event="rowSelect"
-							listener="#{memberListProducer.onRowSelect}"
+							listener="#{memberViewController.onRowSelect}"
 							update="currentGroup" />
 						<p:column headerText="姓" style="width:48px">
 							<h:outputText value="#{member.firstName}" />
@@ -66,10 +66,10 @@
 				<div class="ui-grid-col-4"></div>
 			</div>
 		</div>
-<!-- 		<p:tree value="#{groupMemberTreeView.root}" var="node" animate="true"> -->
-<!-- 			<p:treeNode> -->
-<!-- 				<h:outputText value="#{node}" /> -->
-<!-- 			</p:treeNode> -->
-<!-- 		</p:tree> -->
+		<!-- 		<p:tree value="#{groupMemberTreeView.root}" var="node" animate="true"> -->
+		<!-- 			<p:treeNode> -->
+		<!-- 				<h:outputText value="#{node}" /> -->
+		<!-- 			</p:treeNode> -->
+		<!-- 		</p:tree> -->
 	</ui:define>
 </ui:composition>

@@ -19,31 +19,27 @@
 		</div>
 		<ps:menu id="sm_leftmenu">
 			<p:submenu id="cb" label="成本分析" icon="icon-yen">
-				<p:menuitem value="OLAP分析" icon="fa fa-file-text-o" outcome="main" />
+				<p:menuitem value="OLAP分析" outcome="bi/olap" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="sc" label="生产分析" icon="icon-hammer">
 				<p:menuitem value="项目状况看板" outcome="main" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="cg" label="采购分析" icon="icon-basket">
-				<p:menuitem value="OLAP分析" outcome="olap" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="kc" label="库存分析" icon="icon-database">
-				<p:menuitem value="OLAP分析" outcome="olap" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="sj" label="设计分析" icon="icon-gauge">
-				<p:menuitem value="OLAP分析" outcome="olap" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="zl" label="质量追溯" icon="icon-bug">
-				<p:menuitem value="OLAP分析" outcome="olap" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="push" label="任务推送" icon="icon-tasks">
 				<p:menuitem value="推送测试" outcome="push" icon="icon-tasks" />
 			</p:submenu>
 			<p:submenu id="system" label="系统设置" icon="icon-cog-alt">
-				<p:menuitem value="组织管理" outcome="group" icon="icon-users" />
-				<p:menuitem value="角色管理" outcome="role_resources"
+				<p:menuitem value="组织管理" outcome="system/group" icon="icon-users" />
+				<p:menuitem value="角色管理" outcome="system/role_resources"
 					icon="icon-link-2" />
-				<p:menuitem value="用户管理" outcome="users" icon="icon-user" />
+				<p:menuitem value="用户管理" outcome="system/users" icon="icon-user" />
 			</p:submenu>
 		</ps:menu>
 

@@ -1,6 +1,7 @@
 package com.toparchy.molecule.permission.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -38,7 +39,7 @@ public class ApplicationResource implements Serializable {
 	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "applicationResources")
 	@JsonIgnore
 	@OrderBy("key ASC")
-	private Set<ApplicationRole> applicationRoles;
+	private Set<ApplicationRole> applicationRoles = new HashSet<ApplicationRole>();
 
 	public String getId() {
 		return id;

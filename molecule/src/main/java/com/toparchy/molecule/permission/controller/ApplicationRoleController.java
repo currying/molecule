@@ -3,6 +3,7 @@ package com.toparchy.molecule.permission.controller;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.view.ViewScoped;
@@ -31,6 +32,14 @@ public class ApplicationRoleController implements Serializable {
 	@Produces
 	@Named
 	private Set<ApplicationResource> currentApplicationResources;
+	@Produces
+	@Named
+	private ApplicationRole newApplicationRole;
+
+	@PostConstruct
+	public void initNewApplicationRole() {
+		newApplicationRole = new ApplicationRole();
+	}
 
 	public ApplicationRole getSelectApplicationRole() {
 		return selectApplicationRole;
@@ -70,6 +79,14 @@ public class ApplicationRoleController implements Serializable {
 		RequestContext.getCurrentInstance().openDialog("selectApplicationResource");
 	}
 
+	public ApplicationRole getNewApplicationRole() {
+		return newApplicationRole;
+	}
+
+	public void setNewApplicationRole(ApplicationRole newApplicationRole) {
+		this.newApplicationRole = newApplicationRole;
+	}
+
 	public void onResourceChosen(SelectEvent event) {
 		ApplicationResource resource = (ApplicationResource) event.getObject();
 		roleResourceRegistration.add(selectApplicationRole, resource);
@@ -79,5 +96,14 @@ public class ApplicationRoleController implements Serializable {
 	public void removeResourceFromRole(ApplicationResource applicationResource) {
 		roleResourceRegistration.remove(selectApplicationRole, applicationResource);
 		selectApplicationRole.removeApplicationResource(applicationResource);
+	}
+
+	public void createApplicationRole() {
+		roleResourceRegistration.createRole(newApplicationRole);
+		initNewApplicationRole();
+	}
+
+	public void deleteRole() {
+		roleResourceRegistration.deleteRole(selectApplicationRole);
 	}
 }

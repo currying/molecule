@@ -17,10 +17,10 @@
 
 					<p:commandButton value="删除角色" id="deleteRole"
 						icon="ui-icon-closethick" onclick="PF('cd').show()"
-						disabled="#{applicationRoleController.disabled}" process="@this" />
+						disabled="#{applicationRoleController.disabled}" />
 					<p:confirmDialog header="删除角色" severity="alert" widgetVar="cd">
 						<f:facet name="message">
-							<h:outputText value="确认删除 “ #{selectApplicationRole.key} ”？" />
+							<h:outputText value="确认删除该角色？" />
 						</f:facet>
 						<p:commandButton value="删除"
 							actionListener="#{applicationRoleController.deleteRole}"
@@ -50,13 +50,14 @@
 					<p:inputText id="roleKey" value="#{newApplicationRole.key}"
 						required="true" requiredMessage="系统键值不可以为空">
 						<f:validateLength minimum="5" />
+						<f:validator validatorId="latinValidator" />
 						<p:ajax update="msgRoleKey" event="keyup" />
 					</p:inputText>
 					<p:message for="roleKey" id="msgRoleKey" display="icon" />
 					<h:outputText for="roleName" value="角色名称" />
 					<p:inputText id="roleName" value="#{newApplicationRole.name}"
 						required="true" requiredMessage="角色名称不可以为空">
-						<f:validateLength minimum="5" />
+						<f:validateLength minimum="3" />
 						<p:ajax update="msgRoleName" event="keyup" />
 					</p:inputText>
 					<p:message for="roleName" id="msgRoleName" display="icon" />

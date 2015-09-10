@@ -50,6 +50,7 @@
 					<p:inputText id="roleKey" value="#{newApplicationRole.key}"
 						required="true" requiredMessage="系统键值不可以为空">
 						<f:validateLength minimum="5" />
+						<f:validator validatorId="latinValidator" />
 						<p:ajax update="msgRoleKey" event="keyup" />
 					</p:inputText>
 					<p:message for="roleKey" id="msgRoleKey" display="icon" />

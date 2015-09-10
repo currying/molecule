@@ -105,5 +105,6 @@ public class ApplicationRoleController implements Serializable {
 
 	public void deleteRole() {
 		roleResourceRegistration.deleteRole(selectApplicationRole);
+		currentApplicationResources = null;
 	}
 }

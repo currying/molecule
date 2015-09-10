@@ -14,12 +14,22 @@
 						actionListener="#{applicationRoleController.createApplicationRole}"
 						update="newRolePanel,applicationRoles">
 					</p:commandButton>
+
 					<p:commandButton value="删除角色" id="deleteRole"
-						icon="ui-icon-closethick"
-						actionListener="#{applicationRoleController.deleteRole}"
-						update="newRolePanel,applicationRoles"
-						disabled="#{applicationRoleController.disabled}" process="@this">
-					</p:commandButton>
+						icon="ui-icon-closethick" onclick="PF('cd').show()"
+						disabled="#{applicationRoleController.disabled}" process="@this" />
+					<p:confirmDialog header="删除角色" severity="alert" widgetVar="cd">
+						<f:facet name="message">
+							<h:outputText value="确认删除 “ #{selectApplicationRole.key} ”？" />
+						</f:facet>
+						<p:commandButton value="删除"
+							actionListener="#{applicationRoleController.deleteRole}"
+							update="newRolePanel,applicationRoles"
+							oncomplete="PF('cd').hide()" icon="ui-icon-check" process="@this" />
+						<p:commandButton value="取消" onclick="PF('cd').hide();"
+							type="button" icon="ui-icon-closethick" />
+					</p:confirmDialog>
+
 					<p:commandButton value="添加操作资源" id="selectResource"
 						icon="ui-icon-search"
 						actionListener="#{applicationRoleController.chooseResource}"

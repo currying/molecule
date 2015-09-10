@@ -30,7 +30,7 @@ public class ApplicationRole implements Serializable {
 	private String key;
 	@Column(name = "SYS_APPLICATION_ROLE_NAME", length = 255)
 	private String name;
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToMany(cascade = { CascadeType.REFRESH, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@OrderBy("key ASC")
 	private Set<ApplicationResource> applicationResources;
 

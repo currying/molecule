@@ -13,7 +13,7 @@
 <h:body>
 	<h:form>
 		<p:dataTable var="applicationRole" value="#{applicationRoles}"
-			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 			paginator="true" rows="5">
 			<p:column headerText="ID">
 				<h:outputText value="#{applicationRole.id}" />

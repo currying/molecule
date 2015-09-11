@@ -20,6 +20,14 @@ public class ApplicationRoleRepository {
 		return em.find(ApplicationRole.class, id);
 	}
 
+	public ApplicationRole findByKey(String key) {
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<ApplicationRole> criteria = cb.createQuery(ApplicationRole.class);
+		Root<ApplicationRole> applicationRole = criteria.from(ApplicationRole.class);
+		criteria.select(applicationRole).where(cb.equal(applicationRole.get("key"), key));
+		return em.createQuery(criteria).getSingleResult();
+	}
+
 	public List<ApplicationRole> findAll() {
 		CriteriaBuilder cb = em.getCriteriaBuilder();
 		CriteriaQuery<ApplicationRole> criteria = cb.createQuery(ApplicationRole.class);

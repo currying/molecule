@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>系统角色选择</title>
+	<style type="text/css">
+.ui-widget {
+	font-size: 90%;
+}
+</style>
+</h:head>
+<h:body>
+	<h:form>
+		<p:dataTable var="applicationRole" value="#{applicationRoles}"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+			paginator="true" rows="5">
+			<p:column headerText="ID">
+				<h:outputText value="#{applicationRole.id}" />
+			</p:column>
+
+			<p:column headerText="KEY">
+				<h:outputText value="#{applicationRole.key}" />
+			</p:column>
+
+			<p:column headerText="NAME">
+				<h:outputText value="#{applicationRole.name}" />
+			</p:column>
+
+			<p:column headerText="选择角色">
+				<p:commandButton icon="ui-icon-search"
+					actionListener="#{memberViewController.selectRoleFromDialog(applicationRole)}" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+
+</html>

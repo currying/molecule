@@ -176,6 +176,7 @@ transition: all 0.5s ease;
 }
 input[type="text"].ui-state-error,
 input[type="password"].ui-state-error,
+.ui-inputtextarea.ui-state-error,
 .ui-widget-content .ui-state-error,
 .ui-widget-header .ui-state-error {
 	border: 1px solid #F03369 !important;
@@ -530,8 +531,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1578c9', end
     .ui-datatable .ui-datatable-scrollable-header,
     .ui-datatable .ui-datatable-scrollable-footer{color: #72828B; background-color: #dae8ef; outline: none; -webkit-transition: all 0.5s ease; -moz-transition: all 0.5s ease; -ms-transition: all 0.5s ease;
                                                   -o-transition: all 0.5s ease; transition: all 0.5s ease;}
-    .ui-datatable .ui-datatable-scrollable-header{border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; -webkit-border-radius: 5px 5px 0px 0px; border: 0px solid #000000;}
-    .ui-datatable .ui-datatable-scrollable-footer{border-radius: 0px 0px 5px 5px; -moz-border-radius: 0px 0px 5px 5px; -webkit-border-radius: 0px 0px 5px 5px; border: 0px solid #000000;}
+    .ui-datatable .ui-datatable-scrollable-header{/*border-radius: 5px 5px 0px 0px; -moz-border-radius: 5px 5px 0px 0px; -webkit-border-radius: 5px 5px 0px 0px;*/ border: 0px solid #000000;}
+    .ui-datatable .ui-datatable-scrollable-footer{/*border-radius: 0px 0px 5px 5px; -moz-border-radius: 0px 0px 5px 5px; -webkit-border-radius: 0px 0px 5px 5px;*/ border: 0px solid #000000;}
     .ui-datatable-frozenlayout-left .ui-datatable-scrollable-header,
     .ui-datatable-frozenlayout-left .ui-datatable-scrollable-footer{border-radius: 0px !important; -webkit-border-radius: 0px !important; -moz-border-radius: 0px !important;}
     .ui-datatable-frozenlayout-right .ui-datatable-scrollable-header,
@@ -594,10 +595,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1578c9', end
                             background-position:center !important; background-size:120%;}
             .ui-datatable .ui-datatable-tablewrapper table tbody tr td .ui-row-editor .ui-icon-close{background-image:url("#{resource['primefaces-sentinel:images/delete-gray.svg']}"); 
                             background-position:center !important; background-size:120%;}
-        .ui-datatable .ui-datatable-tablewrapper table tbody .ui-state-hover td{background-color:#58656B; color: #FFFFFF;}
-        .ui-datatable .ui-datatable-tablewrapper table tbody .ui-state-highlight td{  background-color:#58656B; color: #FFFFFF;}
+        .ui-datatable .ui-datatable-tablewrapper table tbody .ui-state-hover > td{background-color:#58656B; color: #FFFFFF;}
+        .ui-datatable .ui-datatable-tablewrapper table tbody .ui-state-highlight > td,
+        .ui-datatable-scrollable table tbody .ui-state-highlight > td,
+        .ui-datatable-scrollable table tbody .ui-state-hover > td{background-color:#58656B; color: #FFFFFF;}
             .ui-datatable .ui-datatable-tablewrapper table tbody tr td .ui-icon-arrow-4{background-image:url("#{resource['primefaces-sentinel:images/movearrow-gray.svg']}"); 
                             background-position:center !important; background-size:100%;}
+        .ui-datatable-scrollable-theadclone th.ui-state-default {border-bottom-width: 0 !important; border-top-width: 0 !important; padding-bottom: 0 !important; padding-top: 0 !important;
+            outline: 0 none !important;}
         
         .ui-datatable .ui-datatable-tablewrapper table thead tr .ui-state-default .ui-icon-carat-2-n-s,
         .ui-datatable .ui-datatable-sticky table thead tr .ui-state-default .ui-icon-carat-2-n-s{background-image:url("#{resource['primefaces-sentinel:images/updown-gray-arrow.svg']}"); 
@@ -611,6 +616,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1578c9', end
         .ui-datatable .ui-datatable-tablewrapper table thead tr .ui-state-active .ui-icon-triangle-1-s,
         .ui-datatable .ui-datatable-sticky table thead tr .ui-state-active .ui-icon-triangle-1-s{background-image:url("#{resource['primefaces-sentinel:images/downarrow.svg']}"); 
                             background-position:center !important; background-size:110%; background-repeat:no-repeat; margin-left: 5px;}
+        
+        .ui-datatable .ui-datatable-scrollable-header table thead tr .ui-state-default .ui-icon-carat-2-n-s {background-image:url("#{resource['primefaces-sentinel:images/updown-gray-arrow.svg']}");
+        background-position:center !important; background-size:110%; background-repeat:no-repeat; margin-left: 5px;}
+        .ui-datatable .ui-datatable-scrollable-header table thead tr .ui-state-hover .ui-icon-carat-2-n-s {background-image:url("#{resource['primefaces-sentinel:images/updown-arrow.svg']}");
+            background-position:center !important; background-size:110%; background-repeat:no-repeat; margin-left: 5px;}
+        .ui-datatable .ui-datatable-scrollable-header table thead tr .ui-state-active .ui-icon-triangle-1-n {background-image:url("#{resource['primefaces-sentinel:images/uparrow.svg']}");
+            background-position:center !important; background-size:110%; background-repeat:no-repeat; margin-left: 5px;}
+        .ui-datatable .ui-datatable-scrollable-header table thead tr .ui-state-active .ui-icon-triangle-1-s {background-image:url("#{resource['primefaces-sentinel:images/downarrow.svg']}");
+            background-position:center !important; background-size:110%; background-repeat:no-repeat; margin-left: 5px;}
+        .ui-datatable .ui-datatable-scrollable-header table thead tr th.ui-state-active,
+        .ui-datatable .ui-datatable-scrollable-header table thead tr th.ui-state-hover,
+        .ui-datatable .ui-datatable-scrollable-header table thead tr th.ui-state-active{background-color: #27aae1 !important; color: #fff;}
         
     .ui-datatable-footer{background-color:#F9FAFC; color:#829CA6;}
     
@@ -1392,10 +1409,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1578c9', end
     
 /*Style For UI SplitButton ------------------------------------------------------------------------------------- */ 
 
-.ui-splitbutton{border:solid 1px #d1d3d4; border-radius:8px; -webkit-border-radius:8px; -moz-border-radius:8px; padding: 2px; background-color: #EFF3F5;}
-.ui-splitbutton:hover, .ui-splitbutton:focus{border:solid 1px #27AAE1;}
+.ui-splitbutton{background-color: #EFF3F5;}
+.ui-splitbutton .ui-splitbutton-menubutton {margin-left: -1px !important;}
 .ui-splitbutton .ui-splitbutton-menubutton .ui-icon{background-image:url("#{resource['primefaces-sentinel:images/menu-dots.svg']}") !important; background-size: 100%; background-position: center;}
 .ui-splitbutton .ui-button{border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px;}
+
+/* Style For Button Sets -------------------------------------------------------------------------------------- */
+.ui-selectonebutton .ui-button,
+.ui-selectmanybutton .ui-button{margin-right:0px !important;}
+.ui-selectonebutton .ui-button .ui-button-text,
+.ui-selectmanybutton .ui-button .ui-button-text{border-radius:0px !important; -webkit-border-radius:0px !important; -moz-border-radius:0px !important;}
+.ui-selectonebutton .ui-button.ui-corner-left .ui-button-text,
+.ui-selectmanybutton .ui-button.ui-corner-left .ui-button-text{border-top-left-radius:5px !important; border-bottom-left-radius:5px !important;
+            -webkit-border-top-left-radius:5px !important; -webkit-border-bottom-left-radius:5px !important;
+            -moz-border-top-left-radius:5px !important; -moz-border-bottom-left-radius:5px !important;}
+.ui-selectonebutton .ui-button.ui-corner-right .ui-button-text,
+.ui-selectmanybutton .ui-button.ui-corner-right .ui-button-text{border-top-right-radius:5px !important; border-bottom-right-radius:5px !important;
+            -webkit-border-top-right-radius:5px !important; -webkit-border-bottom-right-radius:5px !important;
+            -moz-border-top-right-radius:5px !important; -moz-border-bottom-right-radius:5px !important;}
 
 
 /*Style For UI Menu ------------------------------------------------------------------------------------- */
@@ -1528,7 +1559,7 @@ ui-message-fatal{color: #F55151 !important; background-color: #FBFCFD !important
                     border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;}
 /*Style For SelectOneMenu And SelectCheckBoxMenu ------------------------------------------------------------------------------------- */
 
-.ui-selectonemenu, .ui-selectcheckboxmenu{font-size:16px !important; font-family: 'titillium_webregular' !important; padding:0px 15px 0px 0px !important; border:solid 1px #C0C5C7 !important; -webkit-transition: all 0.5s ease;
+.ui-selectonemenu, .ui-selectcheckboxmenu{font-size:16px !important; font-family: 'titillium_webregular' !important; padding:0px 2em 0px 0px !important; border:solid 1px #C0C5C7 !important; -webkit-transition: all 0.5s ease;
 				 -moz-transition: all 0.5s ease; -ms-transition: all 0.5s ease; -o-transition: all 0.5s ease; transition: all 0.5s ease; color: #72828B;}
 	.ui-selectonemenu .ui-selectonemenu-trigger, .ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger{padding: 0 5px !important; font-size: 16px !important; font-size:16px; border:solid 1px #175787 !important; color:#ffffff !important;
 					-webkit-box-shadow:inset 0 0 0 1px #26A3DB !important; -moz-box-shadow:inset 0 0 0 1px #26A3DB !important; box-shadow:inset 0 0 0 1px #26A3DB !important;
@@ -1594,17 +1625,25 @@ ui-message-fatal{color: #F55151 !important; background-color: #FBFCFD !important
 
 .ui-growl{width: 200px !important; top: 110px !important; right:12px !important;}
 	.ui-growl-item-container{opacity: 1; filter: alpha(opacity=100); padding:14px;}
-        .ui-growl-item{padding: 20px 20px !important; background-color: #FBFCFD; border: solid 1px #F03369; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;}
-	.ui-growl-message{width:100px !important; font-size:13px !important; line-height: 15px !important; color:#F03369 !important;}
+        .ui-growl-item{padding: 20px 20px !important; background-color: #FBFCFD; border: solid 1px #3D3D3D; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px;}
+	.ui-growl-message{width:100px !important; font-size:13px !important; line-height: 15px !important;}
 	.ui-growl-image{width: 21px !important; height: 23px !important;}
-	.ui-growl-image-error, .ui-growl-image-warn{background-image:url("#{resource['primefaces-sentinel:images/warn-pink.svg']}") !important; background-position:center !important; 
+	.ui-growl-image-error{background-image:url("#{resource['primefaces-sentinel:images/warn-pink.svg']}") !important; background-position:center !important; 
                              background-size: 140% !important; margin-top:5px;}
-        .ui-growl-image-info{background-image:url("#{resource['primefaces-sentinel:images/warn-pink.svg']}") !important; background-position:center !important; 
+    .ui-growl-image-warn{background-image:url("#{resource['primefaces-sentinel:images/warn-hardal.svg']}") !important; background-position:center !important; 
+                             background-size: 140% !important; margin-top:5px;}
+    .ui-growl-image-info{background-image:url("#{resource['primefaces-sentinel:images/warn-blue.svg']}") !important; background-position:center !important; 
+                             background-size: 140% !important; margin-top:5px;}
+    .ui-growl-image-fatal{background-image:url("#{resource['primefaces-sentinel:images/warn-red.svg']}") !important; background-position:center !important; 
                              background-size: 140% !important; margin-top:5px;}
 	.ui-growl-icon-close{width:10px !important; height:10px !important; background-image:url("#{resource['primefaces-sentinel:images/delete-pink.svg']}") !important; 
                             background-position:center !important; background-size:130% !important;}
 
-
+    .ui-growl-image-info + .ui-growl-message { color: #63BCE2 !important; }
+    .ui-growl-image-warn + .ui-growl-message { color: #F9BF08 !important; }
+    .ui-growl-image-error + .ui-growl-message { color: #F03369 !important; }
+    .ui-growl-image-fatal + .ui-growl-message { color: #F55151 !important; }
+    
 /*Style For UI Log ------------------------------------------------------------------------------------- */
 
 .ui-log{border: solid 1px #C0C5C7; padding: 2px !important; background-color: #FBFCFD !important;-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2) !important;

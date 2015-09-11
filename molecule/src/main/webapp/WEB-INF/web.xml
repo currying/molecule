@@ -5,6 +5,10 @@
 	version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
 	<display-name>platform</display-name>
 	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/primefaces-sentinel.taglib.xml</param-value>
+	</context-param>
+	<context-param>
 		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
 		<param-value>server</param-value>
 	</context-param>

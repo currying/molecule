@@ -12,7 +12,6 @@ import javax.faces.validator.ValidatorException;
 
 @FacesValidator("latinValidator")
 public class LatinValidator implements Validator {
-
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
 		Matcher matcher = Pattern.compile("^[A-Z]+_*[A-Z]+$").matcher((String) value);
@@ -20,5 +19,4 @@ public class LatinValidator implements Validator {
 			throw new ValidatorException(new FacesMessage("只能是大写英文字母及下划线，且下划线不能在开头与结尾处"));
 		}
 	}
-
 }

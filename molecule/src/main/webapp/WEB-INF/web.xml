@@ -255,7 +255,7 @@
 		<mime-type>image/svg+xml</mime-type>
 	</mime-mapping>
 	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
+		<welcome-file>login.xhtml</welcome-file>
 	</welcome-file-list>
 	<session-config>
 		<session-timeout>60</session-timeout>

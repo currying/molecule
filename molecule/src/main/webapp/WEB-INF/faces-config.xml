@@ -10,8 +10,9 @@
 		<view-handler>org.primefaces.application.DialogViewHandler</view-handler>
 	</application>
 	<protected-views>
-		<url-pattern>/*.xhtml</url-pattern>
-		<url-pattern>/system/*.xhtml</url-pattern>
+		<url-pattern>/system/group.xhtml</url-pattern>
+		<url-pattern>/system/role_resources.xhtml</url-pattern>
+		<url-pattern>/system/users.xhtml</url-pattern>
 	</protected-views>
 	<component>
 		<component-type>org.primefaces.component.SentinelMenu</component-type>

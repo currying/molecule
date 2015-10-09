@@ -3,7 +3,6 @@ package com.toparchy.molecule.netty;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.PooledByteBufAllocator;
 import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
@@ -25,19 +24,14 @@ public class NettyServer {
 
 	public void run() {
 		EventLoopGroup acceptor = new NioEventLoopGroup(1);
-		EventLoopGroup worker = new NioEventLoopGroup(
-				RuntimeUtils.getProcessors() * 2);
+		EventLoopGroup worker = new NioEventLoopGroup(RuntimeUtils.getProcessors() * 2);
 		channelInitializer = new PushChannelInitializer();
 		try {
 			ServerBootstrap sbs = new ServerBootstrap();
-			sbs.group(acceptor, worker)
-					.channel(NioServerSocketChannel.class)
+			sbs.group(acceptor, worker).channel(NioServerSocketChannel.class)
 					.childOption(ChannelOption.TCP_NODELAY, true)
-					.childOption(ChannelOption.ALLOCATOR,
-							PooledByteBufAllocator.DEFAULT)
-					.localAddress(host, port)
-					.handler(new LoggingHandler(LogLevel.INFO))
-					.childHandler(channelInitializer);
+					.childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT).localAddress(host, port)
+					.handler(new LoggingHandler(LogLevel.INFO)).childHandler(channelInitializer);
 			sbs.bind().sync();
 		} catch (InterruptedException e) {
 			e.printStackTrace();

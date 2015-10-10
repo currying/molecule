@@ -108,6 +108,12 @@
 				<version>9.0.1.Final</version>
 				<type>pom</type>
 			</dependency>
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>jboss-javaee-7.0-wildfly</artifactId>
+				<version>9.0.1.Final</version>
+				<type>pom</type>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

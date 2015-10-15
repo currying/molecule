@@ -5,27 +5,15 @@ import java.util.Date;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
-/**
- * 
- * 推送消处表单
- * 
- * @author flatychen
- * 
- */
+import com.toparchy.molecule.netty.Client;
+import com.toparchy.molecule.netty.PushMessagePacket;
+
 public class PushMessageForm implements Serializable {
 
 	private static final long serialVersionUID = -199209507778458986L;
 
 	private Client client;
-
-	/**
-	 * 标题
-	 */
 	private String title;
-
-	/**
-	 * 内容
-	 */
 	private String content;
 
 	private int pushAction;

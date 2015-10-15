@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<h:panelGrid id="grid" columns="3" cellpadding="10">
+				<h:outputText for="msgType" value="消息类型" />
+				<p:selectOneMenu id="msgType" value="#{newPushMessageForm.msgType}"
+					required="true" label="消息类型">
+					<f:selectItem itemLabel="选择消息类型" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItem itemLabel="普通消息（通知）" itemValue="1" />
+					<f:selectItem itemLabel="透传消息（静默）" itemValue="0" />
+				</p:selectOneMenu>
+				<p:message for="msgType" />
+				<h:outputText for="deviceType" value="设备类型" />
+				<p:selectOneMenu id="deviceType"
+					value="#{newPushMessageForm.deviceType}" required="true"
+					label="设备类型">
+					<f:selectItem itemLabel="选择设备类型" itemValue=""
+						noSelectionOption="true" />
+					<f:selectItem itemLabel="Android" itemValue="3" />
+					<f:selectItem itemLabel="IOS" itemValue="4" />
+				</p:selectOneMenu>
+				<p:message for="deviceType" />
+				<h:outputText for="channelId" value="channelId" />
+				<p:inputText id="channelId" value="#{newPushMessageForm.channelId}"
+					required="true" label="channelId" />
+				<p:message for="channelId" />
+				<h:outputText for="title" value="标题" />
+				<p:inputText id="title" value="#{newPushMessageForm.title}"
+					required="true" label="标题" />
+				<p:message for="title" />
+				<h:outputText for="content" value="内容" />
+				<p:inputTextarea id="content" value="#{newPushMessageForm.content}"
+					cols="100" rows="10" required="true" label="内容" />
+				<p:message for="content" />
+			</h:panelGrid>
+			<p:commandButton actionListener="#{pushController.push}" value="推送"
+				update="result,grid" validateClient="true" />
+			<p:panel id="result">
+				<h:outputText value="#{pushController.baseDataWrapper.success}" />
+				<h:outputText value="#{pushController.baseDataWrapper.data}" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

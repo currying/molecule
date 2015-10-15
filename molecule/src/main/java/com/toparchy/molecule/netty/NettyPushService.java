@@ -4,7 +4,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 
 @ApplicationScoped
-public class PushServiceProxy {
+public class NettyPushService {
 	@Inject
 	private PushService pushService;
 
@@ -29,8 +29,7 @@ public class PushServiceProxy {
 
 		// 推送消息
 		try {
-			pushService.sendOnLineClient(pushMessageBean.getClient(),
-					pushMessage);
+			pushService.sendOnLineClient(pushMessageBean.getClient(), pushMessage);
 		} catch (Exception e) {
 			e.printStackTrace();
 			json.setSuccess(false);

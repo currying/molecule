@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<p:tabView dynamic="true" cache="false">
+			<p:tab title="单设备推送">
+				<h:form>
+					<h:panelGrid id="grid1" columns="3" cellpadding="10">
+						<h:outputText for="msgType" value="消息类型" />
+						<p:selectOneMenu id="msgType" value="#{pushMessageForm.msgType}"
+							required="true" label="消息类型" width="136px">
+							<f:selectItem itemLabel="普通消息" itemValue="1" />
+							<f:selectItem itemLabel="透传消息" itemValue="0" />
+						</p:selectOneMenu>
+						<p:message for="msgType" />
+						<h:outputText for="deviceType" value="设备类型" />
+						<p:selectOneMenu id="deviceType"
+							value="#{pushMessageForm.deviceType}" required="true"
+							label="设备类型" width="136px">
+							<f:selectItem itemLabel="设备类型" itemValue=""
+								noSelectionOption="true" />
+							<f:selectItem itemLabel="Android" itemValue="3" />
+							<f:selectItem itemLabel="IOS" itemValue="4" />
+						</p:selectOneMenu>
+						<p:message for="deviceType" />
+
+						<h:outputText for="expires" value="过期时间" />
+						<p:spinner id="expires" value="#{pushMessageForm.expires}"
+							label="expires" size="29" />
+						<p:message for="expires" />
+
+						<h:outputText for="dataTime" value="推送时间" />
+						<p:outputPanel id="dataTime">
+							<p:selectOneRadio id="customRadio"
+								value="#{pushController.immediate}" layout="custom"
+								required="true">
+								<f:selectItem itemLabel="即时推送" itemValue="true" />
+								<f:selectItem itemLabel="定时推送" itemValue="false" />
+							</p:selectOneRadio>
+							<h:panelGrid columns="5" cellpadding="5">
+								<p:radioButton id="opt1" for="customRadio" itemIndex="0" />
+								<h:outputLabel for="opt1" value="即时推送" />
+								<p:radioButton id="opt2" for="customRadio" itemIndex="1" />
+								<h:outputLabel for="opt2" value="定时推送" />
+								<p:calendar value="#{pushMessageForm.sendTime}"
+									pattern="yyyy-MM-dd HH:mm" />
+							</h:panelGrid>
+						</p:outputPanel>
+						<p:message for="dataTime" />
+
+						<h:outputText for="channelId" value="channelId" />
+						<p:inputText id="channelId" value="#{pushMessageForm.channelId}"
+							label="channelId" size="36" />
+						<p:message for="channelId" />
+						<h:outputText for="title" value="标题" />
+						<p:inputText id="title" value="#{pushMessageForm.title}"
+							label="标题" size="72" />
+						<p:message for="title" />
+						<h:outputText for="content" value="内容" />
+						<p:inputTextarea id="content" value="#{pushMessageForm.content}"
+							cols="100" rows="10" required="true" label="内容" />
+						<p:message for="content" />
+					</h:panelGrid>
+					<p:commandButton actionListener="#{pushController.pushMsgToDevic}"
+						value="推送" update="result1,grid1" validateClient="true" />
+					<p:panel id="result1">
+						<h:outputText value="#{pushController.baseDataWrapper.success}" />
+						<h:outputText value="#{pushController.baseDataWrapper.data}" />
+					</p:panel>
+				</h:form>
+			</p:tab>
+			<p:tab title="多设备推送">
+			</p:tab>
+			<p:tab title="设备统计">
+				<h:form>
+					<p:commandButton
+						actionListener="#{pushController.queryStatisticDevice}" value="查询"
+						update="result3" validateClient="true" />
+					<p:panel id="result3">
+						<h:outputText value="#{pushController.baseDataWrapper.success}" />
+						<h:outputText value="#{pushController.baseDataWrapper.data}" />
+					</p:panel>
+				</h:form>
+			</p:tab>
+		</p:tabView>
+	</ui:define>
+</ui:composition>

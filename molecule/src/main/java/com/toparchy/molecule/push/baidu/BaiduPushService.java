@@ -232,8 +232,6 @@ public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 				json.setData(responseMap);
 			}
 		}
-
 		return json;
 	}
-
 }

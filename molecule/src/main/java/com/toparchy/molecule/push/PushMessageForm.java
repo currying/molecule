@@ -78,5 +78,4 @@ public class PushMessageForm implements Serializable {
 	public void setSendTime(Date sendTime) {
 		this.sendTime = sendTime;
 	}
-
 }

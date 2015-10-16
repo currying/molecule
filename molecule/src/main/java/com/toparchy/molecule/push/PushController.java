@@ -52,7 +52,6 @@ public class PushController implements Serializable {
 
 	@P00000009
 	public void pushMsgToDevic() throws PushClientException, PushServerException {
-		System.out.println(immediate);
 		if (immediate) {
 			pushMessageForm.setSendTime(null);
 		}

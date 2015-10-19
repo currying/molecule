@@ -17,7 +17,6 @@ import org.picketlink.idm.model.Account;
 import org.picketlink.idm.model.basic.Grant;
 import org.picketlink.idm.model.basic.Group;
 import org.picketlink.idm.model.basic.GroupMembership;
-import org.picketlink.idm.model.basic.GroupRole;
 import org.picketlink.idm.model.basic.Role;
 import org.picketlink.idm.query.RelationshipQuery;
 
@@ -44,6 +43,13 @@ public class LoginRest {
 					.type(MediaType.APPLICATION_JSON_TYPE).build();
 		}
 		return Response.ok().entity("").type(MediaType.APPLICATION_JSON_TYPE).build();
+	}
+
+	@POST
+	@Path("/pushBind")
+	public void pushBind(PushData pushData) {
+		System.out
+				.println("pushChannelId: " + pushData.getPushChannelId() + "\npushUserId: " + pushData.getPushUserId());
 	}
 
 	@POST

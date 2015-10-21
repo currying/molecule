@@ -11,4 +11,24 @@
 			<password>822005</password>
 		</security>
 	</datasource>
+
+	<datasource jndi-name="java:jboss/datasources/gswlDS"
+		pool-name="gswl" enabled="true" use-java-context="true">
+		<connection-url>jdbc:jtds:sqlserver://192.168.111.110:1433/gswl</connection-url>
+		<driver>mssql</driver>
+		<security>
+			<user-name>sa</user-name>
+			<password>822005</password>
+		</security>
+	</datasource>
+
+	<datasource jndi-name="java:jboss/datasources/wzxtDS"
+		pool-name="wzxt" enabled="true" use-java-context="true">
+		<connection-url>jdbc:jtds:sqlserver://192.168.111.110:1433/wzxt</connection-url>
+		<driver>mssql</driver>
+		<security>
+			<user-name>sa</user-name>
+			<password>822005</password>
+		</security>
+	</datasource>
 </datasources>

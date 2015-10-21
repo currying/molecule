@@ -13,7 +13,7 @@ import org.picketlink.annotations.PicketLink;
 
 public class Resources {
 	@Produces
-	@PersistenceContext
+	@PersistenceContext(unitName = "molecule")
 	private EntityManager em;
 
 	@PicketLink
@@ -23,8 +23,7 @@ public class Resources {
 
 	@Produces
 	public Logger produceLog(InjectionPoint injectionPoint) {
-		return Logger.getLogger(injectionPoint.getMember().getDeclaringClass()
-				.getName());
+		return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
 	}
 
 	@Produces

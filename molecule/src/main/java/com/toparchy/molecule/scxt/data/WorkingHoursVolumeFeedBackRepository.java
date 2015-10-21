@@ -13,7 +13,7 @@ import com.toparchy.molecule.scxt.model.WorkingHoursVolumeFeedBack;
 @ApplicationScoped
 public class WorkingHoursVolumeFeedBackRepository {
 
-	@PersistenceUnit(name = "paltform")
+	@PersistenceUnit(unitName = "gswl")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

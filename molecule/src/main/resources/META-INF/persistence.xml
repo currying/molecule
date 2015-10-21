@@ -19,6 +19,26 @@
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="false" />
+			<property name="wildfly.jpa.default-unit" value="true" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="gswl">
+		<jta-data-source>java:jboss/datasources/gswlDS</jta-data-source>
+		<class>com.toparchy.molecule.scxt.model.WorkingHoursVolume</class>
+		<class>com.toparchy.molecule.scxt.model.WorkingHoursVolumeFeedBack</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="wzxt">
+		<jta-data-source>java:jboss/datasources/wzxtDS</jta-data-source>
+		<class>com.toparchy.molecule.wzxt.model.MaterialStorage</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 	</persistence-unit>
 </persistence>

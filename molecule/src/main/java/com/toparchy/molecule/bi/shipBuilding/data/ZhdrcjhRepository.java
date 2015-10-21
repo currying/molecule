@@ -17,7 +17,7 @@ import com.toparchy.molecule.bi.shipBuilding.model.ZhdrcjhInternalData;
 
 @ApplicationScoped
 public class ZhdrcjhRepository {
-	@PersistenceUnit(name = "molecule")
+	@PersistenceUnit(unitName = "molecule")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

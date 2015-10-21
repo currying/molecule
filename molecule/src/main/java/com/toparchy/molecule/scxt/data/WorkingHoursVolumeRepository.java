@@ -13,7 +13,7 @@ import com.toparchy.molecule.scxt.model.WorkingHoursVolume;
 @ApplicationScoped
 public class WorkingHoursVolumeRepository {
 
-	@PersistenceUnit(name = "paltform")
+	@PersistenceUnit(unitName = "gswl")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

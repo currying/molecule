@@ -15,7 +15,7 @@ import com.toparchy.molecule.bi.shipBuilding.model.Wldzjh;
 
 @Model
 public class WldzjhRepository {
-	@PersistenceUnit(name = "molecule")
+	@PersistenceUnit(unitName = "molecule")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

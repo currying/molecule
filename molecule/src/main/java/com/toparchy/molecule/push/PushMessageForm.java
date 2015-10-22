@@ -6,14 +6,14 @@ import java.util.Date;
 public class PushMessageForm implements Serializable {
 
 	private static final long serialVersionUID = 6398410963067491384L;
-	private String channelId;
-	private String userId;
 	private String title;
 	private String content;
 	private int msgType;
 	private int deviceType;
 	private int expires = 5;
 	private Date sendTime;
+	private String channelId;
+	private String userId;
 
 	public String getChannelId() {
 		return channelId;

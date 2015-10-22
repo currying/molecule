@@ -30,7 +30,6 @@ import net.sf.json.JSONObject;
 @RequestScoped
 public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 
-	@Override
 	public BaseDataWrapper pushMsgToSingleDevic(PushMessageForm pushMessageForm)
 			throws PushClientException, PushServerException {
 		BaseDataWrapper json = new BaseDataWrapper();
@@ -50,7 +49,7 @@ public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 			notification.put("notification_builder_id", 0);
 			notification.put("notification_basic_style", 4);
 			notification.put("open_type", 1);
-			notification.put("url", "http://push.baidu.com");
+			// notification.put("url", "http://push.baidu.com");
 			JSONObject jsonCustormCont = new JSONObject();
 			jsonCustormCont.put("key", "value"); // 自定义内容，key-value
 			notification.put("custom_content", jsonCustormCont);
@@ -180,7 +179,7 @@ public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 				notification.put("notification_builder_id", 0);
 				notification.put("notification_basic_style", 4);
 				notification.put("open_type", 1);
-				notification.put("url", "http://push.baidu.com");
+				// notification.put("url", "http://push.baidu.com");
 				JSONObject jsonCustormCont = new JSONObject();
 				jsonCustormCont.put("key", "value"); // 自定义内容，key-value
 				notification.put("custom_content", jsonCustormCont);
@@ -234,4 +233,5 @@ public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 		}
 		return json;
 	}
+
 }

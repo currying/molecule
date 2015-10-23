@@ -48,6 +48,7 @@
 // this.partitionManager.createRelationshipManager();
 // grantRole(relationshipManager, user, role);
 // }
+//
 // private void createGroup(String groupName, String roleName) {
 // Group group = new Group(groupName);
 // IdentityManager identityManager =

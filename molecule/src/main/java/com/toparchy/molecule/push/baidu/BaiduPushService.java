@@ -48,7 +48,8 @@ public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 			notification.put("description", pushMessageForm.getContent());
 			notification.put("notification_builder_id", 0);
 			notification.put("notification_basic_style", 4);
-			notification.put("open_type", 1);
+			notification.put("open_type", 2);
+			notification.put("pkg_content", pushMessageForm.getPkg_content());
 			// notification.put("url", "http://push.baidu.com");
 			JSONObject jsonCustormCont = new JSONObject();
 			jsonCustormCont.put("key", "value"); // 自定义内容，key-value
@@ -178,7 +179,8 @@ public class BaiduPushService implements PushServiceProxy<BaseDataWrapper> {
 				notification.put("description", pushMessageForm.getContent());
 				notification.put("notification_builder_id", 0);
 				notification.put("notification_basic_style", 4);
-				notification.put("open_type", 1);
+				notification.put("open_type", 2);
+				notification.put("pkg_content", pushMessageForm.getPkg_content());
 				// notification.put("url", "http://push.baidu.com");
 				JSONObject jsonCustormCont = new JSONObject();
 				jsonCustormCont.put("key", "value"); // 自定义内容，key-value

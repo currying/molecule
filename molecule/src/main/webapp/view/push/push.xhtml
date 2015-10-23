@@ -59,7 +59,11 @@
 						<h:outputText for="title" value="标题" />
 						<p:inputText id="title" value="#{pushMessageForm.title}"
 							label="标题" size="72" />
-						<p:message for="title" />
+						<p:message for="pkg_content" />
+						<h:outputText for="pkg_content" value="行为" />
+						<p:inputText id="pkg_content" value="#{pushMessageForm.pkg_content}"
+							label="行为" size="72" />
+						<p:message for="pkg_content" />
 						<h:outputText for="content" value="内容" />
 						<p:inputTextarea id="content" value="#{pushMessageForm.content}"
 							cols="100" rows="10" required="true" label="内容" />

@@ -14,6 +14,7 @@ public class PushMessageForm implements Serializable {
 	private Date sendTime;
 	private String channelId;
 	private String userId;
+	private String pkg_content;
 
 	public String getChannelId() {
 		return channelId;
@@ -78,4 +79,13 @@ public class PushMessageForm implements Serializable {
 	public void setSendTime(Date sendTime) {
 		this.sendTime = sendTime;
 	}
+
+	public String getPkg_content() {
+		return pkg_content;
+	}
+
+	public void setPkg_content(String pkg_content) {
+		this.pkg_content = pkg_content;
+	}
+
 }

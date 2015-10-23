@@ -49,7 +49,7 @@ public class PushController implements Serializable {
 	public void initNewPushMessageForm() {
 		pushMessageForm = new PushMessageForm();
 	}
-
+	
 	@P00000009
 	public void pushMsgToDevic() throws PushClientException, PushServerException {
 		if (immediate) {
@@ -57,9 +57,11 @@ public class PushController implements Serializable {
 		}
 		if (pushMessageForm.getChannelId().equals("")) {
 			baseDataWrapper = pushService.pushMsgToAll(pushMessageForm);
+			return;
 		}
 		if (pushMessageForm.getChannelId().indexOf(',') == -1 && !pushMessageForm.getChannelId().equals("")) {
 			baseDataWrapper = pushService.pushMsgToSingleDevic(pushMessageForm);
+			return;
 		}
 	}
 

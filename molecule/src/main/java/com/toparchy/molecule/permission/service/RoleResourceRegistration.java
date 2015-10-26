@@ -4,6 +4,7 @@ import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.PartitionManager;
@@ -15,6 +16,7 @@ import com.toparchy.molecule.permission.model.ApplicationRole;
 
 @Stateless
 public class RoleResourceRegistration {
+	// @PersistenceContext(unitName = "molecule")
 	@Inject
 	private EntityManager moleculeEm;
 	@Inject

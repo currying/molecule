@@ -16,6 +16,31 @@
 		<class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
+		<class>com.toparchy.molecule.permission.model.ApplicationResource</class>
+		<class>com.toparchy.molecule.permission.model.ApplicationRole</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="false" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="bi">
+		<jta-data-source>java:jboss/datasources/biDS</jta-data-source>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ClassificationSociety</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.Gcxbjh</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.Hxjdjh</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.KanBan</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ShipClass</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ShipOwner</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ShipProject</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ShipProjectPlan</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ShipType</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.ShipYard</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.Wldzjh</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.Xxrcjh</class>
+		<class>com.toparchy.molecule.bi.shipBuilding.model.Zhdrcjh</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="false" />

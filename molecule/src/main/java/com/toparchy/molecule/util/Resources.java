@@ -16,6 +16,10 @@ public class Resources {
 	@PersistenceContext(unitName = "molecule")
 	private EntityManager moleculeEm;
 
+//	@Produces
+//	@PersistenceContext(unitName = "bi")
+//	private EntityManager biEm;
+
 	@PicketLink
 	public EntityManager getPicketLinkEntityManager() {
 		return moleculeEm;

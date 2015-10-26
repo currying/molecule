@@ -5,6 +5,7 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -14,27 +15,27 @@ import com.toparchy.molecule.bi.shipBuilding.model.ShipYard;
 
 @ApplicationScoped
 public class ShipProjectRepository {
-	@Inject
-	private EntityManager moleculeEm;
+	@PersistenceContext(unitName = "bi")
+//	@PersistenceContext(unitName = "bi")
+	private EntityManager biEm;
 
 	public ShipProject findById(String id) {
-		return moleculeEm.find(ShipProject.class, id);
+		return biEm.find(ShipProject.class, id);
 	}
 
 	public List<ShipProject> findByShipYard(ShipYard shipYard) {
-		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
+		CriteriaBuilder cb = biEm.getCriteriaBuilder();
 		CriteriaQuery<ShipProject> criteria = cb.createQuery(ShipProject.class);
 		Root<ShipProject> shipProject = criteria.from(ShipProject.class);
-		criteria.select(shipProject).where(
-				cb.equal(shipProject.get("shipYard"), shipYard));
-		return moleculeEm.createQuery(criteria).getResultList();
+		criteria.select(shipProject).where(cb.equal(shipProject.get("shipYard"), shipYard));
+		return biEm.createQuery(criteria).getResultList();
 	}
 
 	public List<ShipProject> findAllShipProject() {
-		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
+		CriteriaBuilder cb = biEm.getCriteriaBuilder();
 		CriteriaQuery<ShipProject> criteria = cb.createQuery(ShipProject.class);
 		Root<ShipProject> shipProject = criteria.from(ShipProject.class);
 		criteria.select(shipProject);
-		return moleculeEm.createQuery(criteria).getResultList();
+		return biEm.createQuery(criteria).getResultList();
 	}
 }

@@ -28,9 +28,9 @@ public class HttpSecurityConfiguration {
 				.forPath("/report", "basic")
 				.forPath("/rest/business/*", "basic")
 				.forPath("/system/*", "basic")
-//					.authorizeWith()
-//					.group("Administrators")
 					.authorizeWith()
-					.role("ADMINISTRATOR");
+					.group("adminstrators");
+//					.authorizeWith()
+//					.role("ADMINISTRATOR");
 	}
 }

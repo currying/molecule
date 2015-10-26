@@ -40,7 +40,12 @@ public class Member extends AbstractIdentityType implements Account {
 
 	public Member(String loginName, String firstName, String lastName, String nickName, String email,
 			String phoneNumber) {
-		this.loginName = loginName;
+		this.loginName = firstName;
+		this.firstName = lastName;
+		this.lastName = loginName;
+		this.nickName = nickName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getFirstName() {

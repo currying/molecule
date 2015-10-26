@@ -3,7 +3,6 @@ package com.toparchy.molecule.bi.shipBuilding.data;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -16,7 +15,6 @@ import com.toparchy.molecule.bi.shipBuilding.model.ShipYard;
 @ApplicationScoped
 public class ShipProjectRepository {
 	@PersistenceContext(unitName = "bi")
-//	@PersistenceContext(unitName = "bi")
 	private EntityManager biEm;
 
 	public ShipProject findById(String id) {

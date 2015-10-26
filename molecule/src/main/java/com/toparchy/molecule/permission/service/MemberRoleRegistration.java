@@ -3,7 +3,6 @@ package com.toparchy.molecule.permission.service;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.PartitionManager;
@@ -17,7 +16,7 @@ import com.toparchy.molecule.permission.model.Member;
 @Stateless
 public class MemberRoleRegistration {
 	@Inject
-//	@PersistenceContext(unitName = "molecule")
+	// @PersistenceContext(unitName = "molecule")
 	private EntityManager moleculeEm;
 	@Inject
 	private PartitionManager partitionManager;

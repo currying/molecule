@@ -4,7 +4,6 @@ import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.PartitionManager;

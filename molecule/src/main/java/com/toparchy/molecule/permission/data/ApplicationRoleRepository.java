@@ -5,7 +5,6 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -14,7 +13,7 @@ import com.toparchy.molecule.permission.model.ApplicationRole;
 
 @ApplicationScoped
 public class ApplicationRoleRepository {
-//	@PersistenceContext(unitName = "molecule")
+	// @PersistenceContext(unitName = "molecule")
 	@Inject
 	private EntityManager moleculeEm;
 

@@ -16,7 +16,7 @@ import com.toparchy.molecule.permission.model.Member;
 @Stateless
 public class MemberRoleRegistration {
 	@Inject
-	private EntityManager em;
+	private EntityManager moleculeEm;
 	@Inject
 	private PartitionManager partitionManager;
 	@Inject

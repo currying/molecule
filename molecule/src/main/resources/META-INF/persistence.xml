@@ -17,7 +17,7 @@
 		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 			<property name="hibernate.show_sql" value="false" />
 			<property name="wildfly.jpa.default-unit" value="true" />
 		</properties>

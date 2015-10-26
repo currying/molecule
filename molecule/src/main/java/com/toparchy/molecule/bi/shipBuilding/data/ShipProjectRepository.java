@@ -15,26 +15,26 @@ import com.toparchy.molecule.bi.shipBuilding.model.ShipYard;
 @ApplicationScoped
 public class ShipProjectRepository {
 	@Inject
-	private EntityManager em;
+	private EntityManager moleculeEm;
 
 	public ShipProject findById(String id) {
-		return em.find(ShipProject.class, id);
+		return moleculeEm.find(ShipProject.class, id);
 	}
 
 	public List<ShipProject> findByShipYard(ShipYard shipYard) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
 		CriteriaQuery<ShipProject> criteria = cb.createQuery(ShipProject.class);
 		Root<ShipProject> shipProject = criteria.from(ShipProject.class);
 		criteria.select(shipProject).where(
 				cb.equal(shipProject.get("shipYard"), shipYard));
-		return em.createQuery(criteria).getResultList();
+		return moleculeEm.createQuery(criteria).getResultList();
 	}
 
 	public List<ShipProject> findAllShipProject() {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
 		CriteriaQuery<ShipProject> criteria = cb.createQuery(ShipProject.class);
 		Root<ShipProject> shipProject = criteria.from(ShipProject.class);
 		criteria.select(shipProject);
-		return em.createQuery(criteria).getResultList();
+		return moleculeEm.createQuery(criteria).getResultList();
 	}
 }

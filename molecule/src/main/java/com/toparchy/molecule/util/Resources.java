@@ -14,11 +14,11 @@ import org.picketlink.annotations.PicketLink;
 public class Resources {
 	@Produces
 	@PersistenceContext(unitName = "molecule")
-	private EntityManager em;
+	private EntityManager moleculeEm;
 
 	@PicketLink
 	public EntityManager getPicketLinkEntityManager() {
-		return em;
+		return moleculeEm;
 	}
 
 	@Produces

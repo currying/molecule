@@ -14,25 +14,25 @@ import com.toparchy.molecule.permission.model.ApplicationRole;
 @ApplicationScoped
 public class ApplicationRoleRepository {
 	@Inject
-	private EntityManager em;
+	private EntityManager moleculeEm;
 
 	public ApplicationRole findById(String id) {
-		return em.find(ApplicationRole.class, id);
+		return moleculeEm.find(ApplicationRole.class, id);
 	}
 
 	public ApplicationRole findByKey(String key) {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
 		CriteriaQuery<ApplicationRole> criteria = cb.createQuery(ApplicationRole.class);
 		Root<ApplicationRole> applicationRole = criteria.from(ApplicationRole.class);
 		criteria.select(applicationRole).where(cb.equal(applicationRole.get("key"), key));
-		return em.createQuery(criteria).getSingleResult();
+		return moleculeEm.createQuery(criteria).getSingleResult();
 	}
 
 	public List<ApplicationRole> findAll() {
-		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
 		CriteriaQuery<ApplicationRole> criteria = cb.createQuery(ApplicationRole.class);
 		Root<ApplicationRole> applicationRole = criteria.from(ApplicationRole.class);
 		criteria.select(applicationRole);
-		return em.createQuery(criteria).getResultList();
+		return moleculeEm.createQuery(criteria).getResultList();
 	}
 }

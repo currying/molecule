@@ -16,7 +16,7 @@ import com.toparchy.molecule.permission.model.ApplicationRole;
 @Stateless
 public class RoleResourceRegistration {
 	@Inject
-	private EntityManager em;
+	private EntityManager moleculeEm;
 	@Inject
 	private PartitionManager partitionManager;
 
@@ -24,28 +24,28 @@ public class RoleResourceRegistration {
 	private Event<ApplicationRole> applicationRoleEventSrc;
 
 	public void add(ApplicationRole applicationRole, ApplicationResource applicationResource) {
-		ApplicationRole role = em.find(ApplicationRole.class, applicationRole.getId());
-		ApplicationResource resource = em.find(ApplicationResource.class, applicationResource.getId());
+		ApplicationRole role = moleculeEm.find(ApplicationRole.class, applicationRole.getId());
+		ApplicationResource resource = moleculeEm.find(ApplicationResource.class, applicationResource.getId());
 		role.addApplicationResource(resource);
 		// applicationRole.addApplicationResource(applicationResource);
-		em.merge(role);
-		em.flush();
+		moleculeEm.merge(role);
+		moleculeEm.flush();
 		applicationRoleEventSrc.fire(role);
 	}
 
 	public void remove(ApplicationRole applicationRole, ApplicationResource applicationResource) {
-		ApplicationRole role = em.find(ApplicationRole.class, applicationRole.getId());
-		ApplicationResource resource = em.find(ApplicationResource.class, applicationResource.getId());
+		ApplicationRole role = moleculeEm.find(ApplicationRole.class, applicationRole.getId());
+		ApplicationResource resource = moleculeEm.find(ApplicationResource.class, applicationResource.getId());
 		role.removeApplicationResource(resource);
 		// applicationRole.removeApplicationResource(applicationResource);
-		em.merge(role);
-		em.flush();
+		moleculeEm.merge(role);
+		moleculeEm.flush();
 		applicationRoleEventSrc.fire(role);
 	}
 
 	public void createRole(ApplicationRole applicationRole) {
-		em.persist(applicationRole);
-		em.flush();
+		moleculeEm.persist(applicationRole);
+		moleculeEm.flush();
 		applicationRoleEventSrc.fire(applicationRole);
 		IdentityManager identityManager = this.partitionManager.createIdentityManager();
 		Role role = new Role(applicationRole.getKey());
@@ -53,9 +53,9 @@ public class RoleResourceRegistration {
 	}
 
 	public void deleteRole(ApplicationRole applicationRole) {
-		ApplicationRole role = em.find(ApplicationRole.class, applicationRole.getId());
-		em.remove(role);
-		em.flush();
+		ApplicationRole role = moleculeEm.find(ApplicationRole.class, applicationRole.getId());
+		moleculeEm.remove(role);
+		moleculeEm.flush();
 		applicationRoleEventSrc.fire(role);
 		IdentityManager identityManager = this.partitionManager.createIdentityManager();
 		Role role_ = BasicModel.getRole(identityManager, applicationRole.getKey());

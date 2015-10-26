@@ -35,6 +35,14 @@ public class ApplicationRole implements Serializable {
 	@OrderBy("key ASC")
 	private Set<ApplicationResource> applicationResources = new HashSet<ApplicationResource>();
 
+	public ApplicationRole() {
+	}
+
+	public ApplicationRole(String key, String name) {
+		this.key = key;
+		this.name = name;
+	}
+
 	public String getId() {
 		return id;
 	}

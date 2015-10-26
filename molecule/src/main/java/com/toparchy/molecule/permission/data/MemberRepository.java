@@ -12,7 +12,6 @@ import org.picketlink.idm.model.IdentityType;
 import org.picketlink.idm.model.basic.Grant;
 import org.picketlink.idm.model.basic.Group;
 import org.picketlink.idm.model.basic.GroupMembership;
-import org.picketlink.idm.model.basic.Role;
 import org.picketlink.idm.query.IdentityQuery;
 import org.picketlink.idm.query.IdentityQueryBuilder;
 import org.picketlink.idm.query.RelationshipQuery;
@@ -34,6 +33,13 @@ public class MemberRepository {
 		IdentityQueryBuilder queryBuilder = identityManager.getQueryBuilder();
 		IdentityQuery<Member> query = queryBuilder.createIdentityQuery(Member.class);
 		query.where(queryBuilder.equal(IdentityType.ID, id));
+		return query.getResultList().get(0);
+	}
+
+	public Member findByLoginName(String loginName) {
+		IdentityQueryBuilder queryBuilder = identityManager.getQueryBuilder();
+		IdentityQuery<Member> query = queryBuilder.createIdentityQuery(Member.class);
+		query.where(queryBuilder.equal(Member.LOGIN_NAME, loginName));
 		return query.getResultList().get(0);
 	}
 

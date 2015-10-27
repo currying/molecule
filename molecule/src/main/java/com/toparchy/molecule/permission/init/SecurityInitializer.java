@@ -19,7 +19,7 @@ import org.picketlink.idm.model.basic.Role;
 
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.data.ApplicationRoleRepository;
-import com.toparchy.molecule.permission.model.SystemResource;
+import com.toparchy.molecule.permission.model.ApplicationResource;
 import com.toparchy.molecule.permission.model.ApplicationRole;
 import com.toparchy.molecule.permission.model.Member;
 
@@ -39,30 +39,30 @@ public class SecurityInitializer {
 	@PostConstruct
 	public void createUsers() {
 		if (check()) {
-			createGroup("adminstrators", "ADMINISTRATOR");
-			createGroup("wzxt_group", "WZXT_MATERIALSTORAGE");
-			createGroup("scxt_group", "SCXT_WORKINGHOURSVOLUME");
+			createGroup("adminstrators", "ADMINISTRATOR", "超级管理员");
+			createGroup("wzxt_group", "WZXT_MATERIALSTORAGE", "生产调度员角色");
+			createGroup("scxt_group", "SCXT_WORKINGHOURSVOLUME", "物资仓储员");
 			addUser("admin", "admin", "王", "宇轩", "currying", "currying@qq.com", "18652848028", "adminstrators");
 			addUser("user1", "user1", "", "", "", "", "", "wzxt_group");
 			addUser("user2", "user2", "", "", "", "", "", "scxt_group");
-			createUser("user3", "user3", "", "", "", "", "", "PUSHMESSAGE");
+			createUser("user3", "user3", "", "", "", "", "", "PUSHMESSAGE", "消息推送者");
 
 			createApplicationRole(new ApplicationRole("ADMINISTRATOR", "超级管理员"));
 			createApplicationRole(new ApplicationRole("SCXT_WORKINGHOURSVOLUME", "生产调度员角色"));
 			createApplicationRole(new ApplicationRole("WZXT_MATERIALSTORAGE", "物资仓储员"));
 			createApplicationRole(new ApplicationRole("PUSHMESSAGE", "消息推送者"));
 
-			createApplicationResource(new SystemResource("Administrator", "超级管理", "REST"));
-			createApplicationResource(new SystemResource("P00000001", "通过料单编号检索所有物资", "REST"));
-			createApplicationResource(new SystemResource("P00000002", "通过料单编号检索所有物资（无标记）", "REST"));
-			createApplicationResource(new SystemResource("P00000003", "通过料单编号检索所有物资（标记）", "REST"));
-			createApplicationResource(new SystemResource("P00000004", "添加新物资", "REST"));
-			createApplicationResource(new SystemResource("P00000005", "修改物资", "REST"));
-			createApplicationResource(new SystemResource("P00000006", "删除物资", "REST"));
-			createApplicationResource(new SystemResource("P00000007", "通过ID获取工时物量反馈", "REST"));
-			createApplicationResource(new SystemResource("P00000008", "获取工时物量信息", "REST"));
-			createApplicationResource(new SystemResource("P00000009", "消息推送给指定设备", "BASE"));
-			createApplicationResource(new SystemResource("P00000010", "查询设备状态", "BASE"));
+			createApplicationResource(new ApplicationResource("Administrator", "超级管理", "REST"));
+			createApplicationResource(new ApplicationResource("P00000001", "通过料单编号检索所有物资", "REST"));
+			createApplicationResource(new ApplicationResource("P00000002", "通过料单编号检索所有物资（无标记）", "REST"));
+			createApplicationResource(new ApplicationResource("P00000003", "通过料单编号检索所有物资（标记）", "REST"));
+			createApplicationResource(new ApplicationResource("P00000004", "添加新物资", "REST"));
+			createApplicationResource(new ApplicationResource("P00000005", "修改物资", "REST"));
+			createApplicationResource(new ApplicationResource("P00000006", "删除物资", "REST"));
+			createApplicationResource(new ApplicationResource("P00000007", "通过ID获取工时物量反馈", "REST"));
+			createApplicationResource(new ApplicationResource("P00000008", "获取工时物量信息", "REST"));
+			createApplicationResource(new ApplicationResource("P00000009", "消息推送给指定设备", "BASE"));
+			createApplicationResource(new ApplicationResource("P00000010", "查询设备状态", "BASE"));
 
 			createRoleResource();
 		}
@@ -76,7 +76,7 @@ public class SecurityInitializer {
 	}
 
 	private void createUser(String loginName, String password_, String firstName, String lastName, String nickName,
-			String email, String phoneNumber, String roleName) {
+			String email, String phoneNumber, String roleName, String aliasName) {
 		Member user = new Member(loginName, firstName, lastName, nickName, email, phoneNumber);
 		IdentityManager identityManager = this.partitionManager.createIdentityManager();
 		identityManager.add(user);
@@ -88,7 +88,7 @@ public class SecurityInitializer {
 		grantRole(relationshipManager, user, role);
 	}
 
-	private void createGroup(String groupName, String roleName) {
+	private void createGroup(String groupName, String roleName, String aliasName) {
 		Group group = new Group(groupName);
 		IdentityManager identityManager = this.partitionManager.createIdentityManager();
 		identityManager.add(group);
@@ -114,8 +114,8 @@ public class SecurityInitializer {
 		moleculeEm.persist(applicationRole);
 	}
 
-	private void createApplicationResource(SystemResource systemResource) {
-		moleculeEm.persist(systemResource);
+	private void createApplicationResource(ApplicationResource applicationResource) {
+		moleculeEm.persist(applicationResource);
 	}
 
 	private void createRoleResource() {

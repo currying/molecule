@@ -7,14 +7,14 @@ import javax.faces.view.ViewScoped;
 
 import org.primefaces.context.RequestContext;
 
-import com.toparchy.molecule.permission.model.SystemResource;
+import com.toparchy.molecule.permission.model.ApplicationResource;
 
 @Model
 @ViewScoped
 public class ApplicationResourceController implements Serializable {
 	private static final long serialVersionUID = 4811449229018947187L;
 
-	public void selectResourceFromDialog(SystemResource systemResource) {
-		RequestContext.getCurrentInstance().closeDialog(systemResource);
+	public void selectResourceFromDialog(ApplicationResource applicationResource) {
+		RequestContext.getCurrentInstance().closeDialog(applicationResource);
 	}
 }

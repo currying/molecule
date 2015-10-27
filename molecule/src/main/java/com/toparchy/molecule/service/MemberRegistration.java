@@ -10,7 +10,7 @@ import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.PartitionManager;
 import org.picketlink.idm.credential.Password;
 
-import com.toparchy.molecule.permission.model.entity.Member;
+import com.toparchy.molecule.permission.model.Member;
 
 @Stateless
 public class MemberRegistration {

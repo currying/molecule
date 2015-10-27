@@ -14,7 +14,7 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 
 import com.toparchy.molecule.permission.data.GroupRepository;
-import com.toparchy.molecule.permission.model.entity.Member;
+import com.toparchy.molecule.permission.model.Member;
 
 @Model
 @ViewScoped

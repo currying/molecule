@@ -13,7 +13,7 @@ import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 import com.toparchy.molecule.permission.data.GroupRepository;
-import com.toparchy.molecule.permission.model.entity.Member;
+import com.toparchy.molecule.permission.model.Member;
 
 @Model
 @ViewScoped

@@ -1,4 +1,4 @@
-package com.toparchy.molecule.permission.model.entity;
+package com.toparchy.molecule.permission.model;
 
 import static org.picketlink.idm.model.annotation.IdentityStereotype.Stereotype.USER;
 import static org.picketlink.idm.model.annotation.StereotypeProperty.Property.IDENTITY_USER_NAME;

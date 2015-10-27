@@ -7,6 +7,8 @@ import org.picketlink.idm.jpa.annotations.AttributeValue;
 import org.picketlink.idm.jpa.annotations.entity.IdentityManaged;
 import org.picketlink.idm.jpa.model.sample.simple.IdentityTypeEntity;
 
+import com.toparchy.molecule.permission.model.Member;
+
 @IdentityManaged({ Member.class })
 @Entity
 public class MemberEntity extends IdentityTypeEntity {

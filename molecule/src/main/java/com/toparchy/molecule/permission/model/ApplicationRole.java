@@ -79,7 +79,7 @@ public class ApplicationRole implements Serializable {
 		applicationResources.remove(applicationResource);
 	}
 
-	public void setApplicationResources(Set<ApplicationResource> applicationResources) {
+	public void setApplicationResources(Set<ApplicationResource> applicationResource) {
 		this.applicationResources = applicationResources;
 	}
 

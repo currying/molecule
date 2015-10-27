@@ -13,7 +13,7 @@ import com.toparchy.molecule.permission.model.ApplicationResource;
 
 @ApplicationScoped
 public class ApplicationResourceRepository {
-//	@PersistenceContext(unitName = "molecule")
+	// @PersistenceContext(unitName = "molecule")
 	@Inject
 	private EntityManager moleculeEm;
 

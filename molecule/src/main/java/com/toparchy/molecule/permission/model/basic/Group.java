@@ -15,24 +15,18 @@ public class Group extends AbstractIdentityType {
 
 	private static final long serialVersionUID = -3553832607918448916L;
 
-	/**
-	 * A query parameter used to set the name value.
-	 */
 	public static final QueryParameter NAME = QUERY_ATTRIBUTE.byName("name");
 
-	/**
-	 * A query parameter used to set the path.
-	 */
+	public static final QueryParameter ALIASNAME = QUERY_ATTRIBUTE.byName("aliasName");
+
 	public static final QueryParameter PATH = QUERY_ATTRIBUTE.byName("path");
 
-	/**
-	 * A query parameter used to set the parent value.
-	 */
 	public static final QueryParameter PARENT = QUERY_ATTRIBUTE.byName("parentGroup");
 
 	public static final String PATH_SEPARATOR = "/";
 
 	private String name;
+	private String aliasName;
 	private Group parentGroup;
 	private String path;
 
@@ -71,6 +65,15 @@ public class Group extends AbstractIdentityType {
 	}
 
 	@AttributeProperty
+	public String getAliasName() {
+		return aliasName;
+	}
+
+	public void setAliasName(String aliasName) {
+		this.aliasName = aliasName;
+	}
+
+	@AttributeProperty
 	@Unique
 	public String getPath() {
 		this.path = buildPath(this);
@@ -92,14 +95,6 @@ public class Group extends AbstractIdentityType {
 		this.parentGroup = group;
 	}
 
-	/**
-	 * <p>
-	 * Builds the group's path based on the parent groups.
-	 * </p>
-	 *
-	 * @param group
-	 * @return
-	 */
 	private String buildPath(Group group) {
 		String name = PATH_SEPARATOR + group.getName();
 

@@ -14,7 +14,7 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.SystemResource;
 import com.toparchy.molecule.permission.model.ApplicationRole;
 import com.toparchy.molecule.permission.service.RoleResourceRegistration;
 
@@ -31,7 +31,7 @@ public class ApplicationRoleController implements Serializable {
 	private ApplicationRole selectApplicationRole;
 	@Produces
 	@Named
-	private Set<ApplicationResource> currentApplicationResources;
+	private Set<SystemResource> currentApplicationResources;
 	@Produces
 	@Named
 	private ApplicationRole newApplicationRole;
@@ -49,11 +49,11 @@ public class ApplicationRoleController implements Serializable {
 		this.selectApplicationRole = selectApplicationRole;
 	}
 
-	public Set<ApplicationResource> getCurrentApplicationResources() {
+	public Set<SystemResource> getCurrentApplicationResources() {
 		return currentApplicationResources;
 	}
 
-	public void setCurrentApplicationResources(Set<ApplicationResource> currentApplicationResources) {
+	public void setCurrentApplicationResources(Set<SystemResource> currentApplicationResources) {
 		this.currentApplicationResources = currentApplicationResources;
 	}
 
@@ -88,14 +88,14 @@ public class ApplicationRoleController implements Serializable {
 	}
 
 	public void onResourceChosen(SelectEvent event) {
-		ApplicationResource resource = (ApplicationResource) event.getObject();
+		SystemResource resource = (SystemResource) event.getObject();
 		roleResourceRegistration.add(selectApplicationRole, resource);
 		selectApplicationRole.addApplicationResource(resource);
 	}
 
-	public void removeResourceFromRole(ApplicationResource applicationResource) {
-		roleResourceRegistration.remove(selectApplicationRole, applicationResource);
-		selectApplicationRole.removeApplicationResource(applicationResource);
+	public void removeResourceFromRole(SystemResource systemResource) {
+		roleResourceRegistration.remove(selectApplicationRole, systemResource);
+		selectApplicationRole.removeApplicationResource(systemResource);
 	}
 
 	public void createApplicationRole() {

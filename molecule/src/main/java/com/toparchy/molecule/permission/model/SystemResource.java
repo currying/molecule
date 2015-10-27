@@ -22,13 +22,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "SYS_APPLICATION_RESOURCE")
 @XmlRootElement
-public class ApplicationResource implements Serializable {
+public class SystemResource implements Serializable {
 
 	private static final long serialVersionUID = 4440709995178566201L;
 	@Id
 	@Column(name = "SYS_APPLICATION_RESOURCE_ID", length = 50)
-	@GeneratedValue(generator = "applicationresource-uuid")
-	@GenericGenerator(name = "applicationresource-uuid", strategy = "uuid")
+	@GeneratedValue(generator = "systemResource-uuid")
+	@GenericGenerator(name = "systemResource-uuid", strategy = "uuid")
 	private String id;
 	@Column(name = "SYS_APPLICATION_RESOURCE_KEY", length = 255)
 	private String key;
@@ -36,15 +36,15 @@ public class ApplicationResource implements Serializable {
 	private String name;
 	@Column(name = "SYS_APPLICATION_RESOURCE_TYPE", length = 255)
 	private String type;
-	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "applicationResources")
+	@ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "systemResources")
 	@JsonIgnore
 	@OrderBy("key ASC")
 	private Set<ApplicationRole> applicationRoles = new HashSet<ApplicationRole>();
 
-	public ApplicationResource() {
+	public SystemResource() {
 	}
 
-	public ApplicationResource(String key, String name, String type) {
+	public SystemResource(String key, String name, String type) {
 		this.key = key;
 		this.name = name;
 		this.type = type;

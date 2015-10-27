@@ -16,7 +16,7 @@
 		<class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
-		<class>com.toparchy.molecule.permission.model.ApplicationResource</class>
+		<class>com.toparchy.molecule.permission.model.SystemResource</class>
 		<class>com.toparchy.molecule.permission.model.ApplicationRole</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>

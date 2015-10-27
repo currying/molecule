@@ -33,7 +33,7 @@ public class ApplicationRole implements Serializable {
 	private String name;
 	@ManyToMany(cascade = { CascadeType.REFRESH, CascadeType.MERGE }, fetch = FetchType.EAGER)
 	@OrderBy("key ASC")
-	private Set<ApplicationResource> applicationResources = new HashSet<ApplicationResource>();
+	private Set<SystemResource> systemResources = new HashSet<SystemResource>();
 
 	public ApplicationRole() {
 	}
@@ -67,20 +67,20 @@ public class ApplicationRole implements Serializable {
 		this.name = name;
 	}
 
-	public Set<ApplicationResource> getApplicationResources() {
-		return applicationResources;
+	public Set<SystemResource> getApplicationResources() {
+		return systemResources;
 	}
 
-	public void addApplicationResource(ApplicationResource applicationResource) {
-		applicationResources.add(applicationResource);
+	public void addApplicationResource(SystemResource systemResource) {
+		systemResources.add(systemResource);
 	}
 
-	public void removeApplicationResource(ApplicationResource applicationResource) {
-		applicationResources.remove(applicationResource);
+	public void removeApplicationResource(SystemResource systemResource) {
+		systemResources.remove(systemResource);
 	}
 
-	public void setApplicationResources(Set<ApplicationResource> applicationResources) {
-		this.applicationResources = applicationResources;
+	public void setApplicationResources(Set<SystemResource> systemResources) {
+		this.systemResources = systemResources;
 	}
 
 }

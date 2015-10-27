@@ -19,7 +19,7 @@ import org.picketlink.idm.model.basic.Role;
 
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.data.ApplicationRoleRepository;
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.SystemResource;
 import com.toparchy.molecule.permission.model.ApplicationRole;
 import com.toparchy.molecule.permission.model.Member;
 
@@ -52,17 +52,17 @@ public class SecurityInitializer {
 			createApplicationRole(new ApplicationRole("WZXT_MATERIALSTORAGE", "物资仓储员"));
 			createApplicationRole(new ApplicationRole("PUSHMESSAGE", "消息推送者"));
 
-			createApplicationResource(new ApplicationResource("Administrator", "超级管理", "REST"));
-			createApplicationResource(new ApplicationResource("P00000001", "通过料单编号检索所有物资", "REST"));
-			createApplicationResource(new ApplicationResource("P00000002", "通过料单编号检索所有物资（无标记）", "REST"));
-			createApplicationResource(new ApplicationResource("P00000003", "通过料单编号检索所有物资（标记）", "REST"));
-			createApplicationResource(new ApplicationResource("P00000004", "添加新物资", "REST"));
-			createApplicationResource(new ApplicationResource("P00000005", "修改物资", "REST"));
-			createApplicationResource(new ApplicationResource("P00000006", "删除物资", "REST"));
-			createApplicationResource(new ApplicationResource("P00000007", "通过ID获取工时物量反馈", "REST"));
-			createApplicationResource(new ApplicationResource("P00000008", "获取工时物量信息", "REST"));
-			createApplicationResource(new ApplicationResource("P00000009", "消息推送给指定设备", "BASE"));
-			createApplicationResource(new ApplicationResource("P00000010", "查询设备状态", "BASE"));
+			createApplicationResource(new SystemResource("Administrator", "超级管理", "REST"));
+			createApplicationResource(new SystemResource("P00000001", "通过料单编号检索所有物资", "REST"));
+			createApplicationResource(new SystemResource("P00000002", "通过料单编号检索所有物资（无标记）", "REST"));
+			createApplicationResource(new SystemResource("P00000003", "通过料单编号检索所有物资（标记）", "REST"));
+			createApplicationResource(new SystemResource("P00000004", "添加新物资", "REST"));
+			createApplicationResource(new SystemResource("P00000005", "修改物资", "REST"));
+			createApplicationResource(new SystemResource("P00000006", "删除物资", "REST"));
+			createApplicationResource(new SystemResource("P00000007", "通过ID获取工时物量反馈", "REST"));
+			createApplicationResource(new SystemResource("P00000008", "获取工时物量信息", "REST"));
+			createApplicationResource(new SystemResource("P00000009", "消息推送给指定设备", "BASE"));
+			createApplicationResource(new SystemResource("P00000010", "查询设备状态", "BASE"));
 
 			createRoleResource();
 		}
@@ -114,8 +114,8 @@ public class SecurityInitializer {
 		moleculeEm.persist(applicationRole);
 	}
 
-	private void createApplicationResource(ApplicationResource applicationResource) {
-		moleculeEm.persist(applicationResource);
+	private void createApplicationResource(SystemResource systemResource) {
+		moleculeEm.persist(systemResource);
 	}
 
 	private void createRoleResource() {

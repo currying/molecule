@@ -9,7 +9,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.SystemResource;
 
 @ApplicationScoped
 public class ApplicationResourceRepository {
@@ -17,19 +17,19 @@ public class ApplicationResourceRepository {
 	@Inject
 	private EntityManager moleculeEm;
 
-	public ApplicationResource findByKey(String key) {
+	public SystemResource findByKey(String key) {
 		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
-		CriteriaQuery<ApplicationResource> criteria = cb.createQuery(ApplicationResource.class);
-		Root<ApplicationResource> applicationResource = criteria.from(ApplicationResource.class);
-		criteria.select(applicationResource).where(cb.equal(applicationResource.get("key"), key));
+		CriteriaQuery<SystemResource> criteria = cb.createQuery(SystemResource.class);
+		Root<SystemResource> systemResource = criteria.from(SystemResource.class);
+		criteria.select(systemResource).where(cb.equal(systemResource.get("key"), key));
 		return moleculeEm.createQuery(criteria).getSingleResult();
 	}
 
-	public List<ApplicationResource> findAll() {
+	public List<SystemResource> findAll() {
 		CriteriaBuilder cb = moleculeEm.getCriteriaBuilder();
-		CriteriaQuery<ApplicationResource> criteria = cb.createQuery(ApplicationResource.class);
-		Root<ApplicationResource> applicationResource = criteria.from(ApplicationResource.class);
-		criteria.select(applicationResource);
+		CriteriaQuery<SystemResource> criteria = cb.createQuery(SystemResource.class);
+		Root<SystemResource> systemResource = criteria.from(SystemResource.class);
+		criteria.select(systemResource);
 		return moleculeEm.createQuery(criteria).getResultList();
 	}
 }

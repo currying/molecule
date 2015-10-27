@@ -10,7 +10,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.SystemResource;
 
 @ApplicationScoped
 public class ApplicationResourceListProducer {
@@ -18,20 +18,20 @@ public class ApplicationResourceListProducer {
 	private ApplicationResourceRepository applicationResourceRepository;
 	@Produces
 	@Named
-	private List<ApplicationResource> applicationResources;
+	private List<SystemResource> systemResources;
 
-	public List<ApplicationResource> getApplicationResources() {
-		return applicationResources;
+	public List<SystemResource> getApplicationResources() {
+		return systemResources;
 	}
 
 	public void onApplicationResourceRepositoryListChanged(
-			@Observes(notifyObserver = Reception.IF_EXISTS) final ApplicationResource applicationResource) {
+			@Observes(notifyObserver = Reception.IF_EXISTS) final SystemResource systemResource) {
 		retrieveAllApplicationResourceRepository();
 	}
 
 	@PostConstruct
 	public void retrieveAllApplicationResourceRepository() {
-		applicationResources = applicationResourceRepository.findAll();
+		systemResources = applicationResourceRepository.findAll();
 	}
 
 }

@@ -10,7 +10,7 @@ import org.picketlink.idm.PartitionManager;
 import org.picketlink.idm.model.basic.BasicModel;
 import org.picketlink.idm.model.basic.Role;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.SystemResource;
 import com.toparchy.molecule.permission.model.ApplicationRole;
 
 @Stateless
@@ -24,9 +24,9 @@ public class RoleResourceRegistration {
 	@Inject
 	private Event<ApplicationRole> applicationRoleEventSrc;
 
-	public void add(ApplicationRole applicationRole, ApplicationResource applicationResource) {
+	public void add(ApplicationRole applicationRole, SystemResource systemResource) {
 		ApplicationRole role = moleculeEm.find(ApplicationRole.class, applicationRole.getId());
-		ApplicationResource resource = moleculeEm.find(ApplicationResource.class, applicationResource.getId());
+		SystemResource resource = moleculeEm.find(SystemResource.class, systemResource.getId());
 		role.addApplicationResource(resource);
 		// applicationRole.addApplicationResource(applicationResource);
 		moleculeEm.merge(role);
@@ -34,9 +34,9 @@ public class RoleResourceRegistration {
 		applicationRoleEventSrc.fire(role);
 	}
 
-	public void remove(ApplicationRole applicationRole, ApplicationResource applicationResource) {
+	public void remove(ApplicationRole applicationRole, SystemResource systemResource) {
 		ApplicationRole role = moleculeEm.find(ApplicationRole.class, applicationRole.getId());
-		ApplicationResource resource = moleculeEm.find(ApplicationResource.class, applicationResource.getId());
+		SystemResource resource = moleculeEm.find(SystemResource.class, systemResource.getId());
 		role.removeApplicationResource(resource);
 		// applicationRole.removeApplicationResource(applicationResource);
 		moleculeEm.merge(role);

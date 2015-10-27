@@ -11,7 +11,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.toparchy.molecule.permission.model.ApplicationResource;
-import com.toparchy.molecule.permission.model.SystemResource;
 
 @ApplicationScoped
 public class ApplicationResourceListProducer {
@@ -26,7 +25,7 @@ public class ApplicationResourceListProducer {
 	}
 
 	public void onApplicationResourceRepositoryListChanged(
-			@Observes(notifyObserver = Reception.IF_EXISTS) final SystemResource systemResource) {
+			@Observes(notifyObserver = Reception.IF_EXISTS) final ApplicationResource systemResource) {
 		retrieveAllApplicationResourceRepository();
 	}
 

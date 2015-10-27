@@ -89,5 +89,4 @@ public class SystemResource implements Serializable {
 	public void setSystemRoleEntities(Set<SystemRoleEntity> systemRoleEntities) {
 		this.systemRoleEntities = systemRoleEntities;
 	}
-
 }

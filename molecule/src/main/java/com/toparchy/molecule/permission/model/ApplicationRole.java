@@ -67,10 +67,6 @@ public class ApplicationRole implements Serializable {
 		this.name = name;
 	}
 
-	public Set<ApplicationResource> getApplicationResources() {
-		return applicationResources;
-	}
-
 	public void addApplicationResource(ApplicationResource applicationResource) {
 		applicationResources.add(applicationResource);
 	}
@@ -79,8 +75,12 @@ public class ApplicationRole implements Serializable {
 		applicationResources.remove(applicationResource);
 	}
 
-	public void setApplicationResources(Set<ApplicationResource> applicationResource) {
+	public void setApplicationResources(Set<ApplicationResource> applicationResources) {
 		this.applicationResources = applicationResources;
+	}
+
+	public Set<ApplicationResource> getApplicationResources() {
+		return applicationResources;
 	}
 
 }

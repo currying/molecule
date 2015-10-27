@@ -1,5 +1,6 @@
 package com.toparchy.molecule.permission.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import org.picketlink.idm.jpa.annotations.AttributeValue;
@@ -22,6 +23,10 @@ public class MemberEntity extends IdentityTypeEntity {
 	private String lastName;
 
 	@AttributeValue
+	private String sex;
+
+	@AttributeValue
+	@Column(unique = true)
 	private String nickName;
 
 	@AttributeValue
@@ -52,6 +57,14 @@ public class MemberEntity extends IdentityTypeEntity {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getNickName() {

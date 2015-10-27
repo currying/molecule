@@ -17,6 +17,7 @@ public class Member extends AbstractIdentityType implements Account {
 	private static final long serialVersionUID = -4368503151778824869L;
 	public static final QueryParameter FIRST_NAME = QUERY_ATTRIBUTE.byName("firstName");
 	public static final QueryParameter LAST_NAME = QUERY_ATTRIBUTE.byName("lastName");
+	public static final QueryParameter SEX = QUERY_ATTRIBUTE.byName("sex");
 	public static final QueryParameter NICK_NAME = QUERY_ATTRIBUTE.byName("nickName");
 	public static final QueryParameter EMAIL = QUERY_ATTRIBUTE.byName("email");
 	public static final QueryParameter LOGIN_NAME = QUERY_ATTRIBUTE.byName("loginName");
@@ -24,6 +25,8 @@ public class Member extends AbstractIdentityType implements Account {
 	private String firstName;
 	@AttributeProperty
 	private String lastName;
+	@AttributeProperty
+	private String sex;
 	@AttributeProperty
 	private String nickName;
 	@AttributeProperty
@@ -62,6 +65,14 @@ public class Member extends AbstractIdentityType implements Account {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 
 	public String getNickName() {

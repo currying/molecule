@@ -14,6 +14,8 @@
 //import org.picketlink.idm.jpa.annotations.entity.IdentityManaged;
 //import org.picketlink.idm.jpa.model.sample.simple.IdentityTypeEntity;
 //
+//import com.toparchy.molecule.permission.model.basic.Role;
+//
 //@IdentityManaged(Role.class)
 //@Entity
 //@Table(name = "SYS_SYSTEM_ROLE")

@@ -43,9 +43,9 @@ public class SecurityInitializer {
 			createGroup("wzxt_group", "WZXT_MATERIALSTORAGE", "生产调度员角色");
 			createGroup("scxt_group", "SCXT_WORKINGHOURSVOLUME", "物资仓储员");
 			addUser("admin", "admin", "王", "宇轩", "currying", "currying@qq.com", "18652848028", "adminstrators");
-			addUser("user1", "user1", "", "", "", "", "", "wzxt_group");
-			addUser("user2", "user2", "", "", "", "", "", "scxt_group");
-			createUser("user3", "user3", "", "", "", "", "", "PUSHMESSAGE", "消息推送者");
+			addUser("user1", "user1", "测试", "1", "user1", "user1@qq.com", "user1", "wzxt_group");
+			addUser("user2", "user2", "测试", "2", "user2", "user2@qq.com", "user2", "scxt_group");
+			createUser("user3", "user3", "测试", "3", "user3", "user3@qq.com", "user3", "PUSHMESSAGE", "消息推送者");
 
 			createApplicationRole(new ApplicationRole("ADMINISTRATOR", "超级管理员"));
 			createApplicationRole(new ApplicationRole("SCXT_WORKINGHOURSVOLUME", "生产调度员角色"));
@@ -101,7 +101,7 @@ public class SecurityInitializer {
 
 	private void addUser(String loginName, String password_, String firstName, String lastName, String nickName,
 			String email, String phoneNumber, String groupName) {
-		Member user = new Member(loginName, "王", "宇轩", "currying", "currying@qq.com", "18652848028");
+		Member user = new Member(loginName, firstName, lastName, nickName, email, phoneNumber);
 		IdentityManager identityManager = this.partitionManager.createIdentityManager();
 		identityManager.add(user);
 		Password password = new Password(password_);

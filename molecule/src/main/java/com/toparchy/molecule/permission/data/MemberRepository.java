@@ -16,8 +16,8 @@ import org.picketlink.idm.query.IdentityQuery;
 import org.picketlink.idm.query.IdentityQueryBuilder;
 import org.picketlink.idm.query.RelationshipQuery;
 
-import com.toparchy.molecule.permission.model.ApplicationRole;
-import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.ApplicationRole;
+import com.toparchy.molecule.permission.model.entity.Member;
 
 @ApplicationScoped
 public class MemberRepository {

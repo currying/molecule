@@ -7,7 +7,7 @@
 	<persistence-unit name="molecule">
 		<jta-data-source>java:jboss/datasources/moleculeDS</jta-data-source>
 		<class>org.picketlink.idm.jpa.model.sample.simple.AttributedTypeEntity</class>
-		<class>com.toparchy.molecule.permission.model.MemberEntity</class>
+		<class>com.toparchy.molecule.permission.model.entity.MemberEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.RoleTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.GroupTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.IdentityTypeEntity</class>
@@ -16,10 +16,10 @@
 		<class>org.picketlink.idm.jpa.model.sample.simple.PartitionTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.PasswordCredentialTypeEntity</class>
 		<class>org.picketlink.idm.jpa.model.sample.simple.AttributeTypeEntity</class>
-<!-- 		<class>com.toparchy.molecule.permission.model.SystemResource</class> -->
-<!-- 		<class>com.toparchy.molecule.permission.model.SystemRoleEntity</class> -->
-		<class>com.toparchy.molecule.permission.model.ApplicationRole</class>
-		<class>com.toparchy.molecule.permission.model.ApplicationResource</class>
+		<!-- <class>com.toparchy.molecule.permission.model.SystemResource</class> -->
+		<!-- <class>com.toparchy.molecule.permission.model.SystemRoleEntity</class> -->
+		<class>com.toparchy.molecule.permission.model.entity.ApplicationRole</class>
+		<class>com.toparchy.molecule.permission.model.entity.ApplicationResource</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />

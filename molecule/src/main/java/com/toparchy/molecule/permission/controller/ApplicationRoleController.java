@@ -14,8 +14,8 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
-import com.toparchy.molecule.permission.model.ApplicationRole;
+import com.toparchy.molecule.permission.model.entity.ApplicationResource;
+import com.toparchy.molecule.permission.model.entity.ApplicationRole;
 import com.toparchy.molecule.permission.service.RoleResourceRegistration;
 
 @Model

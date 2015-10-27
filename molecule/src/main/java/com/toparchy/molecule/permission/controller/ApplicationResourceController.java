@@ -7,7 +7,7 @@ import javax.faces.view.ViewScoped;
 
 import org.primefaces.context.RequestContext;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.entity.ApplicationResource;
 
 @Model
 @ViewScoped

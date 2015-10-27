@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.toparchy.molecule.permission.data.MemberRepository;
-import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.Member;
 import com.toparchy.molecule.service.MemberRegistration;
 
 @Path("/business/members")

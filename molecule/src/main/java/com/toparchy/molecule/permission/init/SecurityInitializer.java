@@ -19,9 +19,9 @@ import org.picketlink.idm.model.basic.Role;
 
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.data.ApplicationRoleRepository;
-import com.toparchy.molecule.permission.model.ApplicationResource;
-import com.toparchy.molecule.permission.model.ApplicationRole;
-import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.ApplicationResource;
+import com.toparchy.molecule.permission.model.entity.ApplicationRole;
+import com.toparchy.molecule.permission.model.entity.Member;
 
 @Singleton
 @Startup

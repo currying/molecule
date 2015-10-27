@@ -23,7 +23,7 @@ import com.toparchy.molecule.permission.annotations.P00000008;
 import com.toparchy.molecule.permission.annotations.P00000009;
 import com.toparchy.molecule.permission.annotations.P00000010;
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
-import com.toparchy.molecule.permission.model.ApplicationRole;
+import com.toparchy.molecule.permission.model.entity.ApplicationRole;
 
 @ApplicationScoped
 public class CustomAuthorizer {

@@ -10,7 +10,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.toparchy.molecule.permission.model.ApplicationResource;
+import com.toparchy.molecule.permission.model.entity.ApplicationResource;
 
 @ApplicationScoped
 public class ApplicationResourceListProducer {

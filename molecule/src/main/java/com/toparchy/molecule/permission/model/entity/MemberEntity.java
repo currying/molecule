@@ -1,4 +1,4 @@
-package com.toparchy.molecule.permission.model;
+package com.toparchy.molecule.permission.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -20,7 +20,7 @@ import org.picketlink.idm.model.basic.GroupMembership;
 import org.picketlink.idm.model.basic.Role;
 import org.picketlink.idm.query.RelationshipQuery;
 
-import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.Member;
 
 @Path("/")
 public class LoginRest {

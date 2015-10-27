@@ -10,8 +10,8 @@ import org.picketlink.idm.RelationshipManager;
 import org.picketlink.idm.model.basic.BasicModel;
 import org.picketlink.idm.model.basic.Role;
 
-import com.toparchy.molecule.permission.model.ApplicationRole;
-import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.ApplicationRole;
+import com.toparchy.molecule.permission.model.entity.Member;
 
 @Stateless
 public class MemberRoleRegistration {

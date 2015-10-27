@@ -5,7 +5,7 @@ import javax.enterprise.inject.Produces;
 import org.picketlink.idm.config.IdentityConfiguration;
 import org.picketlink.idm.config.IdentityConfigurationBuilder;
 
-import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.Member;
 
 public class IdentityManagementConfiguration {
 

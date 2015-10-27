@@ -1,3 +1,4 @@
+package com.toparchy.molecule.permission.model.entity;
 //package com.toparchy.molecule.permission.model;
 //
 //import java.io.Serializable;

@@ -11,19 +11,10 @@ public class User extends Agent {
 
 	private static final long serialVersionUID = 4117586097100398485L;
 
-	/**
-	 * A query parameter used to set the firstName value.
-	 */
 	public static final QueryParameter FIRST_NAME = QUERY_ATTRIBUTE.byName("firstName");
 
-	/**
-	 * A query parameter used to set the lastName value.
-	 */
 	public static final QueryParameter LAST_NAME = QUERY_ATTRIBUTE.byName("lastName");
 
-	/**
-	 * A query parameter used to set the email value.
-	 */
 	public static final QueryParameter EMAIL = QUERY_ATTRIBUTE.byName("email");
 
 	@AttributeProperty

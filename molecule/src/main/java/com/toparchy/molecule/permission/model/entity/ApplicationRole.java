@@ -1,4 +1,4 @@
-package com.toparchy.molecule.permission.model;
+package com.toparchy.molecule.permission.model.entity;
 
 import java.io.Serializable;
 import java.util.HashSet;

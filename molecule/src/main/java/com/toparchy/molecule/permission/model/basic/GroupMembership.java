@@ -12,11 +12,6 @@ import static org.picketlink.idm.model.annotation.RelationshipStereotype.Stereot
 import static org.picketlink.idm.model.annotation.StereotypeProperty.Property.RELATIONSHIP_GROUP_MEMBERSHIP_GROUP;
 import static org.picketlink.idm.model.annotation.StereotypeProperty.Property.RELATIONSHIP_GROUP_MEMBERSHIP_MEMBER;
 
-/**
- * A Relationship that represents an identity's membership in a Group
- *
- * @author Shane Bryzak
- */
 @RelationshipStereotype(GROUP_MEMBERSHIP)
 public class GroupMembership extends AbstractAttributedType implements Relationship {
 

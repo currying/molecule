@@ -10,7 +10,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.toparchy.molecule.permission.model.ApplicationRole;
+import com.toparchy.molecule.permission.model.entity.ApplicationRole;
 
 @ApplicationScoped
 public class ApplicationRoleListProducer {

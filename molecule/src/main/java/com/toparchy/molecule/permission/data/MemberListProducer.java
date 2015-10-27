@@ -10,7 +10,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.toparchy.molecule.permission.model.entity.Member;
+import com.toparchy.molecule.permission.model.Member;
 
 @ApplicationScoped
 public class MemberListProducer {

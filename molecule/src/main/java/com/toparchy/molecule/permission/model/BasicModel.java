@@ -1,4 +1,4 @@
-package com.toparchy.molecule.permission.model.basic;
+package com.toparchy.molecule.permission.model;
 
 import org.picketlink.idm.IdentityManagementException;
 import org.picketlink.idm.IdentityManager;

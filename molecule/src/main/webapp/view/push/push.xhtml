@@ -51,19 +51,33 @@
 							</h:panelGrid>
 						</p:outputPanel>
 						<p:message for="dataTime" />
-
-						<h:outputText for="channelId" value="channelId" />
-						<p:inputText id="channelId" value="#{pushMessageForm.channelId}"
-							label="channelId" size="36" />
-						<p:message for="channelId" />
+						<h:outputText for="member" value="指派用户" />
+						<p:dataTable var="member" value="#{members}"
+							selectionMode="single" id="member"
+							selection="#{pushController.currentMember}" rowKey="#{member.id}">
+							<f:facet name="header">
+								<h:outputText value="用户" />
+							</f:facet>
+							<p:ajax event="rowSelect"
+								listener="#{pushController.onRowSelect}" />
+							<p:column headerText="姓" style="width:48px">
+								<h:outputText value="#{member.firstName}" />
+							</p:column>
+							<p:column headerText="名字" style="width:72px">
+								<h:outputText value="#{member.lastName}" />
+							</p:column>
+							<p:column headerText="登录名" style="width:72px">
+								<h:outputText value="#{member.loginName}" />
+							</p:column>
+						</p:dataTable>
+						<p:message for="member" />
 						<h:outputText for="title" value="标题" />
 						<p:inputText id="title" value="#{pushMessageForm.title}"
 							label="标题" size="72" />
 						<p:message for="pkg_content" />
 						<h:outputText for="pkg_content" value="行为" />
 						<p:inputText id="pkg_content"
-							value="JzApp://#{pushMessageForm.pkg_content}" label="行为"
-							size="72" />
+							value="#{pushMessageForm.pkg_content}" label="行为" size="72" />
 						<p:message for="pkg_content" />
 						<h:outputText for="content" value="内容" />
 						<p:inputTextarea id="content" value="#{pushMessageForm.content}"

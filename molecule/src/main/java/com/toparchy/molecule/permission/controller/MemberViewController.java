@@ -33,7 +33,6 @@ public class MemberViewController implements Serializable {
 	@Produces
 	@Named
 	private Member currentMember;
-
 	@Produces
 	@Named
 	private List<Group> currentGroups;

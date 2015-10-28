@@ -21,7 +21,6 @@ public class Member extends AbstractIdentityType implements Account {
 	public static final QueryParameter NICK_NAME = QUERY_ATTRIBUTE.byName("nickName");
 	public static final QueryParameter EMAIL = QUERY_ATTRIBUTE.byName("email");
 	public static final QueryParameter LOGIN_NAME = QUERY_ATTRIBUTE.byName("loginName");
-	public static final QueryParameter CHANNELID = QUERY_ATTRIBUTE.byName("channelId");
 	@AttributeProperty
 	private String firstName;
 	@AttributeProperty
@@ -36,8 +35,6 @@ public class Member extends AbstractIdentityType implements Account {
 	private String phoneNumber;
 	@AttributeProperty
 	private String loginName;
-	@AttributeProperty
-	private String channelId;
 
 	private String passWord;
 
@@ -118,14 +115,6 @@ public class Member extends AbstractIdentityType implements Account {
 
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
-	}
-
-	public String getChannelId() {
-		return channelId;
-	}
-
-	public void setChannelId(String channelId) {
-		this.channelId = channelId;
 	}
 
 }

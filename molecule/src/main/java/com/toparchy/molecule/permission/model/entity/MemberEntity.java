@@ -1,12 +1,18 @@
 package com.toparchy.molecule.permission.model.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 import org.picketlink.idm.jpa.annotations.AttributeValue;
 import org.picketlink.idm.jpa.annotations.entity.IdentityManaged;
 import org.picketlink.idm.jpa.model.sample.simple.IdentityTypeEntity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.toparchy.molecule.permission.model.Member;
 
 @IdentityManaged({ Member.class })
@@ -37,8 +43,9 @@ public class MemberEntity extends IdentityTypeEntity {
 	@AttributeValue
 	private String email;
 
-	@AttributeValue
-	private String channelId;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "memberEntity")
+	@JsonIgnore
+	private Set<DeviceEntity> devices;
 
 	public String getLoginName() {
 		return this.loginName;
@@ -96,12 +103,12 @@ public class MemberEntity extends IdentityTypeEntity {
 		this.email = email;
 	}
 
-	public String getChannelId() {
-		return channelId;
+	public Set<DeviceEntity> getDevices() {
+		return devices;
 	}
 
-	public void setChannelId(String channelId) {
-		this.channelId = channelId;
+	public void setDevices(Set<DeviceEntity> devices) {
+		this.devices = devices;
 	}
 
 }

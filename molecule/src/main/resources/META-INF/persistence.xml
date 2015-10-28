@@ -20,6 +20,7 @@
 		<!-- <class>com.toparchy.molecule.permission.model.SystemRoleEntity</class> -->
 		<class>com.toparchy.molecule.permission.model.entity.ApplicationRole</class>
 		<class>com.toparchy.molecule.permission.model.entity.ApplicationResource</class>
+		<class>com.toparchy.molecule.permission.model.entity.DeviceEntity</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />

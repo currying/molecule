@@ -59,8 +59,6 @@ public class LoginRest {
 			this.credentials.setUserId(credential.getUserId());
 			this.credentials.setPassword(credential.getPassword());
 			this.identity.login();
-		}
-		if (this.identity.isLoggedIn()) {
 			Account account = this.identity.getAccount();
 			List<Role> roles = getUserRoles(account);
 			List<Group> groups = getUserGroups(account);
@@ -68,6 +66,10 @@ public class LoginRest {
 			AuthenticationResponse authenticationResponse = new AuthenticationResponse(account, roles, groups,
 					group_Roles);
 			return Response.ok().entity(authenticationResponse).type(MediaType.APPLICATION_JSON_TYPE).build();
+		}
+		if (this.identity.isLoggedIn()) {
+			return Response.ok().entity("{\"loginName\" : \"" + credential.getUserId() + "\",\"state\" : \"logined\"}")
+					.type(MediaType.APPLICATION_JSON_TYPE).build();
 		}
 		return Response.ok().entity("{\"loginName\" : \"" + credential.getUserId() + "\",\"state\" : \"fail\"}")
 				.type(MediaType.APPLICATION_JSON_TYPE).build();

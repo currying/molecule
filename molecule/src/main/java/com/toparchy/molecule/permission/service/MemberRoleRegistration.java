@@ -35,4 +35,5 @@ public class MemberRoleRegistration {
 		Role role = BasicModel.getRole(identityManager, applicationRole.getKey());
 		BasicModel.revokeRole(relationshipManager, member, role);
 	}
+
 }

@@ -22,6 +22,7 @@ import com.toparchy.molecule.permission.annotations.P00000007;
 import com.toparchy.molecule.permission.annotations.P00000008;
 import com.toparchy.molecule.permission.annotations.P00000009;
 import com.toparchy.molecule.permission.annotations.P00000010;
+import com.toparchy.molecule.permission.annotations.P00000011;
 import com.toparchy.molecule.permission.data.ApplicationResourceRepository;
 import com.toparchy.molecule.permission.model.entity.ApplicationRole;
 
@@ -142,6 +143,17 @@ public class CustomAuthorizer {
 			RelationshipManager relationshipManager) throws Exception {
 		boolean b = false;
 		for (ApplicationRole role : applicationResourceRepository.findByKey("P00000010").getApplicationRoles()) {
+			b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
+		}
+		return b;
+	}
+
+	@Secures
+	@P00000011
+	public boolean doP00000011Check(Identity identity, IdentityManager identityManager,
+			RelationshipManager relationshipManager) throws Exception {
+		boolean b = false;
+		for (ApplicationRole role : applicationResourceRepository.findByKey("P00000011").getApplicationRoles()) {
 			b = b || hasRole(relationshipManager, identity.getAccount(), getRole(identityManager, role.getKey()));
 		}
 		return b;

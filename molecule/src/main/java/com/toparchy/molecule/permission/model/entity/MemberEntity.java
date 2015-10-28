@@ -37,6 +37,9 @@ public class MemberEntity extends IdentityTypeEntity {
 	@AttributeValue
 	private String email;
 
+	@AttributeValue
+	private String channelId;
+
 	public String getLoginName() {
 		return this.loginName;
 	}
@@ -91,6 +94,14 @@ public class MemberEntity extends IdentityTypeEntity {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getChannelId() {
+		return channelId;
+	}
+
+	public void setChannelId(String channelId) {
+		this.channelId = channelId;
 	}
 
 }

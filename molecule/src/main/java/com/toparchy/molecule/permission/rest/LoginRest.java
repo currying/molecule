@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 
 import org.picketlink.Identity;
 import org.picketlink.credential.DefaultLoginCredentials;
+import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.RelationshipManager;
 import org.picketlink.idm.model.Account;
 import org.picketlink.idm.model.basic.Grant;
@@ -20,6 +21,8 @@ import org.picketlink.idm.model.basic.GroupMembership;
 import org.picketlink.idm.model.basic.Role;
 import org.picketlink.idm.query.RelationshipQuery;
 
+import com.toparchy.molecule.permission.annotations.P00000011;
+import com.toparchy.molecule.permission.data.MemberRepository;
 import com.toparchy.molecule.permission.model.Member;
 
 @Path("/")
@@ -31,6 +34,10 @@ public class LoginRest {
 	private RelationshipManager relationshipManager;
 	@Inject
 	private DefaultLoginCredentials credentials;
+	@Inject
+	private MemberRepository memberRepository;
+	@Inject
+	private IdentityManager identityManager;
 
 	@POST
 	@Path("/logout")
@@ -42,12 +49,16 @@ public class LoginRest {
 					.entity("{\"loginName\" : \"" + ((Member) account).getLoginName() + "\",\"state\": \"logout\"}")
 					.type(MediaType.APPLICATION_JSON_TYPE).build();
 		}
-		return Response.ok().entity("").type(MediaType.APPLICATION_JSON_TYPE).build();
+		return Response.ok().entity("{\"state\":\"not logged\"}").type(MediaType.APPLICATION_JSON_TYPE).build();
 	}
 
 	@POST
 	@Path("/pushBind")
+	@P00000011
 	public void pushBind(PushData pushData) {
+		Member member = memberRepository.findById(credentials.getUserId());
+		member.setChannelId(pushData.getPushChannelId());
+		identityManager.update(member);
 		System.out
 				.println("pushChannelId: " + pushData.getPushChannelId() + "\npushUserId: " + pushData.getPushUserId());
 	}
@@ -59,8 +70,6 @@ public class LoginRest {
 			this.credentials.setUserId(credential.getUserId());
 			this.credentials.setPassword(credential.getPassword());
 			this.identity.login();
-		}
-		if (this.identity.isLoggedIn()) {
 			Account account = this.identity.getAccount();
 			List<Role> roles = getUserRoles(account);
 			List<Group> groups = getUserGroups(account);
@@ -68,6 +77,10 @@ public class LoginRest {
 			AuthenticationResponse authenticationResponse = new AuthenticationResponse(account, roles, groups,
 					group_Roles);
 			return Response.ok().entity(authenticationResponse).type(MediaType.APPLICATION_JSON_TYPE).build();
+		}
+		if (this.identity.isLoggedIn()) {
+			return Response.ok().entity("{\"loginName\" : \"" + credential.getUserId() + "\",\"state\" : \"logined\"}")
+					.type(MediaType.APPLICATION_JSON_TYPE).build();
 		}
 		return Response.ok().entity("{\"loginName\" : \"" + credential.getUserId() + "\",\"state\" : \"fail\"}")
 				.type(MediaType.APPLICATION_JSON_TYPE).build();

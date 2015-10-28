@@ -63,6 +63,7 @@ public class SecurityInitializer {
 			createApplicationResource(new ApplicationResource("P00000008", "获取工时物量信息", "REST"));
 			createApplicationResource(new ApplicationResource("P00000009", "消息推送给指定设备", "BASE"));
 			createApplicationResource(new ApplicationResource("P00000010", "查询设备状态", "BASE"));
+			createApplicationResource(new ApplicationResource("P00000011", "绑定设备", "REST"));
 
 			createRoleResource();
 		}
@@ -131,11 +132,13 @@ public class SecurityInitializer {
 		applicationRole.addApplicationResource(applicationResourceRepository.findByKey("P00000008"));
 		applicationRole.addApplicationResource(applicationResourceRepository.findByKey("P00000009"));
 		applicationRole.addApplicationResource(applicationResourceRepository.findByKey("P00000010"));
+		applicationRole.addApplicationResource(applicationResourceRepository.findByKey("P00000011"));
 		moleculeEm.persist(applicationRole);
 
 		ApplicationRole applicationRole2 = applicationRoleRepository.findByKey("SCXT_WORKINGHOURSVOLUME");
 		applicationRole2.addApplicationResource(applicationResourceRepository.findByKey("P00000007"));
 		applicationRole2.addApplicationResource(applicationResourceRepository.findByKey("P00000008"));
+		applicationRole2.addApplicationResource(applicationResourceRepository.findByKey("P00000011"));
 
 		moleculeEm.persist(applicationRole2);
 
@@ -146,12 +149,14 @@ public class SecurityInitializer {
 		applicationRole3.addApplicationResource(applicationResourceRepository.findByKey("P00000004"));
 		applicationRole3.addApplicationResource(applicationResourceRepository.findByKey("P00000005"));
 		applicationRole3.addApplicationResource(applicationResourceRepository.findByKey("P00000006"));
+		applicationRole3.addApplicationResource(applicationResourceRepository.findByKey("P00000011"));
 
 		moleculeEm.persist(applicationRole3);
 
 		ApplicationRole applicationRole4 = applicationRoleRepository.findByKey("PUSHMESSAGE");
 		applicationRole4.addApplicationResource(applicationResourceRepository.findByKey("P00000009"));
 		applicationRole4.addApplicationResource(applicationResourceRepository.findByKey("P00000010"));
+		applicationRole4.addApplicationResource(applicationResourceRepository.findByKey("P00000011"));
 
 		moleculeEm.persist(applicationRole4);
 	}

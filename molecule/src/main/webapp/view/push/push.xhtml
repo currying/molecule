@@ -61,8 +61,9 @@
 							label="标题" size="72" />
 						<p:message for="pkg_content" />
 						<h:outputText for="pkg_content" value="行为" />
-						<p:inputText id="pkg_content" value="#{pushMessageForm.pkg_content}"
-							label="行为" size="72" />
+						<p:inputText id="pkg_content"
+							value="JzApp://#{pushMessageForm.pkg_content}" label="行为"
+							size="72" />
 						<p:message for="pkg_content" />
 						<h:outputText for="content" value="内容" />
 						<p:inputTextarea id="content" value="#{pushMessageForm.content}"

@@ -69,7 +69,6 @@ public class PushController implements Serializable {
 	}
 
 	public void onRowUnselect(UnselectEvent event) {
-		pushMessageForm.setChannelId("");
 	}
 
 	@P00000009

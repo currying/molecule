@@ -6,6 +6,13 @@
 		pool-name="molecule" enabled="true" use-java-context="true">
 		<connection-url>jdbc:jtds:sqlserver://localhost:1433/molecule</connection-url>
 		<driver>mssql</driver>
+		<pool>
+			<min-pool-size>5</min-pool-size>
+			<max-pool-size>30</max-pool-size>
+			<prefill>true</prefill>
+			<use-strict-min>false</use-strict-min>
+			<flush-strategy>FailingConnectionOnly</flush-strategy>
+		</pool>
 		<security>
 			<user-name>sa</user-name>
 			<password>822005</password>
@@ -16,6 +23,13 @@
 		pool-name="bi" enabled="true" use-java-context="true">
 		<connection-url>jdbc:jtds:sqlserver://localhost:1433/bi</connection-url>
 		<driver>mssql</driver>
+		<pool>
+			<min-pool-size>5</min-pool-size>
+			<max-pool-size>30</max-pool-size>
+			<prefill>true</prefill>
+			<use-strict-min>false</use-strict-min>
+			<flush-strategy>FailingConnectionOnly</flush-strategy>
+		</pool>
 		<security>
 			<user-name>sa</user-name>
 			<password>822005</password>
@@ -26,6 +40,13 @@
 		pool-name="gswl" enabled="true" use-java-context="true">
 		<connection-url>jdbc:jtds:sqlserver://localhost:1433/gswl</connection-url>
 		<driver>mssql</driver>
+		<pool>
+			<min-pool-size>5</min-pool-size>
+			<max-pool-size>30</max-pool-size>
+			<prefill>true</prefill>
+			<use-strict-min>false</use-strict-min>
+			<flush-strategy>FailingConnectionOnly</flush-strategy>
+		</pool>
 		<security>
 			<user-name>sa</user-name>
 			<password>822005</password>
@@ -36,6 +57,13 @@
 		pool-name="wzxt" enabled="true" use-java-context="true">
 		<connection-url>jdbc:jtds:sqlserver://localhost:1433/wzxt</connection-url>
 		<driver>mssql</driver>
+		<pool>
+			<min-pool-size>5</min-pool-size>
+			<max-pool-size>30</max-pool-size>
+			<prefill>true</prefill>
+			<use-strict-min>false</use-strict-min>
+			<flush-strategy>FailingConnectionOnly</flush-strategy>
+		</pool>
 		<security>
 			<user-name>sa</user-name>
 			<password>822005</password>

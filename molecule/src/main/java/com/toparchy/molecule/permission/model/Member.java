@@ -40,7 +40,7 @@ public class Member extends AbstractIdentityType implements Account {
 	private String phoneNumber;
 	@AttributeProperty
 	private String loginName;
-	@AttributeProperty
+	@AttributeProperty(managed = true)
 	private Set<DeviceEntity> devices = new HashSet<DeviceEntity>();
 
 	private String passWord;

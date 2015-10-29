@@ -17,7 +17,7 @@ public class DeviceEntity implements Serializable {
 
 	private static final long serialVersionUID = 8330194909337507289L;
 	@Id
-	@Column(name = "DEVICES_ID", length = 50)
+	@Column(name = "DEVICE_ID", length = 50)
 	@GeneratedValue(generator = "device-uuid")
 	@GenericGenerator(name = "device-uuid", strategy = "uuid")
 	private String deviceId;
@@ -32,14 +32,6 @@ public class DeviceEntity implements Serializable {
 	private MemberEntity memberEntity;
 
 	public DeviceEntity() {
-	}
-
-	public String getDeviceId() {
-		return deviceId;
-	}
-
-	public void setDeviceId(String deviceId) {
-		this.deviceId = deviceId;
 	}
 
 	public String getDeviceType() {

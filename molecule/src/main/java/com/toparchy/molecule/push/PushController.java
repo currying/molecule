@@ -15,6 +15,7 @@ import org.primefaces.event.UnselectEvent;
 
 import com.toparchy.molecule.permission.annotations.P00000009;
 import com.toparchy.molecule.permission.annotations.P00000010;
+import com.toparchy.molecule.permission.data.MemberEntityRepository;
 import com.toparchy.molecule.permission.model.Member;
 import com.toparchy.molecule.permission.model.entity.DeviceEntity;
 import com.toparchy.molecule.push.baidu.BaiduPushService;
@@ -32,6 +33,8 @@ public class PushController implements Serializable {
 	private BaiduPushService pushService;
 	@Produces
 	private BaseDataWrapper baseDataWrapper;
+	@Inject
+	private MemberEntityRepository memberEntityRepository;
 
 	private Member currentMember;
 
@@ -67,7 +70,7 @@ public class PushController implements Serializable {
 	}
 
 	public void onRowSelect(SelectEvent event) {
-		Iterator<DeviceEntity> it = currentMember.getDevices().iterator();
+		Iterator<DeviceEntity> it = memberEntityRepository.findById(currentMember.getId()).getDevices().iterator();
 		while (it.hasNext()) {
 			DeviceEntity device = (DeviceEntity) it.next();
 			if (device.getState().equals("1")) {

@@ -40,8 +40,8 @@ public class Member extends AbstractIdentityType implements Account {
 	private String phoneNumber;
 	@AttributeProperty
 	private String loginName;
-	@AttributeProperty
-	private Set<DeviceEntity> devices = new HashSet<DeviceEntity>();
+	// @AttributeProperty(managed = true)
+	// private Set<Device> devices = new HashSet<Device>();
 
 	private String passWord;
 
@@ -124,19 +124,19 @@ public class Member extends AbstractIdentityType implements Account {
 		this.passWord = passWord;
 	}
 
-	public Set<DeviceEntity> getDevices() {
-		return devices;
-	}
-
-	public void addDevice(DeviceEntity device) {
-		devices.add(device);
-	}
-
-	public void removeDeivce(DeviceEntity device) {
-		devices.remove(device);
-	}
-
-	public void setDevices(Set<DeviceEntity> devices) {
-		this.devices = devices;
-	}
+	// public Set<DeviceEntity> getDevices() {
+	// return devices;
+	// }
+	//
+	// public void addDevice(Device device) {
+	// devices.add(device);
+	// }
+	//
+	// public void removeDeivce(Device device) {
+	// devices.remove(device);
+	// }
+	//
+	// public void setDevices(Set<Device> devices) {
+	// this.devices = devices;
+	// }
 }

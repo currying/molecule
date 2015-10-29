@@ -1,5 +1,6 @@
 package com.toparchy.molecule.permission.model.entity;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -46,7 +47,7 @@ public class MemberEntity extends IdentityTypeEntity {
 	@AttributeValue
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "memberEntity")
 	@JsonIgnore
-	private Set<DeviceEntity> devices;
+	private Set<DeviceEntity> devices = new HashSet<DeviceEntity>();
 
 	public String getLoginName() {
 		return this.loginName;

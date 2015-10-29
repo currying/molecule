@@ -3,6 +3,9 @@ package com.toparchy.molecule.permission.model;
 import static org.picketlink.idm.model.annotation.IdentityStereotype.Stereotype.USER;
 import static org.picketlink.idm.model.annotation.StereotypeProperty.Property.IDENTITY_USER_NAME;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.picketlink.idm.model.AbstractIdentityType;
 import org.picketlink.idm.model.Account;
 import org.picketlink.idm.model.annotation.AttributeProperty;
@@ -10,6 +13,8 @@ import org.picketlink.idm.model.annotation.IdentityStereotype;
 import org.picketlink.idm.model.annotation.StereotypeProperty;
 import org.picketlink.idm.model.annotation.Unique;
 import org.picketlink.idm.query.QueryParameter;
+
+import com.toparchy.molecule.permission.model.entity.DeviceEntity;
 
 @IdentityStereotype(USER)
 public class Member extends AbstractIdentityType implements Account {
@@ -35,6 +40,8 @@ public class Member extends AbstractIdentityType implements Account {
 	private String phoneNumber;
 	@AttributeProperty
 	private String loginName;
+	@AttributeProperty
+	private Set<DeviceEntity> devices = new HashSet<DeviceEntity>();
 
 	private String passWord;
 
@@ -117,4 +124,19 @@ public class Member extends AbstractIdentityType implements Account {
 		this.passWord = passWord;
 	}
 
+	public Set<DeviceEntity> getDevices() {
+		return devices;
+	}
+
+	public void addDevice(DeviceEntity device) {
+		devices.add(device);
+	}
+
+	public void removeDeivce(DeviceEntity device) {
+		devices.remove(device);
+	}
+
+	public void setDevices(Set<DeviceEntity> devices) {
+		this.devices = devices;
+	}
 }

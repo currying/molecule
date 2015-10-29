@@ -1,6 +1,7 @@
 package com.toparchy.molecule.push;
 
 import java.io.Serializable;
+import java.util.Iterator;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -15,6 +16,7 @@ import org.primefaces.event.UnselectEvent;
 import com.toparchy.molecule.permission.annotations.P00000009;
 import com.toparchy.molecule.permission.annotations.P00000010;
 import com.toparchy.molecule.permission.model.Member;
+import com.toparchy.molecule.permission.model.entity.DeviceEntity;
 import com.toparchy.molecule.push.baidu.BaiduPushService;
 import com.toparchy.molecule.push.baidu.exception.PushClientException;
 import com.toparchy.molecule.push.baidu.exception.PushServerException;
@@ -65,7 +67,13 @@ public class PushController implements Serializable {
 	}
 
 	public void onRowSelect(SelectEvent event) {
-		pushMessageForm.setChannelId(currentMember.getChannelId());
+		Iterator<DeviceEntity> it = currentMember.getDevices().iterator();
+		while (it.hasNext()) {
+			DeviceEntity device = (DeviceEntity) it.next();
+			if (device.getState().equals("1")) {
+				pushMessageForm.setChannelId(device.getChannelId());
+			}
+		}
 	}
 
 	public void onRowUnselect(UnselectEvent event) {

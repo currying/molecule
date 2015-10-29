@@ -43,6 +43,7 @@ public class MemberEntity extends IdentityTypeEntity {
 	@AttributeValue
 	private String email;
 
+	@AttributeValue
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "memberEntity")
 	@JsonIgnore
 	private Set<DeviceEntity> devices;
@@ -105,6 +106,14 @@ public class MemberEntity extends IdentityTypeEntity {
 
 	public Set<DeviceEntity> getDevices() {
 		return devices;
+	}
+
+	public void addDevice(DeviceEntity device) {
+		devices.add(device);
+	}
+
+	public void removeDeivce(DeviceEntity device) {
+		devices.remove(device);
 	}
 
 	public void setDevices(Set<DeviceEntity> devices) {

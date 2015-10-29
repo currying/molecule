@@ -53,7 +53,7 @@ public class LoginRest {
 	@Path("/pushBind")
 	@P00000011
 	public void pushBind(PushData pushData) {
-		deviceBindService.deviceBind(identity.getAccount().getId(), pushData.getPushChannelId());
+		deviceBindService.deviceBind(identity.getAccount().getId(), pushData);
 	}
 
 	@POST

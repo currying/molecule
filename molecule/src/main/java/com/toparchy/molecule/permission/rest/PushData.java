@@ -13,6 +13,14 @@ public class PushData {
 		this.deviceType = deviceType;
 	}
 
+	public String getDeviceType() {
+		return deviceType;
+	}
+
+	public void setDeviceType(String deviceType) {
+		this.deviceType = deviceType;
+	}
+
 	public String getPushChannelId() {
 		return pushChannelId;
 	}

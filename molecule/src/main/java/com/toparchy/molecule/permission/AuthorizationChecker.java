@@ -1,16 +1,18 @@
 package com.toparchy.molecule.permission;
 
+import static org.picketlink.idm.model.basic.BasicModel.getGroup;
+import static org.picketlink.idm.model.basic.BasicModel.getRole;
+import static org.picketlink.idm.model.basic.BasicModel.hasRole;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.picketlink.Identity;
 import org.picketlink.idm.IdentityManager;
 import org.picketlink.idm.RelationshipManager;
 import org.picketlink.idm.model.basic.BasicModel;
 import org.picketlink.idm.model.basic.Group;
 import org.picketlink.idm.model.basic.Role;
-
-import javax.inject.Inject;
-import javax.inject.Named;
-
-import static org.picketlink.idm.model.basic.BasicModel.*;
 
 @Named
 public class AuthorizationChecker {

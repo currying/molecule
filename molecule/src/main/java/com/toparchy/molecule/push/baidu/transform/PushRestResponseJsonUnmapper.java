@@ -1,7 +1,6 @@
 package com.toparchy.molecule.push.baidu.transform;
 
 import java.util.Map;
-import java.util.Map.Entry;
 
 import com.toparchy.molecule.push.baidu.core.json.JSONParser;
 import com.toparchy.molecule.push.baidu.core.model.ErrorResponse;

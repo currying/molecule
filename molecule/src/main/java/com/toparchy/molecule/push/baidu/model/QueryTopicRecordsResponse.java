@@ -1,7 +1,7 @@
 package com.toparchy.molecule.push.baidu.model;
 
-import java.util.List;
 import java.util.LinkedList;
+import java.util.List;
 
 import com.toparchy.molecule.push.baidu.constants.BaiduPushConstants;
 import com.toparchy.molecule.push.baidu.core.annotation.HttpParamKeyName;

@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.GZIP;
 
-import com.toparchy.molecule.permission.annotations.*;
+import com.toparchy.molecule.permission.annotations.P00000007;
 import com.toparchy.molecule.scxt.data.WorkingHoursVolumeFeedBackRepository;
 
 @Path("/business/workingHoursVolumeFeedBack")

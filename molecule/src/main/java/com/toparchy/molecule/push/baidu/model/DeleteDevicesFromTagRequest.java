@@ -1,11 +1,11 @@
 package com.toparchy.molecule.push.baidu.model;
 
-import net.sf.json.JSONArray;
-
 import com.toparchy.molecule.push.baidu.constants.BaiduPushConstants;
 import com.toparchy.molecule.push.baidu.core.annotation.HttpParamKeyName;
 import com.toparchy.molecule.push.baidu.core.annotation.R;
 import com.toparchy.molecule.push.baidu.core.annotation.RangeRestrict;
+
+import net.sf.json.JSONArray;
 
 public class DeleteDevicesFromTagRequest extends PushRequest{
 

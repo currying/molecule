@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.inject.Inject;
-
 public abstract class ConnPoolService {
 	private volatile boolean isRefleshing = false;
 	private static ClientRepository clientRepository = new ClientRepository();

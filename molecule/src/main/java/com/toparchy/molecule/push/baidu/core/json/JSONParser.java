@@ -2,10 +2,10 @@
 package com.toparchy.molecule.push.baidu.core.json;
 //  
 import java.io.StringReader;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
+import java.util.Map;
 //  
 public class JSONParser implements JSONParserConstants {
   public JSONParser(){

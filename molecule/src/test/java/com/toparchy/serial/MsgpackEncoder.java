@@ -1,10 +1,10 @@
 package com.toparchy.serial;
 
+import org.msgpack.MessagePack;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
-
-import org.msgpack.MessagePack;
 
 public class MsgpackEncoder extends MessageToByteEncoder<Object> {
 

@@ -1,10 +1,10 @@
 package com.toparchy.molecule.push.baidu.model;
 
-import net.sf.json.JSONArray;
-
 import com.toparchy.molecule.push.baidu.constants.BaiduPushConstants;
 import com.toparchy.molecule.push.baidu.core.annotation.HttpParamKeyName;
 import com.toparchy.molecule.push.baidu.core.annotation.R;
+
+import net.sf.json.JSONArray;
 
 public class QueryStatisticMsgRequest extends PushRequest{
 

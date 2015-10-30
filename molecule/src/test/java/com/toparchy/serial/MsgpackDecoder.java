@@ -1,12 +1,12 @@
 package com.toparchy.serial;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToMessageDecoder;
-
 import java.util.List;
 
 import org.msgpack.MessagePack;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.MessageToMessageDecoder;
 
 public class MsgpackDecoder extends MessageToMessageDecoder<ByteBuf> {
 

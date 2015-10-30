@@ -3,9 +3,6 @@ package com.toparchy.molecule.permission.model;
 import static org.picketlink.idm.model.annotation.IdentityStereotype.Stereotype.USER;
 import static org.picketlink.idm.model.annotation.StereotypeProperty.Property.IDENTITY_USER_NAME;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import org.picketlink.idm.model.AbstractIdentityType;
 import org.picketlink.idm.model.Account;
 import org.picketlink.idm.model.annotation.AttributeProperty;
@@ -13,8 +10,6 @@ import org.picketlink.idm.model.annotation.IdentityStereotype;
 import org.picketlink.idm.model.annotation.StereotypeProperty;
 import org.picketlink.idm.model.annotation.Unique;
 import org.picketlink.idm.query.QueryParameter;
-
-import com.toparchy.molecule.permission.model.entity.DeviceEntity;
 
 @IdentityStereotype(USER)
 public class Member extends AbstractIdentityType implements Account {

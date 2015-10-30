@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 
 import org.jboss.resteasy.annotations.GZIP;
 
-import com.toparchy.molecule.permission.annotations.*;
+import com.toparchy.molecule.permission.annotations.P00000008;
 import com.toparchy.molecule.scxt.data.WorkingHoursVolumeRepository;
 
 @Path("/business/workingHoursVolume")

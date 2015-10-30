@@ -1,10 +1,10 @@
 package com.toparchy.molecule.push.baidu.model;
 
-import net.sf.json.JSONArray;
-
 import com.toparchy.molecule.push.baidu.constants.BaiduPushConstants;
 import com.toparchy.molecule.push.baidu.core.annotation.HttpParamKeyName;
 import com.toparchy.molecule.push.baidu.core.annotation.R;
+
+import net.sf.json.JSONArray;
 
 public class QueryMsgStatusRequest extends PushRequest{
     // 当查询单个消息的状态时，传入消息的String 类型的id；

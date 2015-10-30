@@ -5,9 +5,6 @@ import java.util.Date;
 
 import org.apache.commons.beanutils.PropertyUtils;
 
-import com.toparchy.molecule.push.netty.Client;
-import com.toparchy.molecule.push.netty.PushMessagePacket;
-
 public class PushMessageForm implements Serializable {
 
 	private static final long serialVersionUID = -199209507778458986L;

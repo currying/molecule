@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -35,6 +37,8 @@ public class LoginRest {
 	private DefaultLoginCredentials credentials;
 	@Inject
 	private DeviceBindService deviceBindService;
+	@Context
+	private HttpServletRequest request;
 
 	@POST
 	@Path("/logout")
@@ -59,6 +63,7 @@ public class LoginRest {
 	@POST
 	@Path("/login")
 	public Response login(DefaultLoginCredentials credential) {
+		System.out.println(request.getSession());
 		if (!this.identity.isLoggedIn()) {
 			this.credentials.setUserId(credential.getUserId());
 			this.credentials.setPassword(credential.getPassword());

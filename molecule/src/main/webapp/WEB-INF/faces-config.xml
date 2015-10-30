@@ -36,7 +36,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/view/*</from-view-id>
+		<from-view-id>/*</from-view-id>
 		<navigation-case>
 			<from-action>#{loginController.logout}</from-action>
 			<from-outcome>success</from-outcome>

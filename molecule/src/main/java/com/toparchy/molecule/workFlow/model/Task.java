@@ -1,7 +1,6 @@
 package com.toparchy.molecule.workFlow.model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,11 +24,12 @@ public class Task implements Serializable {
 	@GeneratedValue(generator = "task-uuid")
 	@GenericGenerator(name = "task-uuid", strategy = "uuid")
 	private String id;
-
+	@Column(length = 100)
 	private String subject;
 
 	private String summary;
 
+	@Column(length = 2)
 	private String status;
 
 	private boolean isRelease;
@@ -53,7 +53,7 @@ public class Task implements Serializable {
 	private long totalWork;
 
 	private long actualHours;
-
+	@Column(length = 2)
 	private String priority;
 	@Lob
 	private String actTypeContent;
@@ -63,13 +63,13 @@ public class Task implements Serializable {
 	private int delayDays;
 
 	private int daysLeft;
-
+	@Column(length = 50)
 	private String acceptorName;
-
+	@Column(length = 50)
 	private String approvedName;
-
+	@Column(length = 50)
 	private String creatorName;
-
+	@Column(length = 1000)
 	private String imagePath;
 
 	public String getId() {

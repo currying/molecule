@@ -21,6 +21,13 @@
 		<class>com.toparchy.molecule.permission.model.entity.ApplicationRole</class>
 		<class>com.toparchy.molecule.permission.model.entity.ApplicationResource</class>
 		<class>com.toparchy.molecule.permission.model.entity.DeviceEntity</class>
+		<class>com.toparchy.csic704.entity.AssessmentItem</class>
+		<class>com.toparchy.csic704.entity.AssessmentOrg</class>
+		<class>com.toparchy.csic704.entity.AssessmentProject</class>
+		<class>com.toparchy.csic704.entity.ReviewScore</class>
+		<class>com.toparchy.csic704.entity.ReviewStructure</class>
+		<class>com.toparchy.csic704.entity.DepartMent</class>
+		<class>com.toparchy.csic704.entity.Employee</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
@@ -64,6 +71,16 @@
 	<persistence-unit name="wzxt">
 		<jta-data-source>java:jboss/datasources/wzxtDS</jta-data-source>
 		<class>com.toparchy.molecule.wzxt.model.MaterialStorage</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="false" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="workFlow">
+		<jta-data-source>java:jboss/datasources/workFlowDS</jta-data-source>
+		<class>com.toparchy.molecule.workFlow.model.Task</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />

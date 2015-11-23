@@ -14,15 +14,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "CSIC704_REVIEWSCORE")
+@Table(name = "CSIC704_ASSESSMENTSCORE")
 @XmlRootElement
 public class AssessmentScore implements Serializable {
 
 	private static final long serialVersionUID = 7989928144071437453L;
 	@Id
-	@Column(name = "REVIEWSCORE_ID", length = 50)
-	@GeneratedValue(generator = "reviewScore-uuid")
-	@GenericGenerator(name = "reviewScore-uuid", strategy = "uuid")
+	@Column(name = "ASSESSMENTSCORE_ID", length = 50)
+	@GeneratedValue(generator = "assessmentScore-uuid")
+	@GenericGenerator(name = "assessmentScore-uuid", strategy = "uuid")
 	private String id;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AssessmentItem assessmentItem;

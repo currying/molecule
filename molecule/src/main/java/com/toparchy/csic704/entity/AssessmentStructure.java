@@ -19,24 +19,24 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "CSIC704_REVIEWSTRUCTURE")
+@Table(name = "CSIC704_ASSESSMENTSTRUCTURE")
 @XmlRootElement
 public class AssessmentStructure implements Serializable {
 
 	private static final long serialVersionUID = 3025673345452963270L;
 	@Id
-	@Column(name = "REVIEWSTRUCTURE_ID", length = 50)
-	@GeneratedValue(generator = "reviewStructure-uuid")
-	@GenericGenerator(name = "reviewStructure-uuid", strategy = "uuid")
+	@Column(name = "ASSESSMENTSTRUCTURE_ID", length = 50)
+	@GeneratedValue(generator = "assessmentStructure-uuid")
+	@GenericGenerator(name = "assessmentStructure-uuid", strategy = "uuid")
 	private String id;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AssessmentProject assessmentProject2;
 
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "reviewParentStructure")
+	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentStructure")
 	@JsonIgnore
 	private Set<AssessmentStructure> assessmentStructures;
 	@ManyToOne(fetch = FetchType.EAGER)
-	private AssessmentStructure reviewParentStructure;
+	private AssessmentStructure assessmentParentStructure;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentStructure")
 	@JsonIgnore
@@ -64,28 +64,28 @@ public class AssessmentStructure implements Serializable {
 		this.assessmentProject2 = assessmentProject2;
 	}
 
-	public Set<AssessmentStructure> getReviewStructures() {
+	public Set<AssessmentStructure> getAssessmentStructures() {
 		return assessmentStructures;
 	}
 
-	public void setReviewStructures(Set<AssessmentStructure> assessmentStructures) {
+	public void setAssessmentStructures(Set<AssessmentStructure> assessmentStructures) {
 		this.assessmentStructures = assessmentStructures;
 	}
 
-	public AssessmentStructure getReviewParentStructure() {
-		return reviewParentStructure;
-	}
-
-	public void setReviewParentStructure(AssessmentStructure reviewParentStructure) {
-		this.reviewParentStructure = reviewParentStructure;
-	}
-
-	public Set<AssessmentScore> getReviewScores() {
+	public Set<AssessmentScore> getAssessmentScores() {
 		return assessmentScores;
 	}
 
-	public void setReviewScores(Set<AssessmentScore> assessmentScores) {
+	public void setAssessmentScores(Set<AssessmentScore> assessmentScores) {
 		this.assessmentScores = assessmentScores;
+	}
+
+	public AssessmentStructure getAssessmentParentStructure() {
+		return assessmentParentStructure;
+	}
+
+	public void setAssessmentParentStructure(AssessmentStructure assessmentParentStructure) {
+		this.assessmentParentStructure = assessmentParentStructure;
 	}
 
 	public Employee getEmployee() {

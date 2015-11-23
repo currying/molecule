@@ -30,14 +30,14 @@ public class AssessmentProject implements Serializable {
 	@GenericGenerator(name = "assessmentProject-uuid", strategy = "uuid")
 	private String id;
 	@ManyToOne(fetch = FetchType.EAGER)
-	private AssessmentOrg assessmentOrg;
+	private AssessmentObject assessmentObject;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentProject1")
 	@JsonIgnore
 	private Set<AssessmentItem> assessmentItems;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentProject2")
 	@JsonIgnore
-	private Set<ReviewStructure> reviewStructures;
+	private Set<AssessmentStructure> assessmentStructures;
 
 	public AssessmentProject() {
 	}
@@ -50,12 +50,12 @@ public class AssessmentProject implements Serializable {
 		this.id = id;
 	}
 
-	public AssessmentOrg getAssessmentOrg() {
-		return assessmentOrg;
+	public AssessmentObject getAssessmentObject() {
+		return assessmentObject;
 	}
 
-	public void setAssessmentOrg(AssessmentOrg assessmentOrg) {
-		this.assessmentOrg = assessmentOrg;
+	public void setAssessmentObject(AssessmentObject assessmentObject) {
+		this.assessmentObject = assessmentObject;
 	}
 
 	public Set<AssessmentItem> getAssessmentItems() {
@@ -66,12 +66,12 @@ public class AssessmentProject implements Serializable {
 		this.assessmentItems = assessmentItems;
 	}
 
-	public Set<ReviewStructure> getReviewStructures() {
-		return reviewStructures;
+	public Set<AssessmentStructure> getReviewStructures() {
+		return assessmentStructures;
 	}
 
-	public void setReviewStructures(Set<ReviewStructure> reviewStructures) {
-		this.reviewStructures = reviewStructures;
+	public void setReviewStructures(Set<AssessmentStructure> assessmentStructures) {
+		this.assessmentStructures = assessmentStructures;
 	}
 
 }

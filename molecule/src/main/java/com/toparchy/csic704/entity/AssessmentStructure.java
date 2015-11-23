@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "CSIC704_REVIEWSTRUCTURE")
 @XmlRootElement
-public class ReviewStructure implements Serializable {
+public class AssessmentStructure implements Serializable {
 
 	private static final long serialVersionUID = 3025673345452963270L;
 	@Id
@@ -34,18 +34,18 @@ public class ReviewStructure implements Serializable {
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "reviewParentStructure")
 	@JsonIgnore
-	private Set<ReviewStructure> reviewStructures;
+	private Set<AssessmentStructure> assessmentStructures;
 	@ManyToOne(fetch = FetchType.EAGER)
-	private ReviewStructure reviewParentStructure;
+	private AssessmentStructure reviewParentStructure;
 
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "reviewStructure")
+	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentStructure")
 	@JsonIgnore
-	private Set<ReviewScore> reviewScores;
+	private Set<AssessmentScore> assessmentScores;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Employee employee;
 
-	public ReviewStructure() {
+	public AssessmentStructure() {
 	}
 
 	public String getId() {
@@ -64,28 +64,28 @@ public class ReviewStructure implements Serializable {
 		this.assessmentProject2 = assessmentProject2;
 	}
 
-	public Set<ReviewStructure> getReviewStructures() {
-		return reviewStructures;
+	public Set<AssessmentStructure> getReviewStructures() {
+		return assessmentStructures;
 	}
 
-	public void setReviewStructures(Set<ReviewStructure> reviewStructures) {
-		this.reviewStructures = reviewStructures;
+	public void setReviewStructures(Set<AssessmentStructure> assessmentStructures) {
+		this.assessmentStructures = assessmentStructures;
 	}
 
-	public ReviewStructure getReviewParentStructure() {
+	public AssessmentStructure getReviewParentStructure() {
 		return reviewParentStructure;
 	}
 
-	public void setReviewParentStructure(ReviewStructure reviewParentStructure) {
+	public void setReviewParentStructure(AssessmentStructure reviewParentStructure) {
 		this.reviewParentStructure = reviewParentStructure;
 	}
 
-	public Set<ReviewScore> getReviewScores() {
-		return reviewScores;
+	public Set<AssessmentScore> getReviewScores() {
+		return assessmentScores;
 	}
 
-	public void setReviewScores(Set<ReviewScore> reviewScores) {
-		this.reviewScores = reviewScores;
+	public void setReviewScores(Set<AssessmentScore> assessmentScores) {
+		this.assessmentScores = assessmentScores;
 	}
 
 	public Employee getEmployee() {

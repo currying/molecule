@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "CSIC704_ASSESSMENTORG")
 @XmlRootElement
-public class AssessmentOrg implements Serializable {
+public class AssessmentObject implements Serializable {
 
 	private static final long serialVersionUID = 3302460772890884264L;
 	@Id
@@ -28,11 +28,11 @@ public class AssessmentOrg implements Serializable {
 	@GeneratedValue(generator = "assessmentOrg-uuid")
 	@GenericGenerator(name = "assessmentOrg-uuid", strategy = "uuid")
 	private String id;
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentOrg")
+	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentObject")
 	@JsonIgnore
 	private Set<AssessmentProject> assessmentProjectes;
 
-	public AssessmentOrg() {
+	public AssessmentObject() {
 	}
 
 	public String getId() {

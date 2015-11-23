@@ -22,10 +22,10 @@
 		<class>com.toparchy.molecule.permission.model.entity.ApplicationResource</class>
 		<class>com.toparchy.molecule.permission.model.entity.DeviceEntity</class>
 		<class>com.toparchy.csic704.entity.AssessmentItem</class>
-		<class>com.toparchy.csic704.entity.AssessmentOrg</class>
+		<class>com.toparchy.csic704.entity.AssessmentObject</class>
 		<class>com.toparchy.csic704.entity.AssessmentProject</class>
-		<class>com.toparchy.csic704.entity.ReviewScore</class>
-		<class>com.toparchy.csic704.entity.ReviewStructure</class>
+		<class>com.toparchy.csic704.entity.AssessmentScore</class>
+		<class>com.toparchy.csic704.entity.AssessmentStructure</class>
 		<class>com.toparchy.csic704.entity.DepartMent</class>
 		<class>com.toparchy.csic704.entity.Employee</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>

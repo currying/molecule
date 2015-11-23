@@ -16,7 +16,7 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "CSIC704_REVIEWSCORE")
 @XmlRootElement
-public class ReviewScore implements Serializable {
+public class AssessmentScore implements Serializable {
 
 	private static final long serialVersionUID = 7989928144071437453L;
 	@Id
@@ -27,9 +27,9 @@ public class ReviewScore implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AssessmentItem assessmentItem;
 	@ManyToOne(fetch = FetchType.EAGER)
-	private ReviewStructure reviewStructure;
+	private AssessmentStructure assessmentStructure;
 
-	public ReviewScore() {
+	public AssessmentScore() {
 	}
 
 	public String getId() {
@@ -48,12 +48,12 @@ public class ReviewScore implements Serializable {
 		this.assessmentItem = assessmentItem;
 	}
 
-	public ReviewStructure getReviewStructure() {
-		return reviewStructure;
+	public AssessmentStructure getAssessmentStructure() {
+		return assessmentStructure;
 	}
 
-	public void setReviewStructure(ReviewStructure reviewStructure) {
-		this.reviewStructure = reviewStructure;
+	public void setAssessmentStructure(AssessmentStructure assessmentStructure) {
+		this.assessmentStructure = assessmentStructure;
 	}
 
 }

@@ -41,7 +41,7 @@ public class AssessmentItem implements Serializable {
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentItem")
 	@JsonIgnore
-	private Set<ReviewScore> reviewScores;
+	private Set<AssessmentScore> assessmentScores;
 
 	public AssessmentItem() {
 	}
@@ -78,12 +78,12 @@ public class AssessmentItem implements Serializable {
 		this.assessmentParentItem = assessmentParentItem;
 	}
 
-	public Set<ReviewScore> getReviewScores() {
-		return reviewScores;
+	public Set<AssessmentScore> getReviewScores() {
+		return assessmentScores;
 	}
 
-	public void setReviewScores(Set<ReviewScore> reviewScores) {
-		this.reviewScores = reviewScores;
+	public void setReviewScores(Set<AssessmentScore> assessmentScores) {
+		this.assessmentScores = assessmentScores;
 	}
 
 }

@@ -35,7 +35,7 @@ public class Employee implements Serializable {
 	private DepartMent departMent;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "employee")
 	@JsonIgnore
-	private Set<ReviewStructure> reviewStructures;
+	private Set<AssessmentStructure> assessmentStructures;
 
 	public String getId() {
 		return id;
@@ -53,12 +53,12 @@ public class Employee implements Serializable {
 		this.departMent = departMent;
 	}
 
-	public Set<ReviewStructure> getReviewStructures() {
-		return reviewStructures;
+	public Set<AssessmentStructure> getReviewStructures() {
+		return assessmentStructures;
 	}
 
-	public void setReviewStructures(Set<ReviewStructure> reviewStructures) {
-		this.reviewStructures = reviewStructures;
+	public void setReviewStructures(Set<AssessmentStructure> assessmentStructures) {
+		this.assessmentStructures = assessmentStructures;
 	}
 
 }

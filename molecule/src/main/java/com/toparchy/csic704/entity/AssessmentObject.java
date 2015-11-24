@@ -18,19 +18,19 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "CSIC704_ASSESSMENTORG")
+@Table(name = "ASSESSMENTOBJECT")
 @XmlRootElement
 public class AssessmentObject implements Serializable {
 
 	private static final long serialVersionUID = 3302460772890884264L;
 	@Id
-	@Column(name = "ASSESSMENTORG_ID", length = 50)
-	@GeneratedValue(generator = "assessmentOrg-uuid")
-	@GenericGenerator(name = "assessmentOrg-uuid", strategy = "uuid")
+	@Column(name = "AssessmentObject_ID", length = 50)
+	@GeneratedValue(generator = "assessmentObject-uuid")
+	@GenericGenerator(name = "assessmentObject-uuid", strategy = "uuid")
 	private String id;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentObject")
 	@JsonIgnore
-	private Set<AssessmentProject> assessmentProjectes;
+	private Set<AssessmentTask> assessmentTasks;
 
 	public AssessmentObject() {
 	}
@@ -43,12 +43,12 @@ public class AssessmentObject implements Serializable {
 		this.id = id;
 	}
 
-	public Set<AssessmentProject> getAssessmentProjectes() {
-		return assessmentProjectes;
+	public Set<AssessmentTask> getAssessmentTasks() {
+		return assessmentTasks;
 	}
 
-	public void setAssessmentProjectes(Set<AssessmentProject> assessmentProjectes) {
-		this.assessmentProjectes = assessmentProjectes;
+	public void setAssessmentTasks(Set<AssessmentTask> assessmentTasks) {
+		this.assessmentTasks = assessmentTasks;
 	}
 
 }

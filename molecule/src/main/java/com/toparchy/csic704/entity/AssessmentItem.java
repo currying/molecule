@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "CSIC704_ASSESSMENTITEM")
+@Table(name = "ASSESSMENTITEM")
 @XmlRootElement
 public class AssessmentItem implements Serializable {
 	private static final long serialVersionUID = -900791143583606523L;
@@ -30,7 +30,7 @@ public class AssessmentItem implements Serializable {
 	private String id;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	private AssessmentProject assessmentProject1;
+	private AssessmentTask assessmentTask1;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentItem")
 	@JsonIgnore
@@ -54,12 +54,20 @@ public class AssessmentItem implements Serializable {
 		this.id = id;
 	}
 
-	public AssessmentProject getAssessmentProject1() {
-		return assessmentProject1;
+	public AssessmentTask getAssessmentTask1() {
+		return assessmentTask1;
 	}
 
-	public void setAssessmentProject1(AssessmentProject assessmentProject1) {
-		this.assessmentProject1 = assessmentProject1;
+	public void setAssessmentTask1(AssessmentTask assessmentTask1) {
+		this.assessmentTask1 = assessmentTask1;
+	}
+
+	public Set<AssessmentScore> getAssessmentScores() {
+		return assessmentScores;
+	}
+
+	public void setAssessmentScores(Set<AssessmentScore> assessmentScores) {
+		this.assessmentScores = assessmentScores;
 	}
 
 	public Set<AssessmentItem> getAssessmentItems() {

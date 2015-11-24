@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "CSIC704_ASSESSMENTSCORE")
+@Table(name = "ASSESSMENTSCORE")
 @XmlRootElement
 public class AssessmentScore implements Serializable {
 

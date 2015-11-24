@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "CSIC704_ASSESSMENTSTRUCTURE")
+@Table(name = "ASSESSMENTSTRUCTURE")
 @XmlRootElement
 public class AssessmentStructure implements Serializable {
 
@@ -30,7 +30,7 @@ public class AssessmentStructure implements Serializable {
 	@GenericGenerator(name = "assessmentStructure-uuid", strategy = "uuid")
 	private String id;
 	@ManyToOne(fetch = FetchType.EAGER)
-	private AssessmentProject assessmentProject2;
+	private AssessmentTask assessmentTask2;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentStructure")
 	@JsonIgnore
@@ -56,12 +56,12 @@ public class AssessmentStructure implements Serializable {
 		this.id = id;
 	}
 
-	public AssessmentProject getAssessmentProject2() {
-		return assessmentProject2;
+	public AssessmentTask getAssessmentTask2() {
+		return assessmentTask2;
 	}
 
-	public void setAssessmentProject2(AssessmentProject assessmentProject2) {
-		this.assessmentProject2 = assessmentProject2;
+	public void setAssessmentTask2(AssessmentTask assessmentTask2) {
+		this.assessmentTask2 = assessmentTask2;
 	}
 
 	public Set<AssessmentStructure> getAssessmentStructures() {

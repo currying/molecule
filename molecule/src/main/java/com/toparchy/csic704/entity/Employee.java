@@ -19,7 +19,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "CSIC704_EMPLOYEE")
+@Table(name = "EMPLOYEE")
 @XmlRootElement
 public class Employee implements Serializable {
 

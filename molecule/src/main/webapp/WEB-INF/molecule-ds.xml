@@ -86,4 +86,21 @@
 			<password>822005</password>
 		</security>
 	</datasource>
+
+	<datasource jndi-name="java:jboss/datasources/csic704DS"
+		pool-name="csic704" enabled="true" use-java-context="true">
+		<connection-url>jdbc:jtds:sqlserver://localhost:1433/csic704</connection-url>
+		<driver>mssql</driver>
+		<pool>
+			<min-pool-size>5</min-pool-size>
+			<max-pool-size>30</max-pool-size>
+			<prefill>true</prefill>
+			<use-strict-min>false</use-strict-min>
+			<flush-strategy>FailingConnectionOnly</flush-strategy>
+		</pool>
+		<security>
+			<user-name>sa</user-name>
+			<password>822005</password>
+		</security>
+	</datasource>
 </datasources>

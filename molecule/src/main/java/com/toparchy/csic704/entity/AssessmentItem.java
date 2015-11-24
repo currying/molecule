@@ -28,7 +28,7 @@ public class AssessmentItem implements Serializable {
 	@GeneratedValue(generator = "assessmentItem-uuid")
 	@GenericGenerator(name = "assessmentItem-uuid", strategy = "uuid")
 	private String id;
-
+	private String name;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AssessmentTask assessmentTask1;
 
@@ -52,6 +52,14 @@ public class AssessmentItem implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public AssessmentTask getAssessmentTask1() {

@@ -29,6 +29,7 @@ public class AssessmentTask implements Serializable {
 	@GeneratedValue(generator = "assessmentTask-uuid")
 	@GenericGenerator(name = "assessmentTask-uuid", strategy = "uuid")
 	private String id;
+	private String name;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AssessmentObject assessmentObject;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentTask1")
@@ -50,6 +51,14 @@ public class AssessmentTask implements Serializable {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public AssessmentObject getAssessmentObject() {
 		return assessmentObject;
 	}
@@ -66,11 +75,11 @@ public class AssessmentTask implements Serializable {
 		this.assessmentItems = assessmentItems;
 	}
 
-	public Set<AssessmentStructure> getReviewStructures() {
+	public Set<AssessmentStructure> getAssessmentStructures() {
 		return assessmentStructures;
 	}
 
-	public void setReviewStructures(Set<AssessmentStructure> assessmentStructures) {
+	public void setAssessmentStructures(Set<AssessmentStructure> assessmentStructures) {
 		this.assessmentStructures = assessmentStructures;
 	}
 

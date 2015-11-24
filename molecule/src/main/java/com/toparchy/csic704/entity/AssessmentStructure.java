@@ -29,6 +29,7 @@ public class AssessmentStructure implements Serializable {
 	@GeneratedValue(generator = "assessmentStructure-uuid")
 	@GenericGenerator(name = "assessmentStructure-uuid", strategy = "uuid")
 	private String id;
+	private String name;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private AssessmentTask assessmentTask2;
 
@@ -54,6 +55,14 @@ public class AssessmentStructure implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public AssessmentTask getAssessmentTask2() {

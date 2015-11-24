@@ -30,7 +30,7 @@ public class DepartMent implements Serializable {
 	@GeneratedValue(generator = "departMent-uuid")
 	@GenericGenerator(name = "departMent-uuid", strategy = "uuid")
 	private String id;
-
+	private String name;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "departMentParent")
 	@JsonIgnore
 	private Set<DepartMent> departMentes;
@@ -47,6 +47,14 @@ public class DepartMent implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public Set<DepartMent> getDepartMentes() {

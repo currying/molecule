@@ -30,6 +30,7 @@ public class Employee implements Serializable {
 	@GeneratedValue(generator = "employee-uuid")
 	@GenericGenerator(name = "employee-uuid", strategy = "uuid")
 	private String id;
+	private String name;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	private DepartMent departMent;
@@ -45,6 +46,14 @@ public class Employee implements Serializable {
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public DepartMent getDepartMent() {
 		return departMent;
 	}
@@ -53,11 +62,11 @@ public class Employee implements Serializable {
 		this.departMent = departMent;
 	}
 
-	public Set<AssessmentStructure> getReviewStructures() {
+	public Set<AssessmentStructure> getAssessmentStructures() {
 		return assessmentStructures;
 	}
 
-	public void setReviewStructures(Set<AssessmentStructure> assessmentStructures) {
+	public void setAssessmentStructures(Set<AssessmentStructure> assessmentStructures) {
 		this.assessmentStructures = assessmentStructures;
 	}
 

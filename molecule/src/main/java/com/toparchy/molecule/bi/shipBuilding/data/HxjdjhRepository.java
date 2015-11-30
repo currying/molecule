@@ -15,7 +15,7 @@ import com.toparchy.molecule.bi.shipBuilding.model.HxjdjhDataHandle;
 
 @ApplicationScoped
 public class HxjdjhRepository {
-	@PersistenceUnit(unitName = "molecule")
+	@PersistenceUnit(unitName = "bi")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

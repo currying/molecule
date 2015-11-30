@@ -14,7 +14,7 @@ import com.toparchy.molecule.bi.shipBuilding.model.Gcxbjh;
 
 @Model
 public class GcxbjhRepository {
-	@PersistenceUnit(unitName = "molecule")
+	@PersistenceUnit(unitName = "bi")
 	private EntityManagerFactory emf;
 	private String sql;
 	private Query query;

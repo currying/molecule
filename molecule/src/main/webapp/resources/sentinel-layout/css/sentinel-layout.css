@@ -96,7 +96,7 @@ body{background-color: #F6F8F8; margin:0px;}
 
 
 	/* HEADER BAR */
-	#layout-header{width:100%; display:block; position:fixed; z-index:999999999999999; box-sizing:content-box;
+	#layout-header{width:100%; display:block; position:fixed; z-index:1000; box-sizing:content-box;
 					border-bottom:solid 1px #0b4170; border-top:solid 1px #0b4170;
 					background: #1578c9;
 					background: -moz-linear-gradient(top, #1578c9 0%, #0b66b1 100%);
@@ -156,7 +156,7 @@ body{background-color: #F6F8F8; margin:0px;}
 	.slimsearch:hover input{border-bottom:0px !important; margin-bottom: -1px;}
 			
 	/* MENUBAR SLIM */
-	.slimmenu{width:50px; z-index: 99999999 !important;}
+	.slimmenu{width:50px; z-index: 999 !important;}
 		.slimmenu .layout-menubarinner-box{padding:10px 9px;}
 			.slimmenu #layout-menubar-resize{float:left;}
                         .slimmenu .layout-menubar-container{width:48px;}
@@ -462,7 +462,7 @@ box-shadow: inset 0px 0px 0px 1px rgba(100,100,100,1);
 	#searchArea:hover input{border-bottom:0px; margin-bottom: -1px;}
     
     /* Slim Menu */
-    #layout-menubar{width:50px; z-index: 99999999 !important;}
+    #layout-menubar{width:50px; z-index:999 !important;}
 		#layout-menubar .layout-menubarinner-box{padding:10px 9px;}
 			#layout-menubar #layout-menubar-resize{float:left;}
                         #layout-menubar .layout-menubar-container{width:48px;}
@@ -479,7 +479,7 @@ box-shadow: inset 0px 0px 0px 1px rgba(100,100,100,1);
 /* Landscape phone to portrait tablet */
 @media (max-width: 640px) {
 	#layout-logo{margin:15px 2%;}
-	#layout-menubar, .slimmenu{position:fixed; background-color: #3D3D3D; width:100%; min-height:50px !important; max-height:50px; overflow:hidden; z-index:99999999;}
+	#layout-menubar, .slimmenu{position:fixed; background-color: #3D3D3D; width:100%; min-height:50px !important; max-height:50px; overflow:hidden; z-index:999;}
 		.layout-menubar-container{width:100%;}
 		#layout-menubar-resize{display:none;}
 		#layout-menubar-resize2{display:inline-block;}
@@ -533,7 +533,7 @@ box-shadow: inset 0px 0px 0px 1px rgba(100,100,100,1);
 /* Portrait phones and down */
 @media (min-width:320px) and (max-width: 480px) {
 	#layout-logo{margin:15px 2%;}
-	#layout-menubar, .slimmenu{position:fixed; background-color: #3D3D3D; width:100%; min-height:50px !important; max-height:50px; overflow:hidden; z-index:99999999;}
+	#layout-menubar, .slimmenu{position:fixed; background-color: #3D3D3D; width:100%; min-height:50px !important; max-height:50px; overflow:hidden; z-index:999;}
 		.layout-menubar-container{width:100%;}
 		#layout-menubar-resize{display:none;}
 		#layout-menubar-resize2{display:inline-block;}

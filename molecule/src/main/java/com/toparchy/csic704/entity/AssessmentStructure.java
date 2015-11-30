@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -29,14 +30,19 @@ public class AssessmentStructure implements Serializable {
 	@GeneratedValue(generator = "assessmentStructure-uuid")
 	@GenericGenerator(name = "assessmentStructure-uuid", strategy = "uuid")
 	private String id;
+	@Column(name = "ASSESSMENTSTRUCTURE_NAME")
 	private String name;
+	@Column(name = "ASSESSMENTSTRUCTURE_WEIGHTING")
+	private float weighting;// 默认权重
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ASSESSMENTTASK_ID")
 	private AssessmentTask assessmentTask2;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentStructure")
 	@JsonIgnore
 	private Set<AssessmentStructure> assessmentStructures;
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ASSESSMENTPARENTSTRUCTURE_ID")
 	private AssessmentStructure assessmentParentStructure;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentStructure")
@@ -44,6 +50,7 @@ public class AssessmentStructure implements Serializable {
 	private Set<AssessmentScore> assessmentScores;
 
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "EMPLOYEE_ID")
 	private Employee employee;
 
 	public AssessmentStructure() {
@@ -63,6 +70,14 @@ public class AssessmentStructure implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public float getWeighting() {
+		return weighting;
+	}
+
+	public void setWeighting(float weighting) {
+		this.weighting = weighting;
 	}
 
 	public AssessmentTask getAssessmentTask2() {

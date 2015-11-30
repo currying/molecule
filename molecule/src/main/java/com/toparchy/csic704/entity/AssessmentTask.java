@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -29,8 +30,10 @@ public class AssessmentTask implements Serializable {
 	@GeneratedValue(generator = "assessmentTask-uuid")
 	@GenericGenerator(name = "assessmentTask-uuid", strategy = "uuid")
 	private String id;
+	@Column(name = "ASSESSMENTTASK_NAME")
 	private String name;
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ASSESSMENTOBJECT_ID")
 	private AssessmentObject assessmentObject;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentTask1")
 	@JsonIgnore

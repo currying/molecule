@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,8 +29,10 @@ public class AssessmentItem implements Serializable {
 	@GeneratedValue(generator = "assessmentItem-uuid")
 	@GenericGenerator(name = "assessmentItem-uuid", strategy = "uuid")
 	private String id;
+	@Column(name = "ASSESSMENTITEM_NAME")
 	private String name;
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ASSESSMENTTASK_ID")
 	private AssessmentTask assessmentTask1;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentItem")
@@ -37,6 +40,7 @@ public class AssessmentItem implements Serializable {
 	private Set<AssessmentItem> assessmentItems;
 
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "ASSESSMENTPARENTITEM_ID")
 	private AssessmentItem assessmentParentItem;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentItem")

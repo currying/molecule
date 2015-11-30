@@ -24,10 +24,11 @@ public class AssessmentObject implements Serializable {
 
 	private static final long serialVersionUID = 3302460772890884264L;
 	@Id
-	@Column(name = "AssessmentObject_ID", length = 50)
+	@Column(name = "ASSESSMENTOBJECT_ID", length = 50)
 	@GeneratedValue(generator = "assessmentObject-uuid")
 	@GenericGenerator(name = "assessmentObject-uuid", strategy = "uuid")
 	private String id;
+	@Column(name = "ASSESSMENTOBJECT_NAME")
 	private String name;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentObject")
 	@JsonIgnore

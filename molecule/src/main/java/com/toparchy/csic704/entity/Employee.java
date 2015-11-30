@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -30,9 +31,11 @@ public class Employee implements Serializable {
 	@GeneratedValue(generator = "employee-uuid")
 	@GenericGenerator(name = "employee-uuid", strategy = "uuid")
 	private String id;
+	@Column(name = "EMPLOYEE_NAME")
 	private String name;
 
 	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "DEPARTMENT_ID")
 	private DepartMent departMent;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "employee")
 	@JsonIgnore

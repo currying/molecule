@@ -1,9 +1,7 @@
 package com.toparchy.csic704.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,13 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.GenericGenerator;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "EMPLOYEE")
@@ -27,19 +22,16 @@ public class Employee implements Serializable {
 	private static final long serialVersionUID = -8083051342213321502L;
 
 	@Id
-	@Column(name = "EMPLOYEE_ID", length = 50)
+	@Column(name = "ID_", length = 50)
 	@GeneratedValue(generator = "employee-uuid")
 	@GenericGenerator(name = "employee-uuid", strategy = "uuid")
 	private String id;
-	@Column(name = "EMPLOYEE_NAME")
+	@Column(name = "NAME_")
 	private String name;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "DEPARTMENT_ID")
+	@JoinColumn(name = "PID_")
 	private DepartMent departMent;
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "employee")
-	@JsonIgnore
-	private Set<AssessmentStructure> assessmentStructures;
 
 	public String getId() {
 		return id;
@@ -63,14 +55,6 @@ public class Employee implements Serializable {
 
 	public void setDepartMent(DepartMent departMent) {
 		this.departMent = departMent;
-	}
-
-	public Set<AssessmentStructure> getAssessmentStructures() {
-		return assessmentStructures;
-	}
-
-	public void setAssessmentStructures(Set<AssessmentStructure> assessmentStructures) {
-		this.assessmentStructures = assessmentStructures;
 	}
 
 }

@@ -18,17 +18,17 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "ASSESSMENTOBJECT")
+@Table(name = "ASSESSMENT_OBJECT")
 @XmlRootElement
 public class AssessmentObject implements Serializable {
 
 	private static final long serialVersionUID = 3302460772890884264L;
 	@Id
-	@Column(name = "ASSESSMENTOBJECT_ID", length = 50)
+	@Column(name = "ID_", length = 50)
 	@GeneratedValue(generator = "assessmentObject-uuid")
 	@GenericGenerator(name = "assessmentObject-uuid", strategy = "uuid")
 	private String id;
-	@Column(name = "ASSESSMENTOBJECT_NAME")
+	@Column(name = "NAME_")
 	private String name;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentObject")
 	@JsonIgnore

@@ -20,38 +20,34 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "ASSESSMENTSTRUCTURE")
+@Table(name = "ASSESSMENT_STRUCTURE")
 @XmlRootElement
 public class AssessmentStructure implements Serializable {
 
 	private static final long serialVersionUID = 3025673345452963270L;
 	@Id
-	@Column(name = "ASSESSMENTSTRUCTURE_ID", length = 50)
+	@Column(name = "ID_", length = 50)
 	@GeneratedValue(generator = "assessmentStructure-uuid")
 	@GenericGenerator(name = "assessmentStructure-uuid", strategy = "uuid")
 	private String id;
-	@Column(name = "ASSESSMENTSTRUCTURE_NAME")
+	@Column(name = "NAME_")
 	private String name;
-	@Column(name = "ASSESSMENTSTRUCTURE_WEIGHTING")
+	@Column(name = "WEIGHTING_")
 	private float weighting;// 默认权重
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENTTASK_ID")
+	@JoinColumn(name = "ASSESSMENT_TASK_ID")
 	private AssessmentTask assessmentTask2;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentStructure")
 	@JsonIgnore
 	private Set<AssessmentStructure> assessmentStructures;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENTPARENTSTRUCTURE_ID")
+	@JoinColumn(name = "PID_")
 	private AssessmentStructure assessmentParentStructure;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentStructure")
 	@JsonIgnore
 	private Set<AssessmentScore> assessmentScores;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "EMPLOYEE_ID")
-	private Employee employee;
 
 	public AssessmentStructure() {
 	}
@@ -110,14 +106,6 @@ public class AssessmentStructure implements Serializable {
 
 	public void setAssessmentParentStructure(AssessmentStructure assessmentParentStructure) {
 		this.assessmentParentStructure = assessmentParentStructure;
-	}
-
-	public Employee getEmployee() {
-		return employee;
-	}
-
-	public void setEmployee(Employee employee) {
-		this.employee = employee;
 	}
 
 }

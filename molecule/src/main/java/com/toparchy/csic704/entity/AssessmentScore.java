@@ -15,27 +15,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "ASSESSMENTSCORE")
+@Table(name = "ASSESSMENT_SCORE")
 @XmlRootElement
 public class AssessmentScore implements Serializable {
 
 	private static final long serialVersionUID = 7989928144071437453L;
 	@Id
-	@Column(name = "ASSESSMENTSCORE_ID", length = 50)
+	@Column(name = "ID_", length = 50)
 	@GeneratedValue(generator = "assessmentScore-uuid")
 	@GenericGenerator(name = "assessmentScore-uuid", strategy = "uuid")
 	private String id;
-	@Column(name = "ASSESSMENTSCORE_NAME")
+	@Column(name = "NAME_")
 	private String name;
-	@Column(name = "ASSESSMENTSCORE_SCORE")
+	@Column(name = "SCORE_")
 	private float score;// 打分
-	@Column(name = "ASSESSMENTSCORE_WEIGHTING")
+	@Column(name = "WEIGHTING_")
 	private float weighting;// 细项权重，包括一级二级
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENTITEM_ID")
+	@JoinColumn(name = "ASSESSMENT_ITEM_ID")
 	private AssessmentItem assessmentItem;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENTSTRUCTURE_ID")
+	@JoinColumn(name = "ASSESSMENT_STRUCTURE_ID")
 	private AssessmentStructure assessmentStructure;
 
 	public AssessmentScore() {

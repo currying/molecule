@@ -20,19 +20,19 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "ASSESSMENTITEM")
+@Table(name = "ASSESSMENT_ITEM")
 @XmlRootElement
 public class AssessmentItem implements Serializable {
 	private static final long serialVersionUID = -900791143583606523L;
 	@Id
-	@Column(name = "ASSESSMENTITEM_ID", length = 50)
+	@Column(name = "ID_", length = 50)
 	@GeneratedValue(generator = "assessmentItem-uuid")
 	@GenericGenerator(name = "assessmentItem-uuid", strategy = "uuid")
 	private String id;
-	@Column(name = "ASSESSMENTITEM_NAME")
+	@Column(name = "NAME_")
 	private String name;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENTTASK_ID")
+	@JoinColumn(name = "ASSESSMENT_TASK_ID_")
 	private AssessmentTask assessmentTask1;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentItem")
@@ -40,7 +40,7 @@ public class AssessmentItem implements Serializable {
 	private Set<AssessmentItem> assessmentItems;
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENTPARENTITEM_ID")
+	@JoinColumn(name = "PID_")
 	private AssessmentItem assessmentParentItem;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentItem")

@@ -27,17 +27,17 @@ public class DepartMent implements Serializable {
 	private static final long serialVersionUID = -4718430601470842625L;
 
 	@Id
-	@Column(name = "DEPARTMENT_ID", length = 50)
+	@Column(name = "ID_", length = 50)
 	@GeneratedValue(generator = "departMent-uuid")
 	@GenericGenerator(name = "departMent-uuid", strategy = "uuid")
 	private String id;
-	@Column(name = "DEPARTMENT_NAME")
+	@Column(name = "NAME_")
 	private String name;
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "departMentParent")
 	@JsonIgnore
 	private Set<DepartMent> departMentes;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "DEPARTMENTPARENT_ID")
+	@JoinColumn(name = "PID_")
 	private DepartMent departMentParent;
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "departMent")

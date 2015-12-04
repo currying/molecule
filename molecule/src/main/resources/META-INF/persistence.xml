@@ -87,7 +87,7 @@
 		<class>com.toparchy.csic704.entity.AssessmentObject</class>
 		<class>com.toparchy.csic704.entity.AssessmentTask</class>
 		<class>com.toparchy.csic704.entity.AssessmentScore</class>
-		<class>com.toparchy.csic704.entity.AssessmentStructure</class>
+		<class>com.toparchy.csic704.entity.AssessmentGroup</class>
 		<class>com.toparchy.csic704.entity.DepartMent</class>
 		<class>com.toparchy.csic704.entity.Employee</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>

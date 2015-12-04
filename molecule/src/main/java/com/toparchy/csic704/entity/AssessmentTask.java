@@ -41,7 +41,7 @@ public class AssessmentTask implements Serializable {
 
 	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentTask2")
 	@JsonIgnore
-	private Set<AssessmentStructure> assessmentStructures;
+	private Set<AssessmentGroup> assessmentGroups;
 
 	public AssessmentTask() {
 	}
@@ -78,12 +78,12 @@ public class AssessmentTask implements Serializable {
 		this.assessmentItems = assessmentItems;
 	}
 
-	public Set<AssessmentStructure> getAssessmentStructures() {
-		return assessmentStructures;
+	public Set<AssessmentGroup> getAssessmentGroups() {
+		return assessmentGroups;
 	}
 
-	public void setAssessmentStructures(Set<AssessmentStructure> assessmentStructures) {
-		this.assessmentStructures = assessmentStructures;
+	public void setAssessmentGroups(Set<AssessmentGroup> assessmentGroups) {
+		this.assessmentGroups = assessmentGroups;
 	}
 
 }

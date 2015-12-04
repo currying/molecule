@@ -35,8 +35,8 @@ public class AssessmentScore implements Serializable {
 	@JoinColumn(name = "ASSESSMENT_ITEM_ID")
 	private AssessmentItem assessmentItem;
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "ASSESSMENT_STRUCTURE_ID")
-	private AssessmentStructure assessmentStructure;
+	@JoinColumn(name = "ASSESSMENT_GROUP_ID")
+	private AssessmentGroup assessmentGroup;
 
 	public AssessmentScore() {
 	}
@@ -81,12 +81,12 @@ public class AssessmentScore implements Serializable {
 		this.assessmentItem = assessmentItem;
 	}
 
-	public AssessmentStructure getAssessmentStructure() {
-		return assessmentStructure;
+	public AssessmentGroup getAssessmentGroup() {
+		return assessmentGroup;
 	}
 
-	public void setAssessmentStructure(AssessmentStructure assessmentStructure) {
-		this.assessmentStructure = assessmentStructure;
+	public void setAssessmentGroup(AssessmentGroup assessmentGroup) {
+		this.assessmentGroup = assessmentGroup;
 	}
 
 }

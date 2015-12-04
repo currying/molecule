@@ -20,15 +20,15 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "ASSESSMENT_STRUCTURE")
+@Table(name = "ASSESSMENT_GROUP")
 @XmlRootElement
-public class AssessmentStructure implements Serializable {
+public class AssessmentGroup implements Serializable {
 
 	private static final long serialVersionUID = 3025673345452963270L;
 	@Id
 	@Column(name = "ID_", length = 50)
-	@GeneratedValue(generator = "assessmentStructure-uuid")
-	@GenericGenerator(name = "assessmentStructure-uuid", strategy = "uuid")
+	@GeneratedValue(generator = "assessmentGroup-uuid")
+	@GenericGenerator(name = "assessmentGroup-uuid", strategy = "uuid")
 	private String id;
 	@Column(name = "NAME_")
 	private String name;
@@ -38,18 +38,18 @@ public class AssessmentStructure implements Serializable {
 	@JoinColumn(name = "ASSESSMENT_TASK_ID")
 	private AssessmentTask assessmentTask2;
 
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentStructure")
+	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentParentGroup")
 	@JsonIgnore
-	private Set<AssessmentStructure> assessmentStructures;
+	private Set<AssessmentGroup> assessmentGroups;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PID_")
-	private AssessmentStructure assessmentParentStructure;
+	private AssessmentGroup assessmentParentGroup;
 
-	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentStructure")
+	@OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "assessmentGroup")
 	@JsonIgnore
 	private Set<AssessmentScore> assessmentScores;
 
-	public AssessmentStructure() {
+	public AssessmentGroup() {
 	}
 
 	public String getId() {
@@ -84,14 +84,6 @@ public class AssessmentStructure implements Serializable {
 		this.assessmentTask2 = assessmentTask2;
 	}
 
-	public Set<AssessmentStructure> getAssessmentStructures() {
-		return assessmentStructures;
-	}
-
-	public void setAssessmentStructures(Set<AssessmentStructure> assessmentStructures) {
-		this.assessmentStructures = assessmentStructures;
-	}
-
 	public Set<AssessmentScore> getAssessmentScores() {
 		return assessmentScores;
 	}
@@ -100,12 +92,20 @@ public class AssessmentStructure implements Serializable {
 		this.assessmentScores = assessmentScores;
 	}
 
-	public AssessmentStructure getAssessmentParentStructure() {
-		return assessmentParentStructure;
+	public Set<AssessmentGroup> getAssessmentGroups() {
+		return assessmentGroups;
 	}
 
-	public void setAssessmentParentStructure(AssessmentStructure assessmentParentStructure) {
-		this.assessmentParentStructure = assessmentParentStructure;
+	public void setAssessmentGroups(Set<AssessmentGroup> assessmentGroups) {
+		this.assessmentGroups = assessmentGroups;
+	}
+
+	public AssessmentGroup getAssessmentParentGroup() {
+		return assessmentParentGroup;
+	}
+
+	public void setAssessmentParentGroup(AssessmentGroup assessmentParentGroup) {
+		this.assessmentParentGroup = assessmentParentGroup;
 	}
 
 }

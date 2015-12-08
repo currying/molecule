@@ -33,6 +33,8 @@ public class AssessmentItem implements Serializable {
 	private String name;
 	@Column(name = "WEIGHTING_")
 	private float weighting;// 职能权重
+	@Column(name = "SUMMARY_", length = 1000)
+	private String summary;
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ASSESSMENT_TASK_ID_")
 	private AssessmentTask assessmentTask1;
@@ -66,6 +68,14 @@ public class AssessmentItem implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 	public AssessmentTask getAssessmentTask1() {
